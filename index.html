@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./styles-mobile.css" media="(max-width: 850px)"/>
-     <link rel="stylesheet" href="./styles-desktop.css" media="(min-width: 1024px)"/>
+    <link rel="stylesheet" href="./styles-desktop.css" media="(min-width: 1024px)"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@700;900&display=swap" rel="stylesheet">
@@ -20,115 +20,122 @@
             <li><a href="#sobre-mi">Sobre mí</a></li>
             <li><a href="#proyectos">Proyectos</a></li>
             <li><a href="#contacto">Contacto</a></li>
-            
+            <button type="button" class="button-settings"></button>
           </ul>
           
         </nav>
-        <button type="button" class="button-settings"></button>
+        
         <div class="inactive settings-mobile" >
+          <div>
             <input type="checkbox">
             <input type="checkbox">
+          </div>
         </div>
     </header>
       
     <main>
         <section id="inicio">
             <h1>Hello, my name is Peter</h1>
-            <aside><img class="profile-picture" src="./asets/avatar.jpg" alt="Foto del susodicho"/></aside>
-            <div class="icon-container"> 
-              <div class="icon icon1"><img src="./asets/icons/css-3.png"/></div>
-              <div class="icon icon2"><img src="./asets/icons/html-5.png"/></div>
-              <div class="icon icon3"><img src="./asets/icons/js.png"/></div>
-              <div class="icon icon4"><img src="./asets/icons/react.png"/></div>
-              <div class="icon icon5"><img src="./asets/icons/silueta-del-logo-de-github-en-un-cuadrado.png"/></div>
-            </div>
+            <aside>
+            <img class="profile-picture" src="./asets/avatar.jpg" alt="Foto del susodicho"/>
+              <div class="icon-container"> 
+                <div class="icon icon1"><img src="./asets/icons/css-3.png"/></div>
+                <div class="icon icon2"><img src="./asets/icons/html-5.png"/></div>
+                <div class="icon icon3"><img src="./asets/icons/js.png"/></div>
+                <div class="icon icon4"><img src="./asets/icons/react.png"/></div>
+                <div class="icon icon5"><img src="./asets/icons/silueta-del-logo-de-github-en-un-cuadrado.png"/></div>
+              </div>
+            </aside>
             <p>I make websites.</p>
         </section>
         
         <section id="sobre-mi">
           <h2>Sobre mí</h2>
-          <form class="bio-options-form" id="">
-            <fieldset class="">
-                <legend class="">Adjust bio length:</legend>
-                <div class="bio-options-container">
-                    <div class="bio-input-action">
-                    <input class="shortest"    type="radio" id="" name="biolength" value="shortest">
-                    <label for="length-shortest" class="">
-                        <span class="">shortest</span>
-                    </label>
-                    </div>
-                    
-                    <div class="bio-input-action">
-                    <input class="shorter" type="radio" id="" name="biolength" value="shorter">
-                    <label for="length-shorter" class="">
-                        <span class=""></span>
-                    </label>
-                    </div>
-                    
-                    <div class="bio-input-action">
-                    <input class="short" type="radio" checked id="" name="biolength" value="short">
-                    <label for="length-short" class="">
-                        <span class=""></span>
-                    </label>
-                    </div>
-                    
-                    <div class="bio-input-action">
-                    <input class="long" type="radio" id="" name="biolength" value="long" >
-                    <label for="length-long" class="">
-                        <span class=""></span>
-                    </label>
-                    </div>
-                    
-                    <div class="bio-input-action">
-                    <input class="longer" type="radio" id="" name="biolength" value="longer" >
-                    <label for="length-longer" class="">
-                        <span class=""></span>
-                    </label>
-                    </div>
-                    
-                    <div class="bio-input-action">
-                    <input class="longest" type="radio" id="" name="biolength" value="longest" >
-                    <label for="" class="">
-                        <span class="">longest</span>
-                    </label>
-                    </div>
-                
-                </div>
-            </fieldset>
-          </form>
-          <p class="parrafo-multiple"> Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀 </p>
-      
+          <div class="formContainer">
+            <form class="bio-options-form" id="">
+              <fieldset class="">
+                  <legend class="">Adjust bio length:</legend>
+                  <div class="bio-options-container">
+                      <div class="bio-input-action">
+                      <input class="shortest"    type="radio" id="" name="biolength" value="shortest">
+                      <label for="length-shortest" class="">
+                          <span class="">shortest</span>
+                      </label>
+                      </div>
+                      
+                      <div class="bio-input-action">
+                      <input class="shorter" type="radio" id="" name="biolength" value="shorter">
+                      <label for="length-shorter" class="">
+                          <span class=""></span>
+                      </label>
+                      </div>
+                      
+                      <div class="bio-input-action">
+                      <input class="short" type="radio" checked id="" name="biolength" value="short">
+                      <label for="length-short" class="">
+                          <span class=""></span>
+                      </label>
+                      </div>
+                      
+                      <div class="bio-input-action">
+                      <input class="long" type="radio" id="" name="biolength" value="long" >
+                      <label for="length-long" class="">
+                          <span class=""></span>
+                      </label>
+                      </div>
+                      
+                      <div class="bio-input-action">
+                      <input class="longer" type="radio" id="" name="biolength" value="longer" >
+                      <label for="length-longer" class="">
+                          <span class=""></span>
+                      </label>
+                      </div>
+                      
+                      <div class="bio-input-action">
+                      <input class="longest" type="radio" id="" name="biolength" value="longest" >
+                      <label for="" class="">
+                          <span class="">longest</span>
+                      </label>
+                      </div>
+                  
+                  </div>
+              </fieldset>
+            </form>
+            <p class="parrafo-multiple"> Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀 </p>
+          </div>
                
         </section>
         
         <section id="proyectos">
           <h2 class="title-proyects">Proyectos</h2>
-          <ul>
-            <li>
-              <figure><img class="proyec" src="./asets/projects/project 2.jpg"/></figure>
-              <div class="proyecto-container">
-                <h3>Proyecto 1</h3>
-                <p>Descripción breve del proyecto 1.</p>
-                <a href="#">Ver proyecto</a>
-              </div>
-            </li>
-            <li>
-              <figure><img src="./asets/projects/Project 1.jpg"/></figure>
-              <div class="proyecto-container">
-                <h3>Proyecto 2</h3>
-                <p>Descripción breve del proyecto 2.</p>
-                <a href="#">Ver proyecto</a>
-              </div>
-            </li>
-            <li>
-              <figure><img src="./asets/projects/project 2.jpg"/></figure>
-              <div class="proyecto-container">
-                <h3>Proyecto 3</h3>
-                <p>Descripción breve del proyecto 3.</p>
-                <a href="#">Ver proyecto</a>
-              </div>
-            </li>
-          </ul>
+          <div class="projectContainer">
+            <ul>
+              <li>
+                <figure><img class="proyec" src="./asets/projects/project 2.jpg"/></figure>
+                <div class="proyecto-container">
+                  <h3>Proyecto 1</h3>
+                  <p>Descripción breve del proyecto 1.</p>
+                  <a href="#">Ver proyecto</a>
+                </div>
+              </li>
+              <li>
+                <figure><img src="./asets/projects/Project 1.jpg"/></figure>
+                <div class="proyecto-container">
+                  <h3>Proyecto 2</h3>
+                  <p>Descripción breve del proyecto 2.</p>
+                  <a href="#">Ver proyecto</a>
+                </div>
+              </li>
+              <li>
+                <figure><img src="./asets/projects/project 2.jpg"/></figure>
+                <div class="proyecto-container">
+                  <h3>Proyecto 3</h3>
+                  <p>Descripción breve del proyecto 3.</p>
+                  <a href="#">Ver proyecto</a>
+                </div>
+              </li>
+            </ul>
+          </div>
         </section>
         
         <section id="contacto">

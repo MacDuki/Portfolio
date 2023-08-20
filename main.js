@@ -39,7 +39,7 @@ const short = document.querySelector('.short');
 const long = document.querySelector('.long');
 const longer = document.querySelector('.longer');
 const longest = document.querySelector('.longest'); 
-const sectionSobreMi = document.querySelector('#sobre-mi');
+const sectionSobreMi = document.querySelector('.formContainer');
 const parrafo = document.querySelector('.parrafo-multiple');
 const elements = [shortest, shorter, short, long, longer, longest];
 
