@@ -13,29 +13,31 @@
     <!--<link rel="stylesheet" href="/newNewPortfolio/styles-tablet.css" media="(min-width: 855px) and (max-width: 1023px)"/> -->
 </head>
 <body>
-    <header>
-        <nav class="navbar ">
-          <ul>
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#sobre-mi">Sobre mí</a></li>
-            <li><a href="#proyectos">Proyectos</a></li>
-            <li><a href="#contacto">Contacto</a></li>
-            <button type="button" class="button-settings"></button>
-          </ul>
-          
-        </nav>
-        
-        <div class="inactive settings-mobile" >
-          <div>
-            <input type="checkbox">
-            <input type="checkbox">
-          </div>
+    <header class="header"> 
+      <div class="button-settings-container">
+        <div class="toggle-options">
+          <input type="checkbox">
+          <input type="checkbox">
         </div>
+        <button type="button" class="button-settings"></button>
+      </div>
+      <div class="inactive settings-mobile" >
+        <nav class="navbar">
+          <ul>
+            <li class="button-section"><a href="#inicio">Inicio</a></li>
+            <li class="button-section"><a href="#sobre-mi">Sobre mí</a></li>
+            <li class="button-section"><a href="#proyectos">Proyectos</a></li>
+            <li class="button-section"><a href="#contacto">Contacto</a></li> 
+          </ul> 
+        </nav>
+
+        
+      </div>
     </header>
       
     <main>
         <section id="inicio">
-            <h1>Hello, my name is Peter</h1>
+            <h1 class="inicio-tittle">Hello, my name is Peter</h1>
             <aside>
             <img class="profile-picture" src="./asets/avatar.jpg" alt="Foto del susodicho"/>
               <div class="icon-container"> 

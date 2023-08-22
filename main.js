@@ -1,32 +1,54 @@
 
 
-// Button mobile menu  //
+//  mobile menu  //
 
 window.addEventListener('load', () => {
     let buttonNavSettings = document.querySelector('.button-settings');
     buttonNavSettings.addEventListener('click', navAllSettings);
+    navSettingsMobile.style.display='none';
   }); 
 
- 
-// let toggleNavSettingsMobile = () => {
-//     const navSettingsMobile = document.querySelector('.settings-mobile');
-//     const body = document.querySelector('body');
-//     navSettingsMobile.classList.toggle('inactive');
-//     body.style.overflow = 'hidden';
-// }
+const navbar = document.querySelector('.navbar');
 const body = document.querySelector('body');
 const navSettingsMobile = document.querySelector('.settings-mobile');
+const inicioH1 = document.querySelector('.inicio-tittle');
+const header = document.querySelector('.header')
+const buttonsSection = document.querySelectorAll('.button-section');
 let activeButton = false;
+
 function navAllSettings() {
   activeButton = !activeButton;
   
   if (activeButton) {
     navSettingsMobile.classList.remove('inactive');
+    navSettingsMobile.style.display=''
     body.style.overflow = 'hidden';
+    inicioH1.style.marginTop = '4.5rem'
+    header.style.borderWidth = "0";
+    header.style.borderStyle = "";
+    header.style.borderColor = "";
+    buttonsSection.forEach(button => {
+        button.addEventListener('click', () => {
+          navSettingsMobile.style.display='none';
+          body.style.overflow = 'visible';
+          navSettingsMobile.classList.add('inactive');
+          activeButton = false;
+          inicioH1.style.marginTop = '1.5rem'
+          header.style.borderWidth = "2px";
+          header.style.borderStyle = "solid";
+          header.style.borderColor = "red";
+          console.log("Escucho al boton de sección")
+      });
+    })
     console.log("El botón fue presionado");
   } else {
+    setTimeout(()=>navSettingsMobile.style.display='none',800)
     navSettingsMobile.classList.add('inactive');
     body.style.overflow = '';
+    inicioH1.style.marginTop = '1.5rem'
+    header.style.borderWidth = "2px";
+    header.style.borderStyle = "solid";
+    header.style.borderColor = "red";
     console.log("El botón fue presionado nuevamente");
   }
 }
@@ -82,28 +104,9 @@ elements.forEach(element => {
 });
 
 
-//Navbar fixed (Stop)//
-// Obtener el elemento de la navbar
-const navbar = document.querySelector('.navbar');
 
-// Obtener la posición de la sección deseada
-const desiredSection = document.querySelector('#sobre-mi');
-const desiredSectionPosition = desiredSection.offsetTop;
 
-// Función para verificar la posición de desplazamiento y agregar/quitar la clase en la navbar
-function handleNavbarPosition() {
-  const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
 
-  if (scrollPosition >= desiredSectionPosition) {
-    navbar.classList.add('fixed-navbar');
-  } else {
-    navbar.classList.remove('fixed-navbar');
-  }
-}
 
-// Escuchar el evento de desplazamiento de la ventana
-window.addEventListener('scroll', handleNavbarPosition);
 
-// Ejecutar la función inicialmente para verificar la posición inicial de la página
-handleNavbarPosition();
 
