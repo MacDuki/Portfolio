@@ -23,7 +23,8 @@ function navAllSettings() {
     navSettingsMobile.classList.remove('inactive');
     navSettingsMobile.style.display=''
     body.style.overflow = 'hidden';
-    inicioH1.style.marginTop = '4.5rem'
+    inicioH1.classList.remove('up');
+    inicioH1.classList.add('inactive');
     header.style.borderWidth = "0";
     header.style.borderStyle = "";
     header.style.borderColor = "";
@@ -33,7 +34,8 @@ function navAllSettings() {
           body.style.overflow = 'visible';
           navSettingsMobile.classList.add('inactive');
           activeButton = false;
-          inicioH1.style.marginTop = '1.5rem'
+          inicioH1.classList.remove('inactive');
+          inicioH1.classList.add('up');
           header.style.borderWidth = "2px";
           header.style.borderStyle = "solid";
           header.style.borderColor = "red";
@@ -42,10 +44,11 @@ function navAllSettings() {
     })
     console.log("El botón fue presionado");
   } else {
-    setTimeout(()=>navSettingsMobile.style.display='none',800)
+    setTimeout(()=>navSettingsMobile.style.display='none',400)
     navSettingsMobile.classList.add('inactive');
     body.style.overflow = '';
-    inicioH1.style.marginTop = '1.5rem'
+    inicioH1.classList.remove('inactive');
+    inicioH1.classList.add('up');
     header.style.borderWidth = "2px";
     header.style.borderStyle = "solid";
     header.style.borderColor = "red";
