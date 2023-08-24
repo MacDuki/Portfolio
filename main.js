@@ -1,4 +1,51 @@
+// icon spinner //
+function initializeAnimation() {
+  const iconList = document.querySelector('.icon-list');
+  const icons = iconList.querySelectorAll('.icon');
+  const iconContainer = document.querySelector('.icon-container');
 
+  let totalWidth = 0;
+  icons.forEach(icon => {
+      totalWidth += icon.offsetWidth + parseInt(getComputedStyle(icon).marginLeft) + parseInt(getComputedStyle(icon).marginRight);
+  });
+
+  const iconCount = Math.ceil(iconContainer.offsetWidth / totalWidth) * icons.length;
+  for (let i = 0; i < iconCount; i++) {
+      icons.forEach(icon => {
+          iconList.appendChild(icon.cloneNode(true)); // Duplica los íconos
+          console.log(`He duplicado ${i}`)
+      });
+  }
+
+  iconList.style.width = totalWidth * iconCount + 'px';
+  let scrollPos = 0;
+
+  let startTime = performance.now();
+
+  function animateMarquee(now) {
+          const delta = (now - startTime) * 0.05; // Ajusta el factor de velocidad según sea necesario
+          startTime = now;
+          scrollPos += delta; // Velocidad del desplazamiento
+          if (scrollPos >= totalWidth) {
+              scrollPos -= totalWidth; // Reiniciar el desplazamiento desde la mitad
+          }
+          iconList.style.transform = `translateX(-${scrollPos}px)`;
+      requestAnimationFrame(animateMarquee);
+  }
+
+  requestAnimationFrame(animateMarquee);
+}
+function removeUnusedIcons(iconList, iconCount) {
+  const icons = iconList.querySelectorAll('.icon');
+  if (icons.length > iconCount * 2) {
+      icons.forEach(icon => {
+          if (iconList.children.length > iconCount) {
+              iconList.removeChild(iconList.children[0]); // Elimina el ícono más antiguo
+              console.log('He eliminado iconos')
+          }
+      });
+  }
+}
 
 //  mobile menu  //
 
@@ -6,6 +53,7 @@ window.addEventListener('load', () => {
     let buttonNavSettings = document.querySelector('.button-settings');
     buttonNavSettings.addEventListener('click', navAllSettings);
     navSettingsMobile.style.display='none';
+    initializeAnimation();
   }); 
 
 const navbar = document.querySelector('.navbar');
@@ -38,20 +86,20 @@ function navAllSettings() {
           inicioH1.classList.add('up');
           header.style.borderWidth = "2px";
           header.style.borderStyle = "solid";
-          header.style.borderColor = "red";
+          header.style.borderColor = "#4A90E2";
           console.log("Escucho al boton de sección")
       });
     })
     console.log("El botón fue presionado");
   } else {
-    setTimeout(()=>navSettingsMobile.style.display='none',400)
+    setTimeout(()=>navSettingsMobile.style.display='none',200)
     navSettingsMobile.classList.add('inactive');
     body.style.overflow = '';
     inicioH1.classList.remove('inactive');
     inicioH1.classList.add('up');
     header.style.borderWidth = "2px";
     header.style.borderStyle = "solid";
-    header.style.borderColor = "red";
+    header.style.borderColor = "#4A90E2";
     console.log("El botón fue presionado nuevamente");
   }
 }

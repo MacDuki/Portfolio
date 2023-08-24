@@ -1,8 +1,8 @@
 :root {
     --main-red-color: #FF2D55;
-    --main-yellow-color: #FFC107;
+    --main-black-color: #FFC107;
     --main-black-color: #1B1B1B;
-    --main-middleBlack-color:#424242;
+    --main-middleBlue-color:#424242;
   
   }
   
@@ -190,7 +190,7 @@
                                                 /*Sobre mi*/
     #sobre-mi {
       
-      background-color: var(--main-middleBlack-color);
+      background-color: var(--main-middleBlue-color);
       border-radius: 2%;
       border-top-left-radius:1%;
       border-bottom-left-radius:5%;
@@ -209,11 +209,11 @@
     }
   
     .bio-options-form fieldset legend {
-      color: var(--main-yellow-color);
+      color: var(--main-black-color);
     }
   
     .bio-options-form fieldset span {
-      color: var(--main-yellow-color);
+      color: var(--main-black-color);
     }
                                                   /* text form  */
     .bio-options-form fieldset {
@@ -250,7 +250,7 @@
    #proyectos{
       margin-top: 15rem;
       position: static;
-      background-color: var(--main-middleBlack-color);
+      background-color: var(--main-middleBlue-color);
       border-radius: 2%;
       border-bottom-left-radius: 90%;
       border-bottom-right-radius:20% ;
@@ -284,7 +284,7 @@
     width: 100%;
   }
    .proyecto-container{
-    color: var(--main-yellow-color);
+    color: var(--main-black-color);
    }
   
    #proyectos img {
@@ -331,7 +331,7 @@
    #contacto {
     margin-top: 6rem;
       margin-bottom: 2.2rem;
-      background-color: var(--main-middleBlack-color);
+      background-color: var(--main-middleBlue-color);
       border-radius: 2%;
       border-top-right-radius:40%;
    }

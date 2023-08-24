@@ -1,8 +1,7 @@
 :root {
-  --main-red-color: #FF2D55;
-  --main-yellow-color: #FFC107;
+  --main-blueSky-color: #E5EEFA;
   --main-black-color: #1B1B1B;
-  --main-middleBlack-color:#424242;
+  --main-middleBlue-color:#4A90E2;
 
 }
 * {
@@ -13,7 +12,7 @@ body {
     margin: 0;
     padding: 0;
     box-sizing:border-box;
-    background-color: var(--main-black-color);
+    background-color: var(--main-blueSky-color);
     overflow-x: hidden;
   }
 
@@ -28,7 +27,7 @@ header {
   display: block;
   position: relative;
   padding: 1rem;
-  border: 2px solid red;
+  border: 2px solid #4A90E2;
   max-height: 2rem;
 }
 
@@ -73,7 +72,7 @@ header {
     z-index: 1000;
     display: block;
     border-radius: 1rem;
-    animation: fadeIn .4s linear forwards;
+    animation: fadeIn 200ms linear forwards;
 }
 
 @keyframes fadeIn {
@@ -85,7 +84,7 @@ header {
 }
 
 .settings-mobile.inactive {
-  animation: fadeOut .3s linear forwards;
+  animation: fadeOut 200ms linear forwards;
 }
 
 @keyframes fadeOut {
@@ -136,7 +135,7 @@ header {
   }
 
   .inicio-tittle.up{
-    animation: tittleMoveUp .5s linear forwards;
+    animation: tittleMoveUp 200ms linear forwards;
   }
 
   @keyframes tittleMoveUp {
@@ -152,7 +151,7 @@ header {
   }
 
   .inicio-tittle.inactive {
-    animation: tittleMoveDown .4s linear forwards;
+    animation: tittleMoveDown 190ms linear forwards;
   }
   
 
@@ -178,8 +177,8 @@ header {
   }
 
   .profile-picture {
-    margin-left: 60%;
-    margin-bottom: 0rem;
+    margin-left: 25rem;
+    margin-bottom: 10.5rem;
     border-radius: 50%;
     width: 8rem;
     height: 8rem;
@@ -190,72 +189,40 @@ header {
   #inicio aside {
    display:flex;
    margin-bottom: 5rem;
+   flex-direction: column;
   }
 
   .icon-container {
-    width: 8rem;
-    height: 8rem;
-    left: 60%;
-    position: absolute;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+  .icon-list {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    /* border: 1px solid blue; */
-   
+    list-style: none;
+    animation: runway 150s linear infinite;
+}
+  .icon-list li {
+    flex-shrink: 0;
   }
+
   .icon {
-    position:absolute;
-    width: 3rem;
-    height: 3rem;
-    border-radius: 50%;
-    animation: orbit linear infinite;
-    z-index: -1;
-    animation-timing-function: ease-in-out;
-  }
-
-  .icon1{
-    animation-duration: 5s;
-    animation-delay: 1s;
-   
-
-  }
-  .icon2{
-     animation-duration: 5s;
-     animation-delay: 1.5s;
-     
-  }
- .icon3{
-    animation-duration: 5s;
-    animation-delay: 2s;
-    
-  }
-  .icon4{
-     animation-duration: 5s;
-     animation-delay: 2.5s;
-     
-  }
-  .icon5{
-     animation-duration: 5s;
-     animation-delay: 3s;
-     
+    margin: 0 10px; 
   }
 
   .icon img{
-    width: 3rem; /* Ajusta el tamaño según tus necesidades */
-    height: 3rem; /* Ajusta el tamaño según tus necesidades */
-    border-radius: 50%;
-    z-index: 10;
-
+    width: 60px;
+    height: 60px; 
   }
-  @keyframes orbit {
+
+  @keyframes runway {
     0% {
-      transform: rotate(0deg) translateY(-7rem) rotate(0deg);
+        transform: translateX(0);
     }
     100% {
-      transform: rotate(360deg) translateY(-7rem) rotate(-360deg);
+        transform: translateX(-100%);
     }
-  }
-
+}
   
                                               /*Sobre mi*/
   #sobre-mi {
@@ -271,14 +238,14 @@ header {
   }
   .formContainer {
     font-size: 2.5rem;
-    background-color: var(--main-middleBlack-color);
+    background-color: var(--main-middleBlue-color);
   }
   .bio-options-form fieldset legend {
-    color: var(--main-yellow-color);
+    color: var(--main-black-color);
   }
 
   .bio-options-form fieldset span {
-    color: var(--main-yellow-color);
+    color: var(--main-black-color);
   }
                                                 /* text form  */
   .bio-options-form fieldset {
@@ -322,7 +289,7 @@ header {
  }
 
  .projectContainer {
-  background-color: var(--main-middleBlack-color);
+  background-color: var(--main-middleBlue-color);
  }
 
  .title-proyects{
@@ -352,7 +319,7 @@ figure {
   width: 100%;
 }
  .proyecto-container{
-  color: var(--main-yellow-color);
+  color: var(--main-black-color);
  }
 
  #proyectos img {
@@ -398,7 +365,7 @@ figure {
  #contacto {
   margin-top: 6rem;
     margin-bottom: 2.2rem;
-    background-color: var(--main-middleBlack-color);
+    background-color: var(--main-middleBlue-color);
     border-radius: 2%;
     border-top-right-radius:40%;
  }
