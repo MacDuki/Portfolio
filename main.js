@@ -1,3 +1,5 @@
+
+
 // icon spinner //
 function initializeAnimation() {
   const iconList = document.querySelector('.icon-list');
@@ -14,6 +16,9 @@ function initializeAnimation() {
       icons.forEach(icon => {
           iconList.appendChild(icon.cloneNode(true)); // Duplica los íconos
           console.log(`He duplicado ${i}`)
+          console.log(`TotalWidth = ${totalWidth}`)
+          console.log (`IconCount = ${iconCount}`)
+          
       });
   }
 
