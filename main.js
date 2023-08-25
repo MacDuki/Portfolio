@@ -8,7 +8,7 @@ function initializeAnimation() {
 
   let totalWidth = 0;
   icons.forEach(icon => {
-      totalWidth += icon.offsetWidth + parseInt(getComputedStyle(icon).marginLeft) + parseInt(getComputedStyle(icon).marginRight);
+      totalWidth += icon.offsetWidth + parseInt(getComputedStyle(icon).marginLeft) + parseInt(getComputedStyle(icon).marginRight) - 10;
   });
 
   const iconCount = Math.ceil(iconContainer.offsetWidth / totalWidth) * icons.length;
@@ -64,7 +64,7 @@ window.addEventListener('load', () => {
 const navbar = document.querySelector('.navbar');
 const body = document.querySelector('body');
 const navSettingsMobile = document.querySelector('.settings-mobile');
-const inicioH1 = document.querySelector('.inicio-tittle');
+const inicioH1 = document.querySelector('.inicio-tittle-container');
 const header = document.querySelector('.header')
 const buttonsSection = document.querySelectorAll('.button-section');
 let activeButton = false;
@@ -117,7 +117,7 @@ const short = document.querySelector('.short');
 const long = document.querySelector('.long');
 const longer = document.querySelector('.longer');
 const longest = document.querySelector('.longest'); 
-const sectionSobreMi = document.querySelector('.formContainer');
+const sectionSobreMi = document.querySelector('#sobre-mi');
 const parrafo = document.querySelector('.parrafo-multiple');
 const elements = [shortest, shorter, short, long, longer, longest];
 
