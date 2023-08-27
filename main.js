@@ -79,7 +79,7 @@ const body = document.querySelector('body');
 const navSettingsMobile = document.querySelector('.settings-mobile');
 const inicioH1 = document.querySelector('.inicio-tittle-container');
 const header = document.querySelector('.header')
-const buttonsSection = document.querySelectorAll('.button-section');
+const buttonsSection = document.querySelectorAll('.anchor-section');
 let activeButton = false;
 
 function navAllSettings() {
@@ -122,7 +122,7 @@ function navAllSettings() {
   }
 }
 
-//bio options (help) //
+//bio options  //
 
 const shortest = document.querySelector('.shortest');
 const shorter = document.querySelector('.shorter');
@@ -186,7 +186,9 @@ elements.forEach(element => {
   });
 });
 
-
+           // radioInput animation //
+           
+const radioButtons = document.querySelectorAll('#radio-button');
 
 
 

@@ -74,22 +74,22 @@
             <span class="legend-tittle">Adjust bio length:</span>
             <div class="bio-options-container">
               <div class="bio-input-action">
-                <input class="shortest"    type="radio" id="" name="biolength" value="shortest">
+                <input class="shortest"    type="radio" id="radio-button" name="biolength" value="shortest">
                 <label for="length-shortest" class="">
                   <span class="">shortest</span>
                 </label>
               </div>
               <div class="bio-input-action">
-                <input class="shorter" type="radio" id="" name="biolength" value="shorter">
+                <input class="shorter" type="radio" id="radio-button" name="biolength" value="shorter">
               </div>
               <div class="bio-input-action">
-                <input class="short" type="radio" id="" name="biolength" value="short">
+                <input class="short" type="radio" id="radio-button" name="biolength" value="short">
               </div>
               <div class="bio-input-action">
-                <input class="longer" type="radio" id="" name="biolength" value="longer" >
+                <input class="longer" type="radio" id="radio-button" name="biolength" value="longer" >
               </div>
               <div class="bio-input-action">
-                <input class="longest" type="radio" id="" name="biolength" value="longest" >
+                <input class="longest" type="radio" id="radio-button" name="biolength" value="longest" >
                 <label for="" class="">
                     <span class="">longest</span>
                 </label>
@@ -104,35 +104,47 @@
     </section>
     
     <section id="proyectos">
-      <h2 class="title-proyects">Proyectos</h2>
-      <div class="projectContainer">
-        <ul>
-          <li>
-            <figure><img class="proyec" src="./asets/projects/project 2.jpg"/></figure>
-            <div class="proyecto-container">
-              <h3>Proyecto 1</h3>
-              <p>Descripción breve del proyecto 1.</p>
-              <a href="#">Ver proyecto</a>
-            </div>
-          </li>
-          <li>
-            <figure><img src="./asets/projects/Project 1.jpg"/></figure>
-            <div class="proyecto-container">
-              <h3>Proyecto 2</h3>
-              <p>Descripción breve del proyecto 2.</p>
-              <a href="#">Ver proyecto</a>
-            </div>
-          </li>
-          <li>
-            <figure><img src="./asets/projects/project 2.jpg"/></figure>
-            <div class="proyecto-container">
-              <h3>Proyecto 3</h3>
-              <p>Descripción breve del proyecto 3.</p>
-              <a href="#">Ver proyecto</a>
-            </div>
-          </li>
-        </ul>
+      <h2 class="tittle-proyects">Proyectos</h2>
+      <div class="proyect-buttons-container">
+        <div class="arrow">
+          <div class="arrow-top-left"></div>
+          <button class="proyect-left"></button>
+          <div class="arrow-bottom-left"></div>
+        </div>
+        <div class="arrow">
+          <div class="arrow-top"></div>
+          <button class="proyect-rigth"></button>
+          <div class="arrow-bottom"></div>
+        </div>
+        
+        
       </div>
+      <div class="proyect-container">
+        <div class="card-container">
+          <figure><img class="proyec" src="./asets/projects/project 2.jpg"/></figure>
+          <div class="proyectInfo-container">
+            <h3>Proyecto 1</h3>
+            <p>Descripción breve del proyecto 1.</p>
+            <a href="#">Ver proyecto</a>
+          </div>
+        </div>
+        <div class="card-container hidden">
+          <figure><img src="./asets/projects/Project 1.jpg"/></figure>
+          <div class="proyectInfo-container">
+            <h3>Proyecto 2</h3>
+            <p>Descripción breve del proyecto 2.</p>
+            <a href="#">Ver proyecto</a>
+          </div>
+        </div>
+        <div class="card-container hidden">
+          <figure><img src="./asets/projects/project 2.jpg"/></figure>
+          <div class="proyectInfo-container">
+            <h3>Proyecto 3</h3>
+            <p>Descripción breve del proyecto 3.</p>
+            <a href="#">Ver proyecto</a>
+          </div>
+        </div>
+    </div>
     </section>
     
     <section id="contacto">
