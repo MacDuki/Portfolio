@@ -1,5 +1,18 @@
+//Smooth-scroll //
+  const enlacesNav = document.querySelectorAll(".anchor-section");
 
-
+  enlacesNav.forEach(enlace => {
+    enlace.addEventListener("click", function (event){
+      event.preventDefault();
+      const href = enlace.getAttribute("href");
+      const sectionToGo = document.querySelector(href);
+      if (sectionToGo) {
+        sectionToGo.scrollIntoView({
+          behavior: "smooth"
+        })
+      }
+    })
+  })
 // icon spinner //
 function initializeAnimation() {
   const iconList = document.querySelector('.icon-list');
@@ -114,47 +127,61 @@ function navAllSettings() {
 const shortest = document.querySelector('.shortest');
 const shorter = document.querySelector('.shorter');
 const short = document.querySelector('.short');
-const long = document.querySelector('.long');
 const longer = document.querySelector('.longer');
 const longest = document.querySelector('.longest'); 
-const sectionSobreMi = document.querySelector('#sobre-mi');
+const parrafoContainer = document.querySelector('.parrafoMultiple-container');
 const parrafo = document.querySelector('.parrafo-multiple');
-const elements = [shortest, shorter, short, long, longer, longest];
+const elements = [shortest, shorter, short, longer, longest];
+let lastClickedInput = null;
 
 elements.forEach(element => {
   element.addEventListener('click', () => {
-    if (element === elements[0]) {
-    parrafo.textContent = "Lo intenta...";
+    if (lastClickedInput === element) {
+      element.checked = false;
+      lastClickedInput = null;
+      parrafoContainer.style.height = '0';
+      setTimeout(()=>{parrafo.remove()},400);
+    } else if (element === elements[0] && element !== lastClickedInput)  {
+      lastClickedInput = element;
+      parrafoContainer.appendChild(parrafo);
+      parrafo.textContent = "Lo intenta...";
+      parrafoContainer.style.height = '5rem';
+      getComputedStyle(parrafoContainer).getPropertyValue('height');
+      parrafoContainer.style.transition = 'height 0.5s ease-in-out';
     }
-    else if (element === elements[1]) {
-        parrafo.remove
-        parrafo.textContent = "Tengo que hacer este mas largo, lo suficiente como para que pueda meter más info ";
-        sectionSobreMi.insertBefore(parrafo, sectionSobreMi.children[2]);
-        console.log("shorter");
+     else if (element === elements[1] && element !== lastClickedInput) {
+      lastClickedInput = element;
+      parrafoContainer.appendChild(parrafo);
+      parrafoContainer.style.height = '10rem';
+      setTimeout(()=>{parrafo.textContent = "Tengo que hacer este mas largo, lo suficiente como para que pueda meter más info ";},200);
+        getComputedStyle(parrafoContainer).getPropertyValue('height');
+        parrafoContainer.style.transition = 'height 0.5s ease-in-out';
     }
-    else if (element === elements[2]) {
-        parrafo.remove
-        parrafo.textContent = " Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀";
-        sectionSobreMi.insertBefore(parrafo, sectionSobreMi.children[2]);
-        console.log("Short");
+    else if (element === elements[2] && element !== lastClickedInput) {
+      lastClickedInput = element;
+      parrafoContainer.appendChild(parrafo);
+      parrafoContainer.style.height = '20rem';
+      setTimeout(()=>{parrafo.textContent = " Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀";},200)  
+        getComputedStyle(parrafoContainer).getPropertyValue('height');
+        parrafoContainer.style.transition = 'height 0.5s ease-in-out';
     }
-    else if (element === elements[3]) {
-        parrafo.remove
+    else if (element === elements[3] && element !== lastClickedInput) {
+      lastClickedInput = element;
+      parrafoContainer.appendChild(parrafo);
+      parrafoContainer.style.height ='30rem';
+      setTimeout(()=>{
         parrafo.textContent = "Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀";
-        sectionSobreMi.insertBefore(parrafo, sectionSobreMi.children[2]);
-        console.log("long");
+      },200)
+        parrafoContainer.style.transition = 'height .5s ease-in-out';
+        getComputedStyle(parrafoContainer).getPropertyValue('height');
     }
-    else if (element === elements[4]) {
-        parrafo.remove
-        parrafo.textContent = "Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀";
-        sectionSobreMi.insertBefore(parrafo, sectionSobreMi.children[2]);
-        console.log("longer");
-    }
-    else if (element === elements[5]) {
-        parrafo.remove
-        parrafo.textContent = "Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀";
-        sectionSobreMi.insertBefore(parrafo, sectionSobreMi.children[2]);
-        console.log("longest");
+    else if (element === elements[4] && element !== lastClickedInput) {
+      lastClickedInput = element;
+      parrafoContainer.appendChild(parrafo);
+      parrafoContainer.style.height ='55rem';
+      setTimeout(()=>{parrafo.textContent = "Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀";},200)
+        getComputedStyle(parrafoContainer).getPropertyValue('height');
+        parrafoContainer.style.transition = 'height 0.5s ease-in-out';
     }
   });
 });
