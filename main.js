@@ -186,9 +186,55 @@ elements.forEach(element => {
   });
 });
 
-           // radioInput animation //
+           // proyectSlider animation //
            
-const radioButtons = document.querySelectorAll('#radio-button');
+const leftArrow = document.querySelector('.proyect-left-arrow');
+const rightArrow = document.querySelector('.proyect-right-arrow');
+const proyectContainer = document.querySelector('.proyect-container');
+const allCardsProyect = document.querySelectorAll('.card-container');
+const parrafoCounter = document.querySelector('.proyect-counter');
+let proyectCounter = 1;
+parrafoCounter.textContent=`${proyectCounter}/3`
+let currentIndex = 0;
+
+rightArrow.addEventListener('click', () => {
+  if (proyectCounter <3){proyectCounter++
+    parrafoCounter.textContent=`${proyectCounter}/3`}
+    else if (proyectCounter === 3){
+      proyectCounter=1;
+      parrafoCounter.textContent=`${proyectCounter}/3`
+    }
+  hideAllCards();
+  currentIndex = (currentIndex + 1) % allCardsProyect.length;
+  const nextCard = allCardsProyect[currentIndex];
+  nextCard.classList.remove('hidden');
+  nextCard.style.display = ''; 
+  nextCard.classList.add('card-appear');
+});
+
+leftArrow.addEventListener('click', () => {
+  if(proyectCounter > 1){ proyectCounter--
+    parrafoCounter.textContent=`${proyectCounter}/3`}
+    else if (proyectCounter === 1){
+      proyectCounter=3;
+      parrafoCounter.textContent=`${proyectCounter}/3`
+    }
+  hideAllCards();
+  currentIndex = (currentIndex - 1 + allCardsProyect.length) % allCardsProyect.length;
+  const nextCard = allCardsProyect[currentIndex];
+  nextCard.classList.remove('hidden');
+  nextCard.style.display = '';
+  nextCard.classList.add('card-appear'); 
+});
+
+function hideAllCards() {
+  allCardsProyect.forEach(card => {
+    card.style.display = 'none';
+    card.classList.add('hidden');
+    card.classList.remove('card-appear');
+  });
+}
+  
 
 
 

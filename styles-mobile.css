@@ -355,16 +355,17 @@ header {
     width: 2rem;
     height: 2rem;
     animation: pulse 2s infinite alternate;
+    
   }
 
   @keyframes pulse {
     from {
       
-      transform: scale(1);
+      transform: scale(1.1);
     }
     to {
-      border: 5px solid black;
-      transform: scale(1.1);
+      
+      transform: scale(1);
     }
   }
 
@@ -377,7 +378,7 @@ header {
   }
 
   .parrafoMultiple-container {
-    background-color: #d2dce8 ;
+    background-color: transparent ;
     margin-top: 2rem;
     width: 35rem;
     border: 1px solid black ;
@@ -439,140 +440,97 @@ header {
  .proyect-buttons-container{
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
-  margin: 5rem 0;
- }
-
- .proyect-left{
-  background-color: transparent;
-  border: none;
-  position: absolute;
-  width: 4rem;
-  height: 4rem;
- }
-
- .proyect-rigth{
-  background-color: transparent;
-  border: none;
-  position: absolute;
-  width: 4rem;
-  height: 4rem;
- }
-
- .arrow {
-  position: relative;
-  display: flex;
-  /* margin-left: 40em; */
-  /* transform: translateX(-50%) translateY(-50%); */
-  transition: transform 0.1s;
-  width: 30px;
-  justify-content: center;
-  flex-direction: column;
+  justify-content: space-around;
+  margin: 3rem 0;
   align-items: center;
-  align-self: center;
-  
-}
+ }
 
-.arrow-top, .arrow-bottom {
-  height: .1rem;
-  left: -.5rem;
-  position: relative;
-  width: 4rem;
-  
-}
+ ion-icon.proyect-left-arrow{
+  font-size: 5rem; 
+  border: 1px solid black;
+  border-radius: 50%;
+  animation: transitionArrowLeft 2s alternate infinite;
+ }
 
 
 
-.arrow-top:after, .arrow-bottom:after {
-  content: "";
-  height: 100%;
-  position: relative;
-  transition: all 0.15s;
-  
-}
+ .proyect-right-arrow{
+  font-size: 5rem; 
+  border: 1px solid black;
+  border-radius: 50%;
+  animation: transitionArrowRight 2s alternate infinite;
+ }
+ 
 
-.arrow-top {
-  transform: rotate(45deg);
-  transform-origin: bottom right;
-  animation: levitateArrowTopRight 2s infinite alternate;
-}
-
-@keyframes levitateArrowTopRight {
+@keyframes transitionArrowRight {
   0% {
-    background-color: transparent;
-    box-shadow: 0 .5rem .5rem  #040505;
-    border: .5px solid gainsboro;
-  }
-  100% {
-    background-color: #1f1c1c;
+    transform: scale(1);
+    box-shadow: 0 .5rem 1rem  rgba(0, 0, 0, 0.2);
     
-    box-shadow: .4rem .4rem .9rem .5px #030404;
-    border: 1px solid rgb(187, 182, 182);
-  }
-}
-
-.arrow-bottom {
-  transform: rotate(-45deg);
-  transform-origin: top right;
-  animation: levitateArrowBottomRight 2s infinite alternate;
-}
-
-@keyframes levitateArrowBottomRight {
-  0% {
-    background-color: transparent;
-    box-shadow: 0 .3rem .5rem  #000000;
-    border: .5px solid gainsboro;
   }
   100% {
-    background-color: #1f1c1c;
-    box-shadow: .1rem -.2rem .9rem #000000;
-    border: 1px solid rgb(187, 182, 182);
+    transform: scale(1.1);
+    box-shadow: .2rem .3rem .4rem .2rem rgba(38, 36, 36, 0.4);
   }
 }
 
-.arrow:active {
-  transform: translateX(-50%) translateY(-50%) scale(0.9);
-}
-.arrow-top-left, .arrow-bottom-left {
-  background-color: #000000;
-  height: .1rem;
-  left: -.5rem;
-  position: relative;
-  width: 4.2rem;
-}
-.arrow-top-left:after, .arrow-bottom-left:after {
-  content: "";
-  height: 100%;
-  position: relative;
-  transition: all 0.15s;
-}
-.arrow-bottom-left {
-  transform: rotate(-45deg);
-  transform-origin: top left;
-  animation: levitateArrowBottomRight 2s infinite alternate;
-}
-.arrow-top-left {
-  transform: rotate(45deg);
-  transform-origin: bottom left;
-  animation: levitateArrowTopRight 2s infinite alternate;
+
+@keyframes transitionArrowLeft {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 .5rem 1rem  rgba(0, 0, 0, 0.2);
+    
+  }
+  100% {
+    transform: scale(1.1);
+    box-shadow: -.2rem .4rem .4rem .2rem rgba(38, 36, 36, 0.4);
+  }
 }
  
  .proyect-container {
   display: flex;
   flex-direction:row;
   justify-content: center;
+  overflow-x: hidden;
  }
 
+.proyect-counter {
+  font-size: 5rem;
+  font-family: 'Rubik', sans-serif;
+  font-weight:700;
+  margin-top: 0;
+  background: linear-gradient(-45deg, #bc321a, #e3640e, #a7401e, #000000);
+  background-size: 300%;
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  animation: fluido 5s ease-in-out alternate infinite;
+}
 
  .card-container {
     display: flex;
     flex-direction:column;
     text-align: center;
     align-items: center;
+    position: relative;
+    transition: transform .5s ease-in-out; 
 }
 
 .card-container.hidden{
-  display: none;
+  display: none;}
+
+.card-appear {
+  animation: slideIn .5s ease-in-out;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 
  .proyectInfo-container {
