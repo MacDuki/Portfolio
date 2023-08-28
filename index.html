@@ -5,12 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./styles-mobile.css" media="(max-width: 850px)"/>
+    <link rel="stylesheet" href="./styles-mobile.css" media="(max-width: 525px)"/>
     <link rel="stylesheet" href="./styles-desktop.css" media="(min-width: 1024px)"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;700;900&display=swap" rel="stylesheet">
-    <!--<link rel="stylesheet" href="/newNewPortfolio/styles-tablet.css" media="(min-width: 855px) and (max-width: 1023px)"/> -->
+    <link rel="stylesheet" href="/newNewPortfolio/styles-tablet.css" media="(min-width: 855px) and (max-width: 1023px)"/>
 </head>
 <body>
   <header class="header"> 
@@ -29,7 +29,7 @@
           </div>
         </label>
       </div>
-      <button type="button" class="button-settings"></button>
+      <ion-icon name="menu-outline" class="button-settings"></ion-icon>
     </div>
     <div class="inactive settings-mobile" >
       <nav class="navbar">
@@ -68,35 +68,33 @@
     
     <section id="sobre-mi">
       <h2>Sobre mí</h2>
+      <h3 class="legend-tittle">¿Qué tanto quieres saber de mi?</h3>
       <div class="formContainer">
-        <form class="bio-options-form" id="">
-          <fieldset class="">
-            <span class="legend-tittle">Adjust bio length:</span>
-            <div class="bio-options-container">
-              <div class="bio-input-action">
-                <input class="shortest"    type="radio" id="radio-button" name="biolength" value="shortest">
-                <label for="length-shortest" class="">
-                  <span class="">shortest</span>
-                </label>
-              </div>
-              <div class="bio-input-action">
-                <input class="shorter" type="radio" id="radio-button" name="biolength" value="shorter">
-              </div>
-              <div class="bio-input-action">
-                <input class="short" type="radio" id="radio-button" name="biolength" value="short">
-              </div>
-              <div class="bio-input-action">
-                <input class="longer" type="radio" id="radio-button" name="biolength" value="longer" >
-              </div>
-              <div class="bio-input-action">
-                <input class="longest" type="radio" id="radio-button" name="biolength" value="longest" >
-                <label for="" class="">
-                    <span class="">longest</span>
-                </label>
-              </div>
+        <div class="bio-options-form" id="">
+          <div class="bio-options-container">
+            <div class="bio-input-action">
+              <input class="shortest"    type="radio" id="radio-button" name="biolength" value="shortest">
+              <label for="length-shortest" class="">
+                <span class="">shortest</span>
+              </label>
             </div>
-          </fieldset>
-        </form>
+            <div class="bio-input-action">
+              <input class="shorter" type="radio" id="radio-button" name="biolength" value="shorter">
+            </div>
+            <div class="bio-input-action">
+              <input class="short" type="radio" id="radio-button" name="biolength" value="short">
+            </div>
+            <div class="bio-input-action">
+              <input class="longer" type="radio" id="radio-button" name="biolength" value="longer" >
+            </div>
+            <div class="bio-input-action">
+              <input class="longest" type="radio" id="radio-button" name="biolength" value="longest" >
+              <label for="" class="">
+                <span class="">longest</span>
+              </label>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="parrafoMultiple-container">
         <p class="parrafo-multiple"></p>

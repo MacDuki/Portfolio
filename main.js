@@ -91,9 +91,6 @@ function navAllSettings() {
     body.style.overflow = 'hidden';
     inicioH1.classList.remove('up');
     inicioH1.classList.add('inactive');
-    header.style.borderWidth = "0";
-    header.style.borderStyle = "";
-    header.style.borderColor = "";
     buttonsSection.forEach(button => {
         button.addEventListener('click', () => {
           navSettingsMobile.style.display='none';
@@ -102,10 +99,6 @@ function navAllSettings() {
           activeButton = false;
           inicioH1.classList.remove('inactive');
           inicioH1.classList.add('up');
-          header.style.borderWidth = "2px";
-          header.style.borderStyle = "solid";
-          header.style.borderColor = "#4A90E2";
-          console.log("Escucho al boton de sección")
       });
     })
     console.log("El botón fue presionado");
@@ -115,10 +108,6 @@ function navAllSettings() {
     body.style.overflow = '';
     inicioH1.classList.remove('inactive');
     inicioH1.classList.add('up');
-    header.style.borderWidth = "2px";
-    header.style.borderStyle = "solid";
-    header.style.borderColor = "#4A90E2";
-    console.log("El botón fue presionado nuevamente");
   }
 }
 
@@ -235,8 +224,6 @@ function hideAllCards() {
   });
 }
   
-
-
 
 
 
