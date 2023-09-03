@@ -123,57 +123,69 @@ const parrafo = document.querySelector('.parrafo-multiple');
 const elements = [shortest, shorter, short, longer, longest];
 let lastClickedInput = null;
 
-elements.forEach(element => {
-  element.addEventListener('click', () => {
-    if (lastClickedInput === element) {
-      element.checked = false;
-      lastClickedInput = null;
-      parrafoContainer.style.height = '0';
-      setTimeout(()=>{parrafo.remove()},400);
-    } else if (element === elements[0] && element !== lastClickedInput)  {
+
+
+elements.forEach((element, index)=> {
+  element.addEventListener('click', ()=>{
+  if (lastClickedInput === element) {
+    element.checked = false;
+    lastClickedInput = null;
+    parrafoContainer.style.height = '0';
+    setTimeout(()=>{parrafo.remove()},400);
+  } else if (element !== lastClickedInput) {
+  switch (index) {
+    case 0:
       lastClickedInput = element;
       parrafoContainer.appendChild(parrafo);
       parrafo.textContent = "Lo intenta...";
       parrafoContainer.style.height = '5rem';
       getComputedStyle(parrafoContainer).getPropertyValue('height');
       parrafoContainer.style.transition = 'height 0.5s ease-in-out';
-    }
-     else if (element === elements[1] && element !== lastClickedInput) {
-      lastClickedInput = element;
-      parrafoContainer.appendChild(parrafo);
-      parrafoContainer.style.height = '10rem';
-      setTimeout(()=>{parrafo.textContent = "Tengo que hacer este mas largo, lo suficiente como para que pueda meter más info ";},200);
-        getComputedStyle(parrafoContainer).getPropertyValue('height');
-        parrafoContainer.style.transition = 'height 0.5s ease-in-out';
-    }
-    else if (element === elements[2] && element !== lastClickedInput) {
+    break;
+
+    case 1:
+    lastClickedInput = element;
+    parrafoContainer.appendChild(parrafo);
+    parrafoContainer.style.height = '10rem';
+    setTimeout(()=>{parrafo.textContent = "Tengo que hacer este mas largo, lo suficiente como para que pueda meter más info ";},200);
+      getComputedStyle(parrafoContainer).getPropertyValue('height');
+      parrafoContainer.style.transition = 'height 0.5s ease-in-out';
+    break;
+
+    case 2:
       lastClickedInput = element;
       parrafoContainer.appendChild(parrafo);
       parrafoContainer.style.height = '20rem';
       setTimeout(()=>{parrafo.textContent = " Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀";},200)  
         getComputedStyle(parrafoContainer).getPropertyValue('height');
         parrafoContainer.style.transition = 'height 0.5s ease-in-out';
-    }
-    else if (element === elements[3] && element !== lastClickedInput) {
-      lastClickedInput = element;
-      parrafoContainer.appendChild(parrafo);
-      parrafoContainer.style.height ='30rem';
-      setTimeout(()=>{
-        parrafo.textContent = "Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀";
-      },200)
-        parrafoContainer.style.transition = 'height .5s ease-in-out';
-        getComputedStyle(parrafoContainer).getPropertyValue('height');
-    }
-    else if (element === elements[4] && element !== lastClickedInput) {
-      lastClickedInput = element;
-      parrafoContainer.appendChild(parrafo);
-      parrafoContainer.style.height ='55rem';
-      setTimeout(()=>{parrafo.textContent = "Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀";},200)
-        getComputedStyle(parrafoContainer).getPropertyValue('height');
-        parrafoContainer.style.transition = 'height 0.5s ease-in-out';
-    }
-  });
-});
+    break;
+
+    case 3:
+    lastClickedInput = element;
+    parrafoContainer.appendChild(parrafo);
+    parrafoContainer.style.height ='30rem';
+    setTimeout(()=>{
+      parrafo.textContent = "Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀";
+    },200)
+      parrafoContainer.style.transition = 'height .5s ease-in-out';
+      getComputedStyle(parrafoContainer).getPropertyValue('height');
+    break;
+
+    case 4:
+    lastClickedInput = element;
+    parrafoContainer.appendChild(parrafo);
+    parrafoContainer.style.height ='55rem';
+    setTimeout(()=>{parrafo.textContent = "Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀";},200)
+      getComputedStyle(parrafoContainer).getPropertyValue('height');
+      parrafoContainer.style.transition = 'height 0.5s ease-in-out';
+    break;
+  }
+}
+})
+})
+
+
 
            // proyectSlider animation //
            
