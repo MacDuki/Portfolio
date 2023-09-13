@@ -26,7 +26,6 @@ body {
 header {
   display:flexbox;
   position: relative;
-  border: 2px solid #4A90E2;
   height: 4rem;
   align-items: center;
 }
@@ -61,6 +60,7 @@ header {
   position: relative;
   border-radius: 5%;
 }
+
   
                                                 /* Settings mobile*/
 .button-settings-container {
@@ -121,6 +121,7 @@ header {
   /* margin-left: 90%; */
   width: 4rem;
   height: 4rem;
+  transform: scale(1.2);
 }
 
                                                 /* Inicio */
@@ -160,7 +161,7 @@ header {
       transform: translateY(0);
     }
     100% {
-      transform: translateY(-10px);
+      transform: translateY(-1rem);
     }
   }
 
@@ -376,10 +377,9 @@ header {
 
 
   .bio-input-action label span {
-    font-family: helvetica, arial;
-    color: #282525c2;
+    font-family: 'Dosis', sans-serif;
+    color: #000000;
     font-size: 1.8rem;
-    font-weight:800;
   }
 
   .parrafoMultiple-container {
@@ -562,60 +562,77 @@ figure {
                                                     
                                                     /* Contact Area  */
 
-
-
-   input[type="text"],
-   input[type="email"] {
-    max-width: 50%;
-    font-size: .8rem;
-    padding: .7rem;
-    margin-bottom: 1.8rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-   }
-
-   textarea {
-     max-width: 100%;
-     font-size: 1rem;
-     padding: 2.5rem;
-     margin-bottom: 2rem;
-     border: 1px solid #ccc;
-     border-radius: 5px;
-   }
- 
-   input[type="submit"] {
-     background-color: #007bff;
-     border: none;
-     border-radius: 5px;
-     color: #fff;
-     cursor: pointer;
-     font-size: 1.2rem;
-     padding: 10px;
-     text-align: center;
-     width: 100%;
-   }
- 
  #contacto {
-  margin-top: 6rem;
+    margin-top: 6rem;
     margin-bottom: 2.2rem;
-    background-color: var(--main-middleBlue-color);
-    border-radius: 2%;
-    border-top-right-radius:40%;
+ }
+
+ #contacto h2 {
+  font-family: 'Rubik', sans-serif;
+  font-weight:900;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 300%;
+    -webkit-background-clip: text;
+            background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: levitate 2s infinite alternate ease-in-out;
+  text-align: center;
+  font-size: 5rem;
+ }
+
+ .principal-contact-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
  }
  
- .form-contact {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: stretch;
- }
+ .container-platforms{
+  font-size: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+  padding-left: 0;
+}
+.container-platforms li {
+  width: 3rem;
+  height: 3rem;
+  list-style-type: none;
+  padding:0 2rem;
+}
 
- .button-contact {
-    height: 3.5rem;
- }
+.logo-contact {
+  animation: levitate 2s infinite alternate ease-in-out;
+}
 
+.anchor-contact {
+  position: relative;
+  border-radius: 50%;
+  animation: efectoContact 2s infinite alternate ease-in-out;
+  width: 3rem;
+  height: 1rem;
+  text-decoration: none;
+  color: inherit;
+}
 
-
+.animated-text-container {
+  width: 30rem;
+  height: 14rem;
+  padding-left: 2rem;
+}
+.animated-text {
+  font-size: 24px;
+  font-weight: bold;
+}
+@keyframes efectoContact{
+  0%{
+      box-shadow: 0 0 0 0 #000000;
+  }
+  100%{
+      box-shadow: 0 0 0 .5rem rgba(0, 0, 0, 0);
+  }
+}
                     /* theme-switch */
 
 .theme-switch {

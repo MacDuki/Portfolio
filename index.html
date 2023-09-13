@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/newNewPortfolio/styles-tablet.css" media="(min-width: 855px) and (max-width: 1023px)"/>
 </head>
 <body>
@@ -138,18 +139,30 @@
     
     <section id="contacto">
       <h2>Contacto</h2>
-      <form class="form-contact" action="#" method="POST">
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required autocomplete="name">
-        
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required autocomplete="email">
-        
-        <label for="mensaje">Mensaje:</label>
-        <textarea id="mensaje" name="mensaje" required></textarea>
-        
-        <button type="submit" class="button-contact">Enviar</button>
-      </form>
+      <div class="principal-contact-container">
+        <div class="animated-text-container">
+          <p class="animated-text"></p>
+        </div>
+        <div>
+        <ul class="container-platforms">
+          <li>
+              <a class="anchor-contact" tittle="Whatsapp" href="https://wa.me/+598098018171?text=Escribeme tu mensaje" target="_blank">  
+                <ion-icon class="logo-contact" name="logo-whatsapp"></ion-icon>
+              </a>
+            </li>
+          <li>
+            <a class="anchor-contact" tittle="Github" href="https://github.com/MacDuki" target="_blank">  
+              <ion-icon class="logo-contact" name="logo-github"></ion-icon>
+            </a>
+          </li>
+          <li>
+            <a class="anchor-contact" tittle="Gmail" href="https://wa.me/+598098018171?text=Escribeme tu mensaje" target="_blank">  
+              <ion-icon class="logo-contact" name="mail-outline"></ion-icon>
+            </a>
+          </li>
+        </ul>
+        </div>
+      </div>
     </section>
   </main>
   <footer>
@@ -160,6 +173,7 @@
   <script src="./main.js"></script>
 </body>
 </html>
+
 
 
 
