@@ -34,60 +34,6 @@ enlacesNav.forEach((enlace) => {
 	});
 });
 // icon spinner //
-function initializeAnimation() {
-	const iconList = document.querySelector(".icon-list");
-	const icons = iconList.querySelectorAll(".icon");
-	const iconContainer = document.querySelector(".icon-container");
-
-	let totalWidth = 0;
-	icons.forEach((icon) => {
-		totalWidth +=
-			icon.offsetWidth +
-			parseInt(getComputedStyle(icon).marginLeft) +
-			parseInt(getComputedStyle(icon).marginRight) -
-			10;
-	});
-
-	const iconCount =
-		Math.ceil(iconContainer.offsetWidth / totalWidth) * icons.length;
-	for (let i = 0; i < iconCount; i++) {
-		icons.forEach((icon) => {
-			iconList.appendChild(icon.cloneNode(true)); // Duplica los íconos
-			console.log(`He duplicado ${i}`);
-			console.log(`TotalWidth = ${totalWidth}`);
-			console.log(`IconCount = ${iconCount}`);
-		});
-	}
-
-	iconList.style.width = `${totalWidth * iconCount}px`;
-	let scrollPos = 0;
-
-	let startTime = performance.now();
-
-	function animateMarquee(now) {
-		const delta = (now - startTime) * 0.05; // Ajusta el factor de velocidad según sea necesario
-		startTime = now;
-		scrollPos += delta; // Velocidad del desplazamiento
-		if (scrollPos >= totalWidth) {
-			scrollPos -= totalWidth; // Reiniciar el desplazamiento desde la mitad
-		}
-		iconList.style.transform = `translateX(-${scrollPos}px)`;
-		requestAnimationFrame(animateMarquee);
-	}
-
-	requestAnimationFrame(animateMarquee);
-}
-function removeUnusedIcons(iconList, iconCount) {
-	const icons = iconList.querySelectorAll(".icon");
-	if (icons.length > iconCount * 2) {
-		icons.forEach((icon) => {
-			if (iconList.children.length > iconCount) {
-				iconList.removeChild(iconList.children[0]); // Elimina el ícono más antiguo
-				console.log("He eliminado iconos");
-			}
-		});
-	}
-}
 
 //  mobile menu  //
 
@@ -95,7 +41,6 @@ window.addEventListener("load", () => {
 	const buttonNavSettings = document.querySelector(".button-settings");
 	buttonNavSettings.addEventListener("click", navAllSettings);
 	navSettingsMobile.style.display = "none";
-	initializeAnimation();
 });
 
 const navbar = document.querySelector(".navbar");
@@ -170,10 +115,11 @@ elements.forEach((element, index) => {
 				case 1:
 					lastClickedInput = element;
 					parrafoContainer.appendChild(parrafo);
-					parrafoContainer.style.height = "10rem";
+					parrafoContainer.style.height = "13rem";
 					setTimeout(() => {
-						parrafo.textContent =
-							"Soy estudiante de programación web tanto del back-end como del front-end aunque personalmente prefiero el front.A lo largo de este año he trabajado para aprender las bases de la programación de manera solida y en simultaneo aplicar lo aprendido en tecnologías como Html, Css y Javascript.  ";
+						parrafo.innerHTML =
+							"Soy estudiante de programación web tanto del back-end como del front-end aunque personalmente prefiero el front. <br>" +
+							"A lo largo de este año he trabajado para aprender las bases de la programación de manera solida y en simultaneo aplicar lo aprendido en tecnologías como Html, Css y Javascript.";
 					}, 200);
 					getComputedStyle(parrafoContainer).getPropertyValue("height");
 					parrafoContainer.style.transition = "height 0.5s ease-in-out";
@@ -184,8 +130,11 @@ elements.forEach((element, index) => {
 					parrafoContainer.appendChild(parrafo);
 					parrafoContainer.style.height = "20rem";
 					setTimeout(() => {
-						parrafo.textContent =
-							" Soy estudiante de programación web tanto del back-end como del front-end aunque personalmente prefiero el front. A lo largo de este año he trabajado para aprender las bases de la programación de manera solida y en simultaneo aplicar lo aprendido en tecnologías como Html, Css y Javascript. Actualmente estoy  profundizado mis conocimientos en React como librería principal de Js, frameworks como Frame-motion, Rome, e.t.c.  Además de continuar aprendiendo sobre desarrollo web estoy cursando clases de inglés ( B1) para mejorar mi capacidad de comunicarme en un entorno global.";
+						parrafo.innerHTML =
+							"Soy estudiante de programación web tanto del back-end como del front-end aunque personalmente prefiero el front. <br/>" +
+							"A lo largo de este año he trabajado para aprender las bases de la programación de manera solida y en simultaneo aplicar lo aprendido en tecnologías como Html, Css y Javascript.<br/><br/>" +
+							"Actualmente estoy  profundizado mis conocimientos en React como librería principal de Js, frameworks como Frame-motion, Rome, e.t.c. <br/>" +
+							"Además de continuar aprendiendo sobre desarrollo web estoy cursando clases de inglés ( B1) para mejorar mi capacidad de comunicarme en un entorno global.";
 					}, 200);
 					getComputedStyle(parrafoContainer).getPropertyValue("height");
 					parrafoContainer.style.transition = "height 0.5s ease-in-out";
@@ -196,8 +145,12 @@ elements.forEach((element, index) => {
 					parrafoContainer.appendChild(parrafo);
 					parrafoContainer.style.height = "30rem";
 					setTimeout(() => {
-						parrafo.textContent =
-							"Soy estudiante de programación web tanto del back-end como del front-end aunque personalmente prefiero el front. A lo largo de este año he trabajado para aprender las bases de la programación de manera solida y en simultaneo aplicar lo aprendido en tecnologías como Html, Css y Javascript. Actualmente estoy  profundizado mis conocimientos en React como librería principal de Js, frameworks como Frame-motion, Rome, e.t.c.  Además de continuar aprendiendo sobre desarrollo web estoy cursando clases de inglés ( B1) para mejorar mi capacidad de comunicarme en un entorno global. Mi viaje en la industria tech recién comienza pero ha sido una montaña rusa de aprendizaje y crecimiento. Más allá de las habilidades técnicas, he aprendido a resolver problemas de manera creativa y comprometerme con el aprendizaje continuo como filosofía personal. ";
+						parrafo.innerHTML =
+							"Soy estudiante de programación web tanto del back-end como del front-end aunque personalmente prefiero el front. <br/>" +
+							"A lo largo de este año he trabajado para aprender las bases de la programación de manera solida y en simultaneo aplicar lo aprendido en tecnologías como Html, Css y Javascript.<br/><br/>" +
+							"Actualmente estoy  profundizado mis conocimientos en React como librería principal de Js, frameworks como Frame-motion, Rome, e.t.c. <br/>" +
+							"Además de continuar aprendiendo sobre desarrollo web estoy cursando clases de inglés ( B1) para mejorar mi capacidad de comunicarme en un entorno global.<br/><br/>" +
+							"Mi viaje en la industria tech recién comienza pero ha sido una montaña rusa de aprendizaje y crecimiento. Más allá de las habilidades técnicas, he aprendido a resolver problemas de manera creativa y comprometerme con el aprendizaje continuo como filosofía personal.";
 					}, 200);
 					parrafoContainer.style.transition = "height .5s ease-in-out";
 					getComputedStyle(parrafoContainer).getPropertyValue("height");
