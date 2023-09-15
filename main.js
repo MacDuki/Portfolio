@@ -98,6 +98,7 @@ elements.forEach((element, index) => {
 			element.checked = false;
 			lastClickedInput = null;
 			parrafoContainer.style.height = "0";
+			parrafoContainer.setAttribute("style", " box-shadow: none");
 			setTimeout(() => {
 				parrafo.remove();
 			}, 400);
@@ -106,6 +107,10 @@ elements.forEach((element, index) => {
 				case 0:
 					lastClickedInput = element;
 					parrafoContainer.appendChild(parrafo);
+					parrafoContainer.setAttribute(
+						"style",
+						" box-shadow: 0 0 10px rgba(0,0,0,.1)",
+					);
 					parrafo.textContent = "Lo intenta...";
 					parrafoContainer.style.height = "5rem";
 					getComputedStyle(parrafoContainer).getPropertyValue("height");
@@ -115,6 +120,10 @@ elements.forEach((element, index) => {
 				case 1:
 					lastClickedInput = element;
 					parrafoContainer.appendChild(parrafo);
+					parrafoContainer.setAttribute(
+						"style",
+						" box-shadow: 0 0 10px rgba(0,0,0,.1)",
+					);
 					parrafoContainer.style.height = "13rem";
 					setTimeout(() => {
 						parrafo.innerHTML =
@@ -128,6 +137,10 @@ elements.forEach((element, index) => {
 				case 2:
 					lastClickedInput = element;
 					parrafoContainer.appendChild(parrafo);
+					parrafoContainer.setAttribute(
+						"style",
+						" box-shadow: 0 0 10px rgba(0,0,0,.1)",
+					);
 					parrafoContainer.style.height = "20rem";
 					setTimeout(() => {
 						parrafo.innerHTML =
@@ -143,6 +156,10 @@ elements.forEach((element, index) => {
 				case 3:
 					lastClickedInput = element;
 					parrafoContainer.appendChild(parrafo);
+					parrafoContainer.setAttribute(
+						"style",
+						" box-shadow: 0 0 10px rgba(0,0,0,.1)",
+					);
 					parrafoContainer.style.height = "30rem";
 					setTimeout(() => {
 						parrafo.innerHTML =
@@ -159,7 +176,11 @@ elements.forEach((element, index) => {
 				case 4:
 					lastClickedInput = element;
 					parrafoContainer.appendChild(parrafo);
-					parrafoContainer.style.height = "55rem";
+					parrafoContainer.setAttribute(
+						"style",
+						" box-shadow: 0 0 10px rgba(0,0,0,.1)",
+					);
+					parrafoContainer.style.height = "35rem";
 					setTimeout(() => {
 						parrafo.textContent =
 							"Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀";

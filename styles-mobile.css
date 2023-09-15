@@ -1,5 +1,5 @@
 :root {
-  --main-blueSky-color: #E5EEFA;
+  --main-background-color: #E5EEFA;
   --main-black-color: #1B1B1B;
   --main-middleBlue-color:rgba(35, 67, 179, 0.641);
 
@@ -12,7 +12,7 @@ body {
     margin: 0;
     padding: 0;
     box-sizing:border-box;
-    background-color: var(--main-blueSky-color);
+    background-color: var(--main-background-color);
     overflow-x: hidden;
   }
 
@@ -324,7 +324,7 @@ header {
   .formContainer {
     width: 33rem;
     height: 5rem;
-    background-color: var(--main-blueSky-color);
+    background-color: var(--main-background-color);
     display: flex;
     align-items: center;
   }
