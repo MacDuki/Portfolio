@@ -1,16 +1,33 @@
 //Animated text//
-const textElement = document.querySelector(".animated-text");
+const textHomeElement = document.querySelector(".animate-parrafo");
+const textParrafoToAnimateEnglish = "websites.";
+let currentIndexParrafoAnimated = 0;
+
+function animateParrafo() {
+	if (currentIndexParrafoAnimated < textParrafoToAnimateEnglish.length) {
+		textHomeElement.textContent += textParrafoToAnimateEnglish.charAt(
+			currentIndexParrafoAnimated,
+		);
+		currentIndexParrafoAnimated++;
+		setTimeout(animateParrafo, 200);
+	}
+}
+animateParrafo();
+
+const textContactElement = document.querySelector(".animated-text");
 const textToAnimate = "Todo feedback es bienvenido, contactame...";
 let currentIndexTextAnimated = 0;
 
 function animateText() {
 	if (currentIndexTextAnimated < textToAnimate.length) {
-		textElement.textContent += textToAnimate.charAt(currentIndexTextAnimated);
+		textContactElement.textContent += textToAnimate.charAt(
+			currentIndexTextAnimated,
+		);
 		currentIndexTextAnimated++;
 		setTimeout(animateText, 100);
 	} else {
 		setTimeout(() => {
-			textElement.textContent = "";
+			textContactElement.textContent = "";
 			currentIndexTextAnimated = 0;
 			requestAnimationFrame(animateText);
 		}, 4000);

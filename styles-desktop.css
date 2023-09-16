@@ -191,7 +191,7 @@ ion-icon {
   }
 
   .inicio-tittle-container.inactive {
-    animation: tittleMoveDown 190ms linear forwards;
+    animation: tittleMoveDown 400ms linear forwards;
   }
   
 
@@ -206,16 +206,26 @@ ion-icon {
       transform: translateY(6rem);
     }
   }
-
+  .parrafo-inicio-container {
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+    justify-content: center;
+    padding-right: 4rem;
+  }
   #inicio p {
-    padding-right: 5rem;
     margin-top: 1.5rem;
     margin-bottom: 4rem;
     font-size: xx-large;
     font-family: 'Rubik', sans-serif;
     font-weight: 900;
-    animation: fluido 4s ease-in-out alternate infinite;
-    background: linear-gradient(-45deg, #23d5ab, #23a6d5, #000000,#000000);
+  }
+
+ .animate-parrafo {
+    width: 17rem;
+    padding-left: 1rem;
+    animation: fluido 40s linear alternate infinite;
+    background: linear-gradient(-45deg, #23d5ab, #23a6d5, #55c796,#43a8ab);
     background-size: 300%;
     -webkit-background-clip: text;
             background-clip: text;
@@ -312,7 +322,7 @@ ion-icon {
 
 
   .bio-input-action label span {
-    font-family: 'Dosis', sans-serif;
+    font-family: 'Raleway', sans-serif;
     color: var(--main-black-color);
     font-size: 1.8rem;
   }
@@ -332,8 +342,9 @@ ion-icon {
   
   .parrafo-multiple {
     padding-left: 2rem;
+    padding-right: 2rem;
     text-align: left;
-    font-family: 'rubik', sans-serif;
+    font-family: 'Rubik', sans-serif;
     font-weight: 500;
     font-size: 1.5rem;
   }
@@ -418,7 +429,7 @@ ion-icon {
 .proyect-counter {
   font-size: 5rem;
   font-family: 'Rubik', sans-serif;
-  font-weight:700;
+  font-weight:900;
   margin-top: 0;
   background: linear-gradient(-45deg, #bc321a, #e3640e, #a7401e, #000000);
   background-size: 300%;
@@ -537,7 +548,7 @@ figure {
 
 .animated-text-container {
   height: 14rem;
-  font-family: 'dosis', Arial;
+  font-family: 'Raleway', Arial;
   
 }
 .animated-text {
