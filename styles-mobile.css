@@ -633,9 +633,9 @@ figure {
       box-shadow: 0 0 0 .5rem rgba(0, 0, 0, 0);
   }
 }
-                    /* theme-switch */
+                    /* theme-label */
 
-.theme-switch {
+.theme-label {
   /* switch */
   --switch-bg: rgb(135, 150, 165);
   --switch-width: 48px;
@@ -646,7 +646,7 @@ figure {
   --circle-inset: calc((var(--circle-diameter) - var(--switch-height)) / 2);
 }
 
-.theme-switch input {
+.theme-label input {
   display: none;
 }
 
@@ -704,12 +704,12 @@ figure {
 
 /* actions */
 
-.theme-switch input:checked+.slider .circle {
+.theme-label input:checked+.slider .circle {
   left: calc(100% - var(--circle-diameter));
   background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjAiIHdpZHRoPSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj4KICAgIDxwYXRoIGZpbGw9IiNmZmYiCiAgICAgICAgZD0iTTQuMiAyLjVsLS43IDEuOC0xLjguNyAxLjguNy43IDEuOC42LTEuOEw2LjcgNWwtMS45LS43LS42LTEuOHptMTUgOC4zYTYuNyA2LjcgMCAxMS02LjYtNi42IDUuOCA1LjggMCAwMDYuNiA2LjZ6IiAvPgo8L3N2Zz4=");
 }
 
-.theme-switch input:active+.slider .circle::before {
+.theme-label input:active+.slider .circle::before {
   -webkit-transition: 0s;
   -o-transition: 0s;
   transition: 0s;
@@ -718,9 +718,9 @@ figure {
   height: 0;
 }
 
-/* lenguage-switch */
+/* lenguage-label */
 
-.lenguage-switch {
+.lenguage-label {
   /* switch */
   --switch-bg: rgb(135, 150, 165);
   --switch-width: 48px;
@@ -731,7 +731,7 @@ figure {
   --circle-inset: calc((var(--circle-diameter) - var(--switch-height)) / 2);
 }
 
-.lenguage-switch input {
+.lenguage-label input {
   display: none;
 }
 
@@ -786,11 +786,11 @@ figure {
 
 /* actions */
 
-.lenguage-switch input:checked+.slider-lenguage .circle-lenguage {
+.lenguage-label input:checked+.slider-lenguage .circle-lenguage {
   left: calc(100% - var(--circle-diameter));
 }
 
-.lenguage-switch input:active+.slider-lenguage .circle-lenguage::before {
+.lenguage-label input:active+.slider-lenguage .circle-lenguage::before {
   -webkit-transition: 0s;
   -o-transition: 0s;
   transition: 0s;

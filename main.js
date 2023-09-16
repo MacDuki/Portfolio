@@ -1,18 +1,40 @@
-//Animated text//
-const textHomeElement = document.querySelector(".animate-parrafo");
-const textParrafoToAnimateEnglish = "websites.";
+//Animated text variables//
+const lenguageLabel = document.querySelector(".lenguage-label");
+const animateParrafo = document.querySelector(".animate-parrafo");
+let textParrafoToAnimate = "paginas web.";
 let currentIndexParrafoAnimated = 0;
-
-function animateParrafo() {
-	if (currentIndexParrafoAnimated < textParrafoToAnimateEnglish.length) {
-		textHomeElement.textContent += textParrafoToAnimateEnglish.charAt(
-			currentIndexParrafoAnimated,
-		);
-		currentIndexParrafoAnimated++;
-		setTimeout(animateParrafo, 200);
+let codeFinished = false;
+//animated text logic //
+function variableTextLenguage(idioma) {
+	if (idioma === "ing") {
+		textParrafoToAnimate = "websites.";
+		animateParrafo.textContent = "";
+		currentIndexParrafoAnimated = 0;
+		animateTextParrafo(textParrafoToAnimate);
+	} else if (idioma === "esp") {
+		animateParrafo.textContent = "";
+		currentIndexParrafoAnimated = 0;
+		textParrafoToAnimate = "paginas web.";
+		animateTextParrafo(textParrafoToAnimate);
 	}
 }
-animateParrafo();
+
+function animateTextParrafo(text) {
+	codeFinished = false;
+	lenguageLabel.style.pointerEvents = "none";
+	if (currentIndexParrafoAnimated < text.length) {
+		animateParrafo.textContent += text.charAt(currentIndexParrafoAnimated);
+		currentIndexParrafoAnimated++;
+		setTimeout(function () {
+			animateTextParrafo(text);
+		}, 200);
+	} else if (currentIndexParrafoAnimated === text.length) {
+		codeFinished = true;
+		lenguageLabel.style.pointerEvents = "all";
+	}
+}
+
+animateTextParrafo(textParrafoToAnimate);
 
 const textContactElement = document.querySelector(".animated-text");
 const textToAnimate = "Todo feedback es bienvenido, contactame...";
@@ -35,6 +57,97 @@ function animateText() {
 }
 
 animateText();
+
+//Switch Lenguage //
+//about me varibles
+const shortest = document.querySelector(".shortest");
+const shorter = document.querySelector(".shorter");
+const short = document.querySelector(".short");
+const longer = document.querySelector(".longer");
+const longest = document.querySelector(".longest");
+const parrafo = document.querySelector(".parrafo-multiple");
+const elements = [shortest, shorter, short, longer, longest];
+const parrafoContainer = document.querySelector(".parrafoMultiple-container");
+let parrafo1 = "Lo intenta...";
+let parrafo2 =
+	"Soy estudiante de programación web tanto del back-end como del front-end aunque personalmente prefiero el front.";
+let parrafo3 =
+	"Soy estudiante de programación web tanto del back-end como del front-end aunque personalmente prefiero el front. <br>" +
+	"A lo largo de este año he trabajado para aprender las bases de la programación de manera solida y en simultaneo aplicar lo aprendido en tecnologías como Html, Css y Javascript.";
+let parrafo4 =
+	"Soy estudiante de programación web tanto del back-end como del front-end aunque personalmente prefiero el front. <br/>" +
+	"A lo largo de este año he trabajado para aprender las bases de la programación de manera solida y en simultaneo aplicar lo aprendido en tecnologías como Html, Css y Javascript.<br/><br/>" +
+	"Actualmente estoy  profundizado mis conocimientos en React como librería principal de Js, frameworks como Frame-motion, Rome, e.t.c. <br/>" +
+	"Además de continuar aprendiendo sobre desarrollo web estoy cursando clases de inglés ( B1) para mejorar mi capacidad de comunicarme en un entorno global.";
+let parrafo5 =
+	"Soy estudiante de programación web tanto del back-end como del front-end aunque personalmente prefiero el front. <br/>" +
+	"A lo largo de este año he trabajado para aprender las bases de la programación de manera solida y en simultaneo aplicar lo aprendido en tecnologías como Html, Css y Javascript.<br/><br/>" +
+	"Actualmente estoy  profundizado mis conocimientos en React como librería principal de Js, frameworks como Frame-motion, Rome, e.t.c. <br/>" +
+	"Además de continuar aprendiendo sobre desarrollo web estoy cursando clases de inglés ( B1) para mejorar mi capacidad de comunicarme en un entorno global.<br/><br/>" +
+	"Mi viaje en la industria tech recién comienza pero ha sido una montaña rusa de aprendizaje y crecimiento. Más allá de las habilidades técnicas, he aprendido a resolver problemas de manera creativa y comprometerme con el aprendizaje continuo como filosofía personal.";
+const lenguageSwitch = document.querySelector(".lenguage-switch");
+const lenguageSwitchSpan = document.querySelector(".lenguage-span");
+//home words
+const inicioTittle = document.querySelector(".inicio-tittle");
+const inicioTittleName = document.querySelector(".inicio-tittle-name");
+const staticParrafo = document.querySelector(".static-parrafo");
+
+lenguageSwitch.addEventListener("change", function () {
+	elements.forEach((element) => {
+		element.checked = false;
+	});
+	parrafoContainer.style.height = "0";
+	if (lenguageSwitch.checked) {
+		inicioTittle.textContent = "Hello, my name is";
+		inicioTittleName.textContent = "Peter";
+		staticParrafo.textContent = "I make";
+		lenguageSwitchSpan.textContent = "Ing";
+		parrafo1 = "He tries...";
+		parrafo2 =
+			"I am a student of web programming, both back-end and front-end, although I personally prefer front-end.";
+		parrafo3 =
+			"I am a web programming student of both back-end and front-end although I personally prefer front-end. <br>" +
+			"Throughout this year I have worked to learn the basics of programming in a solid way and simultaneously apply what I have learned in technologies such as Html, CSS and Javascript.";
+		parrafo4 =
+			"I am a web programming student of both the back-end and the front-end although I personally prefer the front-end. <br/>" +
+			"Throughout this year I have worked to learn the basics of programming in a solid way and simultaneously apply what I have learned in technologies such as Html, CSS and Javascript.<br/><br/>" +
+			"I am currently deepening my knowledge in React as the main Js library, frameworks such as Frame-motion, Rome, etc. <br/>" +
+			"In addition to continuing to learn about web development, I am taking English classes (B1) to improve my ability to communicate in a global environment.";
+		parrafo5 =
+			"I am a web programming student of both the back-end and the front-end although I personally prefer the front-end. <br/>" +
+			"Throughout this year I have worked to learn the basics of programming in a solid way and simultaneously apply what I have learned in technologies such as Html, CSS and Javascript.<br/><br/>" +
+			"I am currently deepening my knowledge in React as the main Js library, frameworks such as Frame-motion, Rome, etc. <br/>" +
+			"In addition to continuing to learn about web development, I am taking English classes (B1) to improve my ability to communicate in a global environment.<br/><br/>" +
+			"My journey in the tech industry is just beginning but it has been a roller coaster of learning and growth. Beyond technical skills, I have learned to solve problems creatively and commit to continuous learning as a personal philosophy.";
+		const idioma = "ing";
+		variableTextLenguage(idioma);
+	} else {
+		inicioTittle.textContent = "Hola, mi nombre es";
+		inicioTittleName.textContent = "Pedro";
+		staticParrafo.textContent = "Desarrollo";
+		lenguageSwitchSpan.textContent = "Esp";
+		parrafo1 = "Lo intenta...";
+		parrafo2 =
+			"Soy estudiante de programación web tanto del back-end como del front-end aunque personalmente prefiero el front.";
+		parrafo3 =
+			"Soy estudiante de programación web tanto del back-end como del front-end aunque personalmente prefiero el front. <br>" +
+			"A lo largo de este año he trabajado para aprender las bases de la programación de manera solida y en simultaneo aplicar lo aprendido en tecnologías como Html, Css y Javascript.";
+		parrafo4 =
+			"Soy estudiante de programación web tanto del back-end como del front-end aunque personalmente prefiero el front. <br/>" +
+			"A lo largo de este año he trabajado para aprender las bases de la programación de manera solida y en simultaneo aplicar lo aprendido en tecnologías como Html, Css y Javascript.<br/><br/>" +
+			"Actualmente estoy  profundizado mis conocimientos en React como librería principal de Js, frameworks como Frame-motion, Rome, e.t.c. <br/>" +
+			"Además de continuar aprendiendo sobre desarrollo web estoy cursando clases de inglés ( B1) para mejorar mi capacidad de comunicarme en un entorno global.";
+		parrafo5 =
+			"Soy estudiante de programación web tanto del back-end como del front-end aunque personalmente prefiero el front. <br/>" +
+			"A lo largo de este año he trabajado para aprender las bases de la programación de manera solida y en simultaneo aplicar lo aprendido en tecnologías como Html, Css y Javascript.<br/><br/>" +
+			"Actualmente estoy  profundizado mis conocimientos en React como librería principal de Js, frameworks como Frame-motion, Rome, e.t.c. <br/>" +
+			"Además de continuar aprendiendo sobre desarrollo web estoy cursando clases de inglés ( B1) para mejorar mi capacidad de comunicarme en un entorno global.<br/><br/>" +
+			"Mi viaje en la industria tech recién comienza pero ha sido una montaña rusa de aprendizaje y crecimiento. Más allá de las habilidades técnicas, he aprendido a resolver problemas de manera creativa y comprometerme con el aprendizaje continuo como filosofía personal.";
+		const idioma = "esp";
+		variableTextLenguage(idioma);
+	}
+});
+
 //Smooth-scroll //
 const enlacesNav = document.querySelectorAll(".anchor-section");
 
@@ -99,14 +212,6 @@ function navAllSettings() {
 
 //bio options  //
 
-const shortest = document.querySelector(".shortest");
-const shorter = document.querySelector(".shorter");
-const short = document.querySelector(".short");
-const longer = document.querySelector(".longer");
-const longest = document.querySelector(".longest");
-const parrafoContainer = document.querySelector(".parrafoMultiple-container");
-const parrafo = document.querySelector(".parrafo-multiple");
-const elements = [shortest, shorter, short, longer, longest];
 let lastClickedInput = null;
 
 elements.forEach((element, index) => {
@@ -128,7 +233,8 @@ elements.forEach((element, index) => {
 						"style",
 						" box-shadow: 0 0 10px rgba(0,0,0,.1)",
 					);
-					parrafo.textContent = "Lo intenta...";
+					parrafo.textContent = parrafo1;
+
 					parrafoContainer.style.height = "5rem";
 					getComputedStyle(parrafoContainer).getPropertyValue("height");
 					parrafoContainer.style.transition = "height 0.5s ease-in-out";
@@ -141,11 +247,9 @@ elements.forEach((element, index) => {
 						"style",
 						" box-shadow: 0 0 10px rgba(0,0,0,.1)",
 					);
-					parrafoContainer.style.height = "13rem";
+					parrafoContainer.style.height = "8rem";
 					setTimeout(() => {
-						parrafo.innerHTML =
-							"Soy estudiante de programación web tanto del back-end como del front-end aunque personalmente prefiero el front. <br>" +
-							"A lo largo de este año he trabajado para aprender las bases de la programación de manera solida y en simultaneo aplicar lo aprendido en tecnologías como Html, Css y Javascript.";
+						parrafo.innerHTML = parrafo2;
 					}, 200);
 					getComputedStyle(parrafoContainer).getPropertyValue("height");
 					parrafoContainer.style.transition = "height 0.5s ease-in-out";
@@ -158,13 +262,9 @@ elements.forEach((element, index) => {
 						"style",
 						" box-shadow: 0 0 10px rgba(0,0,0,.1)",
 					);
-					parrafoContainer.style.height = "20rem";
+					parrafoContainer.style.height = "13rem";
 					setTimeout(() => {
-						parrafo.innerHTML =
-							"Soy estudiante de programación web tanto del back-end como del front-end aunque personalmente prefiero el front. <br/>" +
-							"A lo largo de este año he trabajado para aprender las bases de la programación de manera solida y en simultaneo aplicar lo aprendido en tecnologías como Html, Css y Javascript.<br/><br/>" +
-							"Actualmente estoy  profundizado mis conocimientos en React como librería principal de Js, frameworks como Frame-motion, Rome, e.t.c. <br/>" +
-							"Además de continuar aprendiendo sobre desarrollo web estoy cursando clases de inglés ( B1) para mejorar mi capacidad de comunicarme en un entorno global.";
+						parrafo.innerHTML = parrafo3;
 					}, 200);
 					getComputedStyle(parrafoContainer).getPropertyValue("height");
 					parrafoContainer.style.transition = "height 0.5s ease-in-out";
@@ -177,14 +277,9 @@ elements.forEach((element, index) => {
 						"style",
 						" box-shadow: 0 0 10px rgba(0,0,0,.1)",
 					);
-					parrafoContainer.style.height = "30rem";
+					parrafoContainer.style.height = "25rem";
 					setTimeout(() => {
-						parrafo.innerHTML =
-							"Soy estudiante de programación web tanto del back-end como del front-end aunque personalmente prefiero el front. <br/>" +
-							"A lo largo de este año he trabajado para aprender las bases de la programación de manera solida y en simultaneo aplicar lo aprendido en tecnologías como Html, Css y Javascript.<br/><br/>" +
-							"Actualmente estoy  profundizado mis conocimientos en React como librería principal de Js, frameworks como Frame-motion, Rome, e.t.c. <br/>" +
-							"Además de continuar aprendiendo sobre desarrollo web estoy cursando clases de inglés ( B1) para mejorar mi capacidad de comunicarme en un entorno global.<br/><br/>" +
-							"Mi viaje en la industria tech recién comienza pero ha sido una montaña rusa de aprendizaje y crecimiento. Más allá de las habilidades técnicas, he aprendido a resolver problemas de manera creativa y comprometerme con el aprendizaje continuo como filosofía personal.";
+						parrafo.innerHTML = parrafo4;
 					}, 200);
 					parrafoContainer.style.transition = "height .5s ease-in-out";
 					getComputedStyle(parrafoContainer).getPropertyValue("height");
@@ -199,8 +294,7 @@ elements.forEach((element, index) => {
 					);
 					parrafoContainer.style.height = "35rem";
 					setTimeout(() => {
-						parrafo.textContent =
-							"Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀 Me gusta la cocina de anime, me gusta sacar al chucho 😀";
+						parrafo.innerHTML = parrafo5;
 					}, 200);
 					getComputedStyle(parrafoContainer).getPropertyValue("height");
 					parrafoContainer.style.transition = "height 0.5s ease-in-out";
