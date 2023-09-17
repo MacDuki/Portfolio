@@ -1,73 +1,4 @@
 //Animated text variables//
-const lenguageLabel = document.querySelector(".lenguage-label");
-const animateParrafo = document.querySelector(".animate-parrafo");
-let textParrafoToAnimate = "paginas web.";
-let currentIndexParrafoAnimated = 0;
-let codeFinished = false;
-//animated text logic //
-function variableTextLenguage(idioma) {
-	if (idioma === "ing") {
-		textParrafoToAnimate = "websites.";
-		animateParrafo.textContent = "";
-		currentIndexParrafoAnimated = 0;
-		animateTextParrafo(textParrafoToAnimate);
-	} else if (idioma === "esp") {
-		animateParrafo.textContent = "";
-		currentIndexParrafoAnimated = 0;
-		textParrafoToAnimate = "paginas web.";
-		animateTextParrafo(textParrafoToAnimate);
-	}
-}
-
-function animateTextParrafo(text) {
-	codeFinished = false;
-	lenguageLabel.style.pointerEvents = "none";
-	if (currentIndexParrafoAnimated < text.length) {
-		animateParrafo.textContent += text.charAt(currentIndexParrafoAnimated);
-		currentIndexParrafoAnimated++;
-		setTimeout(function () {
-			animateTextParrafo(text);
-		}, 200);
-	} else if (currentIndexParrafoAnimated === text.length) {
-		codeFinished = true;
-		lenguageLabel.style.pointerEvents = "all";
-	}
-}
-
-animateTextParrafo(textParrafoToAnimate);
-
-const textContactElement = document.querySelector(".animated-text");
-const textToAnimate = "Todo feedback es bienvenido, contactame...";
-let currentIndexTextAnimated = 0;
-
-function animateText() {
-	if (currentIndexTextAnimated < textToAnimate.length) {
-		textContactElement.textContent += textToAnimate.charAt(
-			currentIndexTextAnimated,
-		);
-		currentIndexTextAnimated++;
-		setTimeout(animateText, 100);
-	} else {
-		setTimeout(() => {
-			textContactElement.textContent = "";
-			currentIndexTextAnimated = 0;
-			requestAnimationFrame(animateText);
-		}, 4000);
-	}
-}
-
-animateText();
-
-//Switch Lenguage //
-//about me varibles
-const shortest = document.querySelector(".shortest");
-const shorter = document.querySelector(".shorter");
-const short = document.querySelector(".short");
-const longer = document.querySelector(".longer");
-const longest = document.querySelector(".longest");
-const parrafo = document.querySelector(".parrafo-multiple");
-const elements = [shortest, shorter, short, longer, longest];
-const parrafoContainer = document.querySelector(".parrafoMultiple-container");
 let parrafo1 = "Lo intenta...";
 let parrafo2 =
 	"Soy estudiante de programación web tanto del back-end como del front-end aunque personalmente prefiero el front.";
@@ -85,12 +16,114 @@ let parrafo5 =
 	"Actualmente estoy  profundizado mis conocimientos en React como librería principal de Js, frameworks como Frame-motion, Rome, e.t.c. <br/>" +
 	"Además de continuar aprendiendo sobre desarrollo web estoy cursando clases de inglés ( B1) para mejorar mi capacidad de comunicarme en un entorno global.<br/><br/>" +
 	"Mi viaje en la industria tech recién comienza pero ha sido una montaña rusa de aprendizaje y crecimiento. Más allá de las habilidades técnicas, he aprendido a resolver problemas de manera creativa y comprometerme con el aprendizaje continuo como filosofía personal.";
+const lenguageLabel = document.querySelector(".lenguage-label");
+const animateParrafo = document.querySelector(".animate-parrafo");
+const textContactElement = document.querySelector(".animated-text");
+const textToAnimate = "Todo feedback es bienvenido, contactame...";
+const shortest = document.querySelector(".shortest");
+const shorter = document.querySelector(".shorter");
+const short = document.querySelector(".short");
+const longer = document.querySelector(".longer");
+const longest = document.querySelector(".longest");
+const parrafo = document.querySelector(".parrafo-multiple");
+const elements = [shortest, shorter, short, longer, longest];
+const parrafoContainer = document.querySelector(".parrafoMultiple-container");
 const lenguageSwitch = document.querySelector(".lenguage-switch");
 const lenguageSwitchSpan = document.querySelector(".lenguage-span");
-//home words
 const inicioTittle = document.querySelector(".inicio-tittle");
 const inicioTittleName = document.querySelector(".inicio-tittle-name");
 const staticParrafo = document.querySelector(".static-parrafo");
+const navbar = document.querySelector(".navbar");
+const body = document.querySelector("body");
+const aboutMe = document.querySelector("#sobre-mi");
+const contact = document.querySelector("#contacto");
+const navSettingsMobile = document.querySelector(".settings-mobile");
+const inicioH1 = document.querySelector(".inicio-tittle-container");
+const header = document.querySelector(".header");
+const buttonsSection = document.querySelectorAll(".anchor-section");
+const enlacesNav = document.querySelectorAll(".anchor-section");
+const leftArrow = document.querySelector(".proyect-left-arrow");
+const rightArrow = document.querySelector(".proyect-right-arrow");
+const proyectContainer = document.querySelector(".proyect-container");
+const allCardsProyect = document.querySelectorAll(".card-container");
+const parrafoCounter = document.querySelector(".proyect-counter");
+const aboutMeTittle = document.querySelector(".about-me-tittle");
+const proyectsTittle = document.querySelector(".tittle-proyects");
+const themeSwitch = document.querySelector(".theme-switch");
+let activeButton = false;
+let textParrafoToAnimate = "paginas web.";
+let currentIndexParrafoAnimated = 0;
+let codeFinished = false;
+let currentIndexTextAnimated = 0;
+let lastClickedInput = null;
+let proyectCounter = 1;
+let currentIndex = 0;
+parrafoCounter.textContent = `${proyectCounter}/3`;
+
+// Switch Theme //
+themeSwitch.addEventListener("change", () => {
+	if (themeSwitch.checked) {
+		aboutMe.style.backgroundColor = "var(--main-secondBackgroundNight-color)";
+		contact.style.backgroundColor = "var(--main-secondBackgroundNight-color)";
+		body.style.backgroundColor = "var(--main-backgroundNight-color)";
+		inicioTittle.style.color = "var(--main-secondBackground-color)";
+		staticParrafo.style.color = "var(--main-secondBackground-color)";
+	} else {
+		aboutMe.style.backgroundColor = "var(--main-secondBackground-color)";
+		contact.style.backgroundColor = "var(--main-secondBackground-color)";
+		body.style.backgroundColor = "var(--main-background-color)";
+		inicioTittle.style.color = "var(--main-black-color)";
+		staticParrafo.style.color = "var(--main-black-color)";
+	}
+});
+
+//animated text logic //
+function variableTextLenguage(idioma) {
+	if (idioma === "ing") {
+		textParrafoToAnimate = "websites.";
+		animateParrafo.textContent = "";
+		currentIndexParrafoAnimated = 0;
+		animateTextParrafo(textParrafoToAnimate);
+	} else if (idioma === "esp") {
+		animateParrafo.textContent = "";
+		currentIndexParrafoAnimated = 0;
+		textParrafoToAnimate = "paginas web.";
+		animateTextParrafo(textParrafoToAnimate);
+	}
+}
+function animateTextParrafo(text) {
+	codeFinished = false;
+	lenguageLabel.style.pointerEvents = "none";
+	if (currentIndexParrafoAnimated < text.length) {
+		animateParrafo.textContent += text.charAt(currentIndexParrafoAnimated);
+		currentIndexParrafoAnimated++;
+		setTimeout(function () {
+			animateTextParrafo(text);
+		}, 200);
+	} else if (currentIndexParrafoAnimated === text.length) {
+		codeFinished = true;
+		lenguageLabel.style.pointerEvents = "all";
+	}
+}
+animateTextParrafo(textParrafoToAnimate);
+function animateText() {
+	if (currentIndexTextAnimated < textToAnimate.length) {
+		textContactElement.textContent += textToAnimate.charAt(
+			currentIndexTextAnimated,
+		);
+		currentIndexTextAnimated++;
+		setTimeout(animateText, 100);
+	} else {
+		setTimeout(() => {
+			textContactElement.textContent = "";
+			currentIndexTextAnimated = 0;
+			requestAnimationFrame(animateText);
+		}, 4000);
+	}
+}
+animateText();
+
+//Switch Lenguage //
 
 lenguageSwitch.addEventListener("change", function () {
 	elements.forEach((element) => {
@@ -98,6 +131,8 @@ lenguageSwitch.addEventListener("change", function () {
 	});
 	parrafoContainer.style.height = "0";
 	if (lenguageSwitch.checked) {
+		proyectsTittle.textContent = "Projects";
+		aboutMeTittle.textContent = "About me";
 		inicioTittle.textContent = "Hello, my name is";
 		inicioTittleName.textContent = "Peter";
 		staticParrafo.textContent = "I make";
@@ -122,6 +157,8 @@ lenguageSwitch.addEventListener("change", function () {
 		const idioma = "ing";
 		variableTextLenguage(idioma);
 	} else {
+		proyectsTittle.textContent = "Proyectos";
+		aboutMeTittle.textContent = "Sobre Mí";
 		inicioTittle.textContent = "Hola, mi nombre es";
 		inicioTittleName.textContent = "Pedro";
 		staticParrafo.textContent = "Desarrollo";
@@ -149,7 +186,6 @@ lenguageSwitch.addEventListener("change", function () {
 });
 
 //Smooth-scroll //
-const enlacesNav = document.querySelectorAll(".anchor-section");
 
 enlacesNav.forEach((enlace) => {
 	enlace.addEventListener("click", function (event) {
@@ -163,7 +199,6 @@ enlacesNav.forEach((enlace) => {
 		}
 	});
 });
-// icon spinner //
 
 //  mobile menu  //
 
@@ -172,14 +207,6 @@ window.addEventListener("load", () => {
 	buttonNavSettings.addEventListener("click", navAllSettings);
 	navSettingsMobile.style.display = "none";
 });
-
-const navbar = document.querySelector(".navbar");
-const body = document.querySelector("body");
-const navSettingsMobile = document.querySelector(".settings-mobile");
-const inicioH1 = document.querySelector(".inicio-tittle-container");
-const header = document.querySelector(".header");
-const buttonsSection = document.querySelectorAll(".anchor-section");
-let activeButton = false;
 
 function navAllSettings() {
 	activeButton = !activeButton;
@@ -211,9 +238,6 @@ function navAllSettings() {
 }
 
 //bio options  //
-
-let lastClickedInput = null;
-
 elements.forEach((element, index) => {
 	element.addEventListener("click", () => {
 		if (lastClickedInput === element) {
@@ -305,15 +329,6 @@ elements.forEach((element, index) => {
 });
 
 // proyectSlider animation //
-
-const leftArrow = document.querySelector(".proyect-left-arrow");
-const rightArrow = document.querySelector(".proyect-right-arrow");
-const proyectContainer = document.querySelector(".proyect-container");
-const allCardsProyect = document.querySelectorAll(".card-container");
-const parrafoCounter = document.querySelector(".proyect-counter");
-let proyectCounter = 1;
-parrafoCounter.textContent = `${proyectCounter}/3`;
-let currentIndex = 0;
 
 rightArrow.addEventListener("click", () => {
 	if (proyectCounter < 3) {

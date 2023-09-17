@@ -2,7 +2,8 @@
   --main-background-color: #E5EEFA;
   --main-black-color: #171b21;
   --main-secondBackground-color:#dbe6f4;
-
+  --main-backgroundNight-color: #070426;
+  --main-secondBackgroundNight-color:#000018;
 }
 * {
   font-size: 62.5%;
@@ -137,13 +138,10 @@ ion-icon {
     align-items: center;
   }                                              
 
-  .inicio-tittle-container{
-  }
-
   #inicio h1 {
     margin-top: 3rem;
     font-size: 6rem;
-    color: var(--main-red-color);
+    color: var(--main-black-color);
     font-family: 'Rubik', sans-serif;
     font-weight:900;
     margin-bottom: 0;
@@ -214,6 +212,7 @@ ion-icon {
     padding-right: 4rem;
   }
   #inicio p {
+    color: var(--main-black-color);
     margin-top: 1.5rem;
     margin-bottom: 4rem;
     font-size: xx-large;
