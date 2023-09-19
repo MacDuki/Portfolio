@@ -3,7 +3,7 @@
   --main-black-color: #171b21;
   --main-secondBackground-color:#dbe6f4;
   --main-backgroundNight-color: #070426;
-  --main-secondBackgroundNight-color:#000018;
+  --main-secondBackgroundNight-color:#0d0734;
 }
 * {
   font-size: 62.5%;
@@ -147,6 +147,7 @@ ion-icon {
     margin-bottom: 0;
   }
 
+
   .inicio-tittle-name {
     font-size: 6rem;
     color: var(--main-red-color);
@@ -256,7 +257,7 @@ ion-icon {
     height: 70rem;
   }
 
-  #sobre-mi h2{
+  .about-me-tittle{
     font-size: 5rem;
     font-family: 'Rubik', sans-serif;
     font-weight:900;
@@ -266,14 +267,27 @@ ion-icon {
     -webkit-background-clip: text;
             background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: levitate 2s infinite alternate;
     text-align: center;
+  
   }
+
+  @keyframes neon-animation {
+    0% {
+      text-shadow: 0 0 .4rem  #23d5ab;
+    }
+    50% {
+      text-shadow: 0 0 5rem #23a6d5;
+    }
+    100%{
+      text-shadow: 0 0 7rem #23a6d5;
+    }
+  }
+
+
 
   .formContainer {
     width: 33rem;
     height: 5rem;
-    background-color: var(--main-secondBackground-color);
     display: flex;
     align-items: center;
   }
@@ -333,6 +347,7 @@ ion-icon {
   }
   
   .parrafo-multiple {
+    color: var(--main-black-color);
     padding-left: 2rem;
     padding-right: 2rem;
     text-align: left;
@@ -355,7 +370,6 @@ ion-icon {
   -webkit-background-clip: text;
           background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: levitate 2s infinite alternate;
   text-align: center;
  }
 
@@ -497,7 +511,6 @@ figure {
     -webkit-background-clip: text;
             background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: levitate 2s infinite alternate ease-in-out;
   text-align: center;
   font-size: 5rem;
  }

@@ -50,6 +50,8 @@ const parrafoCounter = document.querySelector(".proyect-counter");
 const aboutMeTittle = document.querySelector(".about-me-tittle");
 const proyectsTittle = document.querySelector(".tittle-proyects");
 const themeSwitch = document.querySelector(".theme-switch");
+const contactTittle = document.querySelector(".contact-tittle");
+const buttonNavSettings = document.querySelector(".button-settings");
 let activeButton = false;
 let textParrafoToAnimate = "paginas web.";
 let currentIndexParrafoAnimated = 0;
@@ -63,12 +65,35 @@ parrafoCounter.textContent = `${proyectCounter}/3`;
 // Switch Theme //
 themeSwitch.addEventListener("change", () => {
 	if (themeSwitch.checked) {
+		buttonNavSettings.style.color = "var(--main-secondBackground-color)";
+		contactTittle.style.animation =
+			"neon-animation 4s cubic-bezier(0.165, 0.84, 0.44, 1) infinite alternate";
+		proyectsTittle.style.animation =
+			"neon-animation 4s cubic-bezier(0.165, 0.84, 0.44, 1) infinite alternate";
+		aboutMeTittle.style.animation =
+			"neon-animation 4s cubic-bezier(0.165, 0.84, 0.44, 1) infinite alternate";
+		parrafoContainer.style.border =
+			"1px solid var(--main-secondBackgroundNight-color)";
+		parrafoContainer.style.boxShadow =
+			"box-shadow: 0 0 10px var(--main-secondBackground-color)";
+		parrafo.style.color = "var(--main-secondBackground-color)";
+		parrafoContainer.style.backgroundColor =
+			"var(--main-backgroundNight-color)";
 		aboutMe.style.backgroundColor = "var(--main-secondBackgroundNight-color)";
 		contact.style.backgroundColor = "var(--main-secondBackgroundNight-color)";
 		body.style.backgroundColor = "var(--main-backgroundNight-color)";
 		inicioTittle.style.color = "var(--main-secondBackground-color)";
 		staticParrafo.style.color = "var(--main-secondBackground-color)";
 	} else {
+		buttonNavSettings.style.color = "var(--main-black-color)";
+		contactTittle.style.animation = "";
+		proyectsTittle.style.animation = "";
+		aboutMeTittle.style.animation = "";
+		parrafoContainer.style.border =
+			"1px solid var(--main-secondBackground-color)";
+		parrafoContainer.style.boxShadow = "box-shadow: 0 0 10px rgba(0,0,0,.1)";
+		parrafo.style.color = "var(--main-black-color)";
+		parrafoContainer.style.backgroundColor = "var(--main-background-color)";
 		aboutMe.style.backgroundColor = "var(--main-secondBackground-color)";
 		contact.style.backgroundColor = "var(--main-secondBackground-color)";
 		body.style.backgroundColor = "var(--main-background-color)";
@@ -76,6 +101,50 @@ themeSwitch.addEventListener("change", () => {
 		staticParrafo.style.color = "var(--main-black-color)";
 	}
 });
+//neon animation //
+/*function toggleNeon(value, color) {
+	if (value < 100) {
+		aboutMeTittle.style.textShadow = `0 0 ${value / 8}rem ${color}`;
+	}
+}
+let neonShadowColor = "#23a6d5";
+let neonShadowIndicator = 0;
+function reduceNeon() {
+	setInterval(() => {
+		if (neonShadowIndicator > 50) {
+			neonShadowIndicator--;
+			neonShadowColor = "#23a6d5";
+
+			toggleNeon(neonShadowIndicator, neonShadowColor);
+		} else {
+			incrementNeon();
+		}
+	}, 80);
+}
+function incrementNeon() {
+	setInterval(() => {
+		toggleNeon(neonShadowIndicator, neonShadowColor);
+
+		neonShadowIndicator++;
+
+		neonShadowColor = "#23d5ab";
+
+		if (neonShadowIndicator >= 80) {
+			reduceNeon();
+		}
+	}, 80);
+	console.log("Se ve sección y ejecuto incrementDecimal");
+}
+function handleScroll() {
+	const rect = aboutMe.getBoundingClientRect();
+
+	if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+		incrementNeon();
+		window.removeEventListener("scroll", handleScroll);
+	}
+}
+
+window.addEventListener("scroll", handleScroll);*/
 
 //animated text logic //
 function variableTextLenguage(idioma) {
@@ -203,7 +272,6 @@ enlacesNav.forEach((enlace) => {
 //  mobile menu  //
 
 window.addEventListener("load", () => {
-	const buttonNavSettings = document.querySelector(".button-settings");
 	buttonNavSettings.addEventListener("click", navAllSettings);
 	navSettingsMobile.style.display = "none";
 });
@@ -212,6 +280,7 @@ function navAllSettings() {
 	activeButton = !activeButton;
 
 	if (activeButton) {
+		buttonNavSettings.name = "close-outline";
 		navSettingsMobile.classList.remove("inactive");
 		navSettingsMobile.style.display = "";
 		body.style.overflow = "hidden";
@@ -227,8 +296,8 @@ function navAllSettings() {
 				inicioH1.classList.add("up");
 			});
 		});
-		console.log("El botón fue presionado");
 	} else {
+		buttonNavSettings.name = "menu-outline";
 		setTimeout(() => navSettingsMobile.style.display === "none", 200);
 		navSettingsMobile.classList.add("inactive");
 		body.style.overflow = "";
@@ -244,7 +313,7 @@ elements.forEach((element, index) => {
 			element.checked = false;
 			lastClickedInput = null;
 			parrafoContainer.style.height = "0";
-			parrafoContainer.setAttribute("style", " box-shadow: none");
+			parrafoContainer.style.boxShadow = "none";
 			setTimeout(() => {
 				parrafo.remove();
 			}, 400);
@@ -253,10 +322,7 @@ elements.forEach((element, index) => {
 				case 0:
 					lastClickedInput = element;
 					parrafoContainer.appendChild(parrafo);
-					parrafoContainer.setAttribute(
-						"style",
-						" box-shadow: 0 0 10px rgba(0,0,0,.1)",
-					);
+
 					parrafo.textContent = parrafo1;
 
 					parrafoContainer.style.height = "5rem";
@@ -267,10 +333,7 @@ elements.forEach((element, index) => {
 				case 1:
 					lastClickedInput = element;
 					parrafoContainer.appendChild(parrafo);
-					parrafoContainer.setAttribute(
-						"style",
-						" box-shadow: 0 0 10px rgba(0,0,0,.1)",
-					);
+
 					parrafoContainer.style.height = "8rem";
 					setTimeout(() => {
 						parrafo.innerHTML = parrafo2;
@@ -282,10 +345,7 @@ elements.forEach((element, index) => {
 				case 2:
 					lastClickedInput = element;
 					parrafoContainer.appendChild(parrafo);
-					parrafoContainer.setAttribute(
-						"style",
-						" box-shadow: 0 0 10px rgba(0,0,0,.1)",
-					);
+
 					parrafoContainer.style.height = "13rem";
 					setTimeout(() => {
 						parrafo.innerHTML = parrafo3;
@@ -297,10 +357,7 @@ elements.forEach((element, index) => {
 				case 3:
 					lastClickedInput = element;
 					parrafoContainer.appendChild(parrafo);
-					parrafoContainer.setAttribute(
-						"style",
-						" box-shadow: 0 0 10px rgba(0,0,0,.1)",
-					);
+
 					parrafoContainer.style.height = "25rem";
 					setTimeout(() => {
 						parrafo.innerHTML = parrafo4;
@@ -312,10 +369,7 @@ elements.forEach((element, index) => {
 				case 4:
 					lastClickedInput = element;
 					parrafoContainer.appendChild(parrafo);
-					parrafoContainer.setAttribute(
-						"style",
-						" box-shadow: 0 0 10px rgba(0,0,0,.1)",
-					);
+
 					parrafoContainer.style.height = "35rem";
 					setTimeout(() => {
 						parrafo.innerHTML = parrafo5;
