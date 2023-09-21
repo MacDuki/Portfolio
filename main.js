@@ -35,6 +35,8 @@ const inicioTittleName = document.querySelector(".inicio-tittle-name");
 const staticParrafo = document.querySelector(".static-parrafo");
 const navbar = document.querySelector(".navbar");
 const body = document.querySelector("body");
+const home = document.querySelector("#inicio");
+const proyect = document.querySelector("#proyectos");
 const aboutMe = document.querySelector("#sobre-mi");
 const contact = document.querySelector("#contacto");
 const navSettingsMobile = document.querySelector(".settings-mobile");
@@ -52,6 +54,13 @@ const proyectsTittle = document.querySelector(".tittle-proyects");
 const themeSwitch = document.querySelector(".theme-switch");
 const contactTittle = document.querySelector(".contact-tittle");
 const buttonNavSettings = document.querySelector(".button-settings");
+const aboutWidthAviable = aboutMe.offsetWidth;
+const aboutWidthPx = (aboutWidthAviable * 100) / 100;
+const contactWidthAviable = contact.offsetWidth;
+const contactWidthPx = (contactWidthAviable * 100) / 120;
+const proyectWidthAviable = proyect.offsetWidth;
+const proyectWidthPx = (proyectWidthAviable * 100) / 120;
+const styleSheet = document.styleSheets[0];
 let activeButton = false;
 let textParrafoToAnimate = "paginas web.";
 let currentIndexParrafoAnimated = 0;
@@ -60,11 +69,91 @@ let currentIndexTextAnimated = 0;
 let lastClickedInput = null;
 let proyectCounter = 1;
 let currentIndex = 0;
+let parrafoContainerBoxShadow = "0 0 10px rgba(0,0,0,.1)";
+let parrafoContainerBorder = "1px solid var(--main-secondBackground-color";
+let animationBorderFlag = false;
 parrafoCounter.textContent = `${proyectCounter}/3`;
+//animationBorderSection
+function animationBorderAbout(xmove, direction, velocity) {
+	const blurValue = "1rem";
+	if (animationBorderFlag) {
+		if (direction === 1) {
+			if (xmove < aboutWidthPx * 1.3) {
+				xmove += velocity;
+			} else {
+				direction = -1;
+			}
+		} else {
+			if (xmove > -aboutWidthPx * 1.3) {
+				xmove -= velocity;
+			} else {
+				direction = 1;
+			}
+		}
+		aboutMe.style.boxShadow = `${xmove}px 0 ${blurValue} 0px #23a6d5`;
+		setTimeout(() => animationBorderAbout(xmove, direction, velocity), 100); // Intervalo de 100ms entre cada cambio
+	}
+}
+function animationBorderContact(xmove, direction, velocity) {
+	const blurValue = "1rem";
+	if (animationBorderFlag) {
+		if (direction === 1) {
+			if (xmove < contactWidthPx) {
+				xmove += velocity;
+			} else {
+				direction = -1;
+			}
+		} else {
+			if (xmove > -contactWidthPx) {
+				xmove -= velocity;
+			} else {
+				direction = 1;
+			}
+		}
+		contact.style.boxShadow = `${xmove}px 0 ${blurValue} 0px #23a6d5`;
+		setTimeout(() => animationBorderContact(xmove, direction, velocity), 100); // Intervalo de 100ms entre cada cambio
+	}
+}
+function animationBorderProyect(xmove, direction, velocity) {
+	const blurValue = "1rem";
+	if (animationBorderFlag) {
+		if (direction === 1) {
+			if (xmove < proyectWidthPx * 1.3) {
+				xmove += velocity;
+			} else {
+				direction = -1;
+			}
+		} else {
+			if (xmove > -proyectWidthPx * 1.3) {
+				xmove -= velocity;
+			} else {
+				direction = 1;
+			}
+		}
+		proyect.style.boxShadow = `${xmove}px 0 ${blurValue} 0px #23a6d5`;
+		setTimeout(() => animationBorderProyect(xmove, direction, velocity), 100); // Intervalo de 100ms entre cada cambio
+	}
+}
+
+/*function handleScroll() {
+	const rectContact = contact.getBoundingClientRect();
+	const rectProyect = proyect.getBoundingClientRect();
+
+	if (rectContact.top <= window.innerHeight && rectContact.bottom >= 0) {
+		animationBorderSection(aboutWidthPx, 1, 10, "contact");
+	} else if (rectProyect.top <= window.innerHeight && rectProyect.bottom >= 0) {
+		animationBorderSection(aboutWidthPx, 1, 10, "proyect");
+	}
+}*/
 
 // Switch Theme //
 themeSwitch.addEventListener("change", () => {
 	if (themeSwitch.checked) {
+		animationBorderFlag = true;
+		animationBorderAbout(aboutWidthPx, 1, 10);
+		animationBorderContact(contactWidthPx, 1, 100);
+		animationBorderProyect(proyectWidthPx, 1, 10);
+		/*header.style.boxShadow = "0 0 .5rem #dbe6f4";*/
 		buttonNavSettings.style.color = "var(--main-secondBackground-color)";
 		contactTittle.style.animation =
 			"neon-animation 4s cubic-bezier(0.165, 0.84, 0.44, 1) infinite alternate";
@@ -72,79 +161,59 @@ themeSwitch.addEventListener("change", () => {
 			"neon-animation 4s cubic-bezier(0.165, 0.84, 0.44, 1) infinite alternate";
 		aboutMeTittle.style.animation =
 			"neon-animation 4s cubic-bezier(0.165, 0.84, 0.44, 1) infinite alternate";
-		parrafoContainer.style.border =
-			"1px solid var(--main-secondBackgroundNight-color)";
-		parrafoContainer.style.boxShadow =
-			"box-shadow: 0 0 10px var(--main-secondBackground-color)";
-		parrafo.style.color = "var(--main-secondBackground-color)";
+		parrafoContainerBorder = "1px solid var(--main-backgroundNight-color";
+		parrafoContainerBoxShadow = "0 0 5px #dbe6f4";
+		parrafo.style.color = "var(--main-test-color)";
+		parrafoContainer.style.border = "none";
+		parrafoContainer.style.boxShadow = "none";
 		parrafoContainer.style.backgroundColor =
-			"var(--main-backgroundNight-color)";
-		aboutMe.style.backgroundColor = "var(--main-secondBackgroundNight-color)";
-		contact.style.backgroundColor = "var(--main-secondBackgroundNight-color)";
-		body.style.backgroundColor = "var(--main-backgroundNight-color)";
+			"var(--main-secondBackgroundNight-color)";
+		contact.style.background = "rgb(4,11,20)";
+		contact.style.background =
+			"linear-gradient(90deg, rgba(4,11,20,1) 11%, rgba(2,8,16,1) 30%, rgba(2,8,16,1) 100%)";
+		proyect.style.background = "rgb(2,8,16)";
+		proyect.style.background =
+			"linear-gradient(90deg, rgba(2,8,16,1) 3%, rgba(3,7,10,1) 12%, rgba(2,8,16,1) 31%, rgba(2,8,16,1) 40%)";
+		aboutMe.style.background = "rgb(2,8,16)";
+		aboutMe.style.background =
+			"linear-gradient(90deg, rgba(2,8,16,1) 0%, rgba(2,8,16,1) 13%, rgba(5,19,28,1) 100%)";
+		header.style.background = "rgb(0,16,41)";
+		header.style.background =
+			"linear-gradient(90deg, rgba(0,16,41,1) 0%, rgba(0,16,41,1) 13%, rgba(3,20,31,1) 100%)";
+		home.style.background = "rgb(0,16,41)";
+		home.style.background =
+			"linear-gradient(90deg, rgba(0,16,41,1) 0%, rgba(0,16,41,1) 13%, rgba(3,20,31,1) 100%)";
 		inicioTittle.style.color = "var(--main-secondBackground-color)";
 		staticParrafo.style.color = "var(--main-secondBackground-color)";
 	} else {
+		animationBorderFlag = false;
+		aboutMe.style.boxShadow = "0 0 .5rem rgba(0,0,0,.09)";
+		contact.style.boxShadow = "0 0 .5rem rgba(0,0,0,.09)";
+		proyect.style.boxShadow = "0 5px .5rem rgba(0,0,0,.09)";
+		header.style.boxShadow = "0 0 .5rem rgba(0,0,0,.09)";
 		buttonNavSettings.style.color = "var(--main-black-color)";
 		contactTittle.style.animation = "";
 		proyectsTittle.style.animation = "";
 		aboutMeTittle.style.animation = "";
-		parrafoContainer.style.border =
-			"1px solid var(--main-secondBackground-color)";
-		parrafoContainer.style.boxShadow = "box-shadow: 0 0 10px rgba(0,0,0,.1)";
 		parrafo.style.color = "var(--main-black-color)";
+		parrafoContainerBorder = "1px solid var(--main-secondBackground-color";
+		parrafoContainerBoxShadow = "0 0 10px rgba(0,0,0,.1)";
+		parrafoContainer.style.boxShadow = "none";
+		parrafoContainer.style.border = "none";
 		parrafoContainer.style.backgroundColor = "var(--main-background-color)";
 		aboutMe.style.backgroundColor = "var(--main-secondBackground-color)";
 		contact.style.backgroundColor = "var(--main-secondBackground-color)";
+		home.style.background = "";
+		aboutMe.style.background = "";
+		proyect.style.background = "";
+		contact.style.background = "";
+		header.style.background = "";
+
 		body.style.backgroundColor = "var(--main-background-color)";
 		inicioTittle.style.color = "var(--main-black-color)";
 		staticParrafo.style.color = "var(--main-black-color)";
 	}
 });
-//neon animation //
-/*function toggleNeon(value, color) {
-	if (value < 100) {
-		aboutMeTittle.style.textShadow = `0 0 ${value / 8}rem ${color}`;
-	}
-}
-let neonShadowColor = "#23a6d5";
-let neonShadowIndicator = 0;
-function reduceNeon() {
-	setInterval(() => {
-		if (neonShadowIndicator > 50) {
-			neonShadowIndicator--;
-			neonShadowColor = "#23a6d5";
-
-			toggleNeon(neonShadowIndicator, neonShadowColor);
-		} else {
-			incrementNeon();
-		}
-	}, 80);
-}
-function incrementNeon() {
-	setInterval(() => {
-		toggleNeon(neonShadowIndicator, neonShadowColor);
-
-		neonShadowIndicator++;
-
-		neonShadowColor = "#23d5ab";
-
-		if (neonShadowIndicator >= 80) {
-			reduceNeon();
-		}
-	}, 80);
-	console.log("Se ve sección y ejecuto incrementDecimal");
-}
-function handleScroll() {
-	const rect = aboutMe.getBoundingClientRect();
-
-	if (rect.top <= window.innerHeight && rect.bottom >= 0) {
-		incrementNeon();
-		window.removeEventListener("scroll", handleScroll);
-	}
-}
-
-window.addEventListener("scroll", handleScroll);*/
 
 //animated text logic //
 function variableTextLenguage(idioma) {
@@ -307,80 +376,87 @@ function navAllSettings() {
 }
 
 //bio options  //
-elements.forEach((element, index) => {
-	element.addEventListener("click", () => {
-		if (lastClickedInput === element) {
-			element.checked = false;
-			lastClickedInput = null;
-			parrafoContainer.style.height = "0";
-			parrafoContainer.style.boxShadow = "none";
-			setTimeout(() => {
-				parrafo.remove();
-			}, 400);
-		} else if (element !== lastClickedInput) {
-			switch (index) {
-				case 0:
-					lastClickedInput = element;
-					parrafoContainer.appendChild(parrafo);
+(function parrafoMultiple() {
+	elements.forEach((element, index) => {
+		element.addEventListener("click", () => {
+			if (lastClickedInput === element) {
+				element.checked = false;
+				lastClickedInput = null;
+				parrafoContainer.style.height = "0";
+				parrafoContainer.style.boxShadow = "none";
+				parrafoContainer.style.border = "none";
+				setTimeout(() => {
+					parrafo.remove();
+				}, 400);
+			} else if (element !== lastClickedInput) {
+				switch (index) {
+					case 0:
+						lastClickedInput = element;
+						parrafoContainer.appendChild(parrafo);
+						parrafoContainer.style.boxShadow = parrafoContainerBoxShadow;
+						parrafo.textContent = parrafo1;
+						parrafoContainer.style.border = parrafoContainerBorder;
+						parrafoContainer.style.height = "5rem";
+						getComputedStyle(parrafoContainer).getPropertyValue("height");
+						parrafoContainer.style.transition = "height 0.5s ease-in-out";
+						break;
 
-					parrafo.textContent = parrafo1;
+					case 1:
+						lastClickedInput = element;
+						parrafoContainer.appendChild(parrafo);
+						parrafoContainer.style.boxShadow = parrafoContainerBoxShadow;
+						parrafoContainer.style.border = parrafoContainerBorder;
+						parrafoContainer.style.height = "8rem";
+						setTimeout(() => {
+							parrafo.innerHTML = parrafo2;
+						}, 200);
+						getComputedStyle(parrafoContainer).getPropertyValue("height");
+						parrafoContainer.style.transition = "height 0.5s ease-in-out";
+						break;
 
-					parrafoContainer.style.height = "5rem";
-					getComputedStyle(parrafoContainer).getPropertyValue("height");
-					parrafoContainer.style.transition = "height 0.5s ease-in-out";
-					break;
+					case 2:
+						lastClickedInput = element;
+						parrafoContainer.appendChild(parrafo);
+						parrafoContainer.style.boxShadow = parrafoContainerBoxShadow;
+						parrafoContainer.style.border = parrafoContainerBorder;
+						parrafoContainer.style.height = "13rem";
+						setTimeout(() => {
+							parrafo.innerHTML = parrafo3;
+						}, 200);
+						getComputedStyle(parrafoContainer).getPropertyValue("height");
+						parrafoContainer.style.transition = "height 0.5s ease-in-out";
+						break;
 
-				case 1:
-					lastClickedInput = element;
-					parrafoContainer.appendChild(parrafo);
+					case 3:
+						lastClickedInput = element;
+						parrafoContainer.appendChild(parrafo);
+						parrafoContainer.style.boxShadow = parrafoContainerBoxShadow;
+						parrafoContainer.style.border = parrafoContainerBorder;
+						parrafoContainer.style.height = "25rem";
+						setTimeout(() => {
+							parrafo.innerHTML = parrafo4;
+						}, 200);
+						parrafoContainer.style.transition = "height .5s ease-in-out";
+						getComputedStyle(parrafoContainer).getPropertyValue("height");
+						break;
 
-					parrafoContainer.style.height = "8rem";
-					setTimeout(() => {
-						parrafo.innerHTML = parrafo2;
-					}, 200);
-					getComputedStyle(parrafoContainer).getPropertyValue("height");
-					parrafoContainer.style.transition = "height 0.5s ease-in-out";
-					break;
-
-				case 2:
-					lastClickedInput = element;
-					parrafoContainer.appendChild(parrafo);
-
-					parrafoContainer.style.height = "13rem";
-					setTimeout(() => {
-						parrafo.innerHTML = parrafo3;
-					}, 200);
-					getComputedStyle(parrafoContainer).getPropertyValue("height");
-					parrafoContainer.style.transition = "height 0.5s ease-in-out";
-					break;
-
-				case 3:
-					lastClickedInput = element;
-					parrafoContainer.appendChild(parrafo);
-
-					parrafoContainer.style.height = "25rem";
-					setTimeout(() => {
-						parrafo.innerHTML = parrafo4;
-					}, 200);
-					parrafoContainer.style.transition = "height .5s ease-in-out";
-					getComputedStyle(parrafoContainer).getPropertyValue("height");
-					break;
-
-				case 4:
-					lastClickedInput = element;
-					parrafoContainer.appendChild(parrafo);
-
-					parrafoContainer.style.height = "35rem";
-					setTimeout(() => {
-						parrafo.innerHTML = parrafo5;
-					}, 200);
-					getComputedStyle(parrafoContainer).getPropertyValue("height");
-					parrafoContainer.style.transition = "height 0.5s ease-in-out";
-					break;
+					case 4:
+						lastClickedInput = element;
+						parrafoContainer.appendChild(parrafo);
+						parrafoContainer.style.boxShadow = parrafoContainerBoxShadow;
+						parrafoContainer.style.border = parrafoContainerBorder;
+						parrafoContainer.style.height = "35rem";
+						setTimeout(() => {
+							parrafo.innerHTML = parrafo5;
+						}, 200);
+						getComputedStyle(parrafoContainer).getPropertyValue("height");
+						parrafoContainer.style.transition = "height 0.5s ease-in-out";
+						break;
+				}
 			}
-		}
+		});
 	});
-});
+})();
 
 // proyectSlider animation //
 

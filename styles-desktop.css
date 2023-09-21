@@ -2,8 +2,9 @@
   --main-background-color: #E5EEFA;
   --main-black-color: #171b21;
   --main-secondBackground-color:#dbe6f4;
-  --main-backgroundNight-color: #070426;
-  --main-secondBackgroundNight-color:#0d0734;
+  --main-backgroundNight-color: #001029;
+  --main-secondBackgroundNight-color:#020810;
+  --main-test-color: #dbe6f4d1;
 }
 * {
   font-size: 62.5%;
@@ -146,7 +147,7 @@ ion-icon {
     font-weight:900;
     margin-bottom: 0;
   }
-
+  
 
   .inicio-tittle-name {
     font-size: 6rem;
@@ -248,14 +249,16 @@ ion-icon {
   
                                               /*Sobre mi*/
   #sobre-mi {
+    transition: box-shadow 0.5s ease-in-out;
     background-color: var(--main-secondBackground-color);
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 10rem;
-    padding-top: 0rem;
+    padding-top: 10rem;
     height: 70rem;
+    transition: box-shadow 0.5s ease-in-out;
   }
+
 
   .about-me-tittle{
     font-size: 5rem;
@@ -358,7 +361,7 @@ ion-icon {
 
                                                         /* Proyects */
  #proyectos{
-    margin-top: 25rem;
+    padding-top: 25rem;
  }
  .tittle-proyects {
   font-size: 5rem;
@@ -496,11 +499,14 @@ figure {
                                                     /* Contact Area  */
 
  #contacto {
+    position: relative;
     height: 50rem;
-    margin-top: 6rem;
-    margin-bottom: 2.2rem;
+    padding-top: 6rem;
+    padding-bottom: 2.2rem;
     background-color: var(--main-secondBackground-color);
  }
+
+
 
  #contacto h2 {
   padding-top: 10rem;
@@ -577,7 +583,7 @@ figure {
   --switch-height: 20px;
   /* circle */
   --circle-diameter: 32px;
-  --circle-bg: rgb(0, 56, 146);
+  --circle-bg: var(--main-black-color);
   --circle-inset: calc((var(--circle-diameter) - var(--switch-height)) / 2);
 }
 
@@ -662,7 +668,7 @@ figure {
   --switch-height: 20px;
   /* circle */
   --circle-diameter: 32px;
-  --circle-bg: rgb(0, 56, 146);
+  --circle-bg: var(--main-black-color);
   --circle-inset: calc((var(--circle-diameter) - var(--switch-height)) / 2);
 }
 
@@ -718,7 +724,7 @@ figure {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.75);
+  background: var(--main-secondBackground-color);
   border-radius: inherit;
   -webkit-transition: all 500ms;
   -o-transition: all 500ms;
