@@ -56,11 +56,9 @@ const contactTittle = document.querySelector(".contact-tittle");
 const buttonNavSettings = document.querySelector(".button-settings");
 const aboutWidthAviable = aboutMe.offsetWidth;
 const aboutWidthPx = (aboutWidthAviable * 100) / 100;
-const contactWidthAviable = contact.offsetWidth;
-const contactWidthPx = (contactWidthAviable * 100) / 120;
-const proyectWidthAviable = proyect.offsetWidth;
-const proyectWidthPx = (proyectWidthAviable * 100) / 120;
-const styleSheet = document.styleSheets[0];
+const personalizedTextsSp = ["Inicio", "Sobre mi", "Proyectos", "Contacto"];
+const personalizedTextsEng = ["Home", "About Me", "Projects", "Contact"];
+const liElements = navbar.getElementsByTagName("li");
 let activeButton = false;
 let textParrafoToAnimate = "paginas web.";
 let currentIndexParrafoAnimated = 0;
@@ -73,7 +71,8 @@ let parrafoContainerBoxShadow = "0 0 10px rgba(0,0,0,.1)";
 let parrafoContainerBorder = "1px solid var(--main-secondBackground-color";
 let animationBorderFlag = false;
 parrafoCounter.textContent = `${proyectCounter}/3`;
-//animationBorderSection
+
+//animationBorder
 function animationBorderAbout(xmove, direction, velocity) {
 	const blurValue = "1rem";
 	if (animationBorderFlag) {
@@ -94,46 +93,6 @@ function animationBorderAbout(xmove, direction, velocity) {
 		setTimeout(() => animationBorderAbout(xmove, direction, velocity), 100); // Intervalo de 100ms entre cada cambio
 	}
 }
-function animationBorderContact(xmove, direction, velocity) {
-	const blurValue = "1rem";
-	if (animationBorderFlag) {
-		if (direction === 1) {
-			if (xmove < contactWidthPx) {
-				xmove += velocity;
-			} else {
-				direction = -1;
-			}
-		} else {
-			if (xmove > -contactWidthPx) {
-				xmove -= velocity;
-			} else {
-				direction = 1;
-			}
-		}
-		contact.style.boxShadow = `${xmove}px 0 ${blurValue} 0px #23a6d5`;
-		setTimeout(() => animationBorderContact(xmove, direction, velocity), 100); // Intervalo de 100ms entre cada cambio
-	}
-}
-function animationBorderProyect(xmove, direction, velocity) {
-	const blurValue = "1rem";
-	if (animationBorderFlag) {
-		if (direction === 1) {
-			if (xmove < proyectWidthPx * 1.3) {
-				xmove += velocity;
-			} else {
-				direction = -1;
-			}
-		} else {
-			if (xmove > -proyectWidthPx * 1.3) {
-				xmove -= velocity;
-			} else {
-				direction = 1;
-			}
-		}
-		proyect.style.boxShadow = `${xmove}px 0 ${blurValue} 0px #23a6d5`;
-		setTimeout(() => animationBorderProyect(xmove, direction, velocity), 100); // Intervalo de 100ms entre cada cambio
-	}
-}
 
 /*function handleScroll() {
 	const rectContact = contact.getBoundingClientRect();
@@ -151,8 +110,6 @@ themeSwitch.addEventListener("change", () => {
 	if (themeSwitch.checked) {
 		animationBorderFlag = true;
 		animationBorderAbout(aboutWidthPx, 1, 10);
-		animationBorderContact(contactWidthPx, 1, 100);
-		animationBorderProyect(proyectWidthPx, 1, 10);
 		/*header.style.boxShadow = "0 0 .5rem #dbe6f4";*/
 		buttonNavSettings.style.color = "var(--main-secondBackground-color)";
 		contactTittle.style.animation =
@@ -260,6 +217,7 @@ function animateText() {
 	}
 }
 animateText();
+// Switch lenguage navbar
 
 //Switch Lenguage //
 
@@ -267,6 +225,10 @@ lenguageSwitch.addEventListener("change", function () {
 	elements.forEach((element) => {
 		element.checked = false;
 	});
+	for (let i = 0; i < liElements.length; i++) {
+		const anchorElement = liElements[i].getElementsByTagName("a")[0];
+		anchorElement.textContent = personalizedTextsEng[i];
+	}
 	parrafoContainer.style.height = "0";
 	if (lenguageSwitch.checked) {
 		proyectsTittle.textContent = "Projects";
@@ -295,6 +257,10 @@ lenguageSwitch.addEventListener("change", function () {
 		const idioma = "ing";
 		variableTextLenguage(idioma);
 	} else {
+		for (let i = 0; i < liElements.length; i++) {
+			const anchorElement = liElements[i].getElementsByTagName("a")[0];
+			anchorElement.textContent = personalizedTextsSp[i];
+		}
 		proyectsTittle.textContent = "Proyectos";
 		aboutMeTittle.textContent = "Sobre Mí";
 		inicioTittle.textContent = "Hola, mi nombre es";
