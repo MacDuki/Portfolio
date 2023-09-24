@@ -124,6 +124,9 @@ themeSwitch.addEventListener("change", () => {
 			"boxShadowAnimation 4s  infinite alternate";
 		animationBorderFlag = true;
 		animationBorderAbout(aboutWidthPx, 1, 10);
+		aboutMe.style.boxShadow = "";
+		contact.style.boxShadow = "";
+		proyect.style.boxShadow = "";
 		/*header.style.boxShadow = "0 0 .5rem #dbe6f4";*/
 		buttonNavSettings.style.color = "var(--main-secondBackground-color)";
 		contactTittle.style.animation =
@@ -160,10 +163,10 @@ themeSwitch.addEventListener("change", () => {
 		parrafoMultipleClose(true);
 		animationBorderFlag = false;
 		parrafoContainerBoxShadowAnimation = "";
-		aboutMe.style.boxShadow = "0 0 .5rem rgba(0,0,0,.09)";
-		contact.style.boxShadow = "0 0 .5rem rgba(0,0,0,.09)";
-		proyect.style.boxShadow = "0 5px .5rem rgba(0,0,0,.09)";
-		header.style.boxShadow = "0 0 .5rem rgba(0,0,0,.09)";
+		aboutMe.style.boxShadow = "0 0 .8rem .1px var(--main-black-color)";
+		contact.style.boxShadow = "0 0 .8rem .1px var(--main-black-color)";
+		proyect.style.boxShadow = "0 5px .2rem var(--main-black-color)";
+		header.style.boxShadow = "0 0 1rem .1rem rgba(0,0,0,.09)";
 		buttonNavSettings.style.color = "var(--main-black-color)";
 		contactTittle.style.animation = "";
 		proyectsTittle.style.animation = "";
