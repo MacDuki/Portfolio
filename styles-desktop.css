@@ -1,6 +1,6 @@
 :root {
   --main-background-color: #E5EEFA;
-  --main-black-color: #171b21;
+  --main-black-color: #2c2f33;
   --main-secondBackground-color:#dbe6f4;
   --main-backgroundNight-color: #001029;
   --main-secondBackgroundNight-color:#020810;
@@ -256,7 +256,7 @@ ion-icon {
     align-items: center;
     padding-top: 10rem;
     height: 70rem;
-    transition: box-shadow 0.5s ease-in-out;
+    transition: box-shadow 4s cubic-bezier(0.165, 0.84, 0.44, 1) infinite alternate;
   }
 
 
@@ -283,6 +283,15 @@ ion-icon {
     }
     100%{
       text-shadow: 0 0 7rem #23a6d5;
+    }
+  }
+
+  @keyframes boxShadowAnimation {
+    0% {
+      box-shadow: 0 0 8px #dbe6f4;
+    }
+    100% {
+      box-shadow: 0 0 8px #23a6d5;
     }
   }
 

@@ -19,7 +19,7 @@ let parrafo5 =
 const lenguageLabel = document.querySelector(".lenguage-label");
 const animateParrafo = document.querySelector(".animate-parrafo");
 const textContactElement = document.querySelector(".animated-text");
-const textToAnimate = "Todo feedback es bienvenido, contactame...";
+const textToAnimate = "Todo feedback es bienvenido, contactame... ";
 const shortest = document.querySelector(".shortest");
 const shorter = document.querySelector(".shorter");
 const short = document.querySelector(".short");
@@ -68,8 +68,11 @@ let lastClickedInput = null;
 let proyectCounter = 1;
 let currentIndex = 0;
 let parrafoContainerBoxShadow = "0 0 10px rgba(0,0,0,.1)";
+let parrafoContainerBoxShadowAnimation = "";
 let parrafoContainerBorder = "1px solid var(--main-secondBackground-color";
 let animationBorderFlag = false;
+let isBlinking = false;
+
 parrafoCounter.textContent = `${proyectCounter}/3`;
 
 //animationBorder
@@ -77,13 +80,13 @@ function animationBorderAbout(xmove, direction, velocity) {
 	const blurValue = "1rem";
 	if (animationBorderFlag) {
 		if (direction === 1) {
-			if (xmove < aboutWidthPx * 1.3) {
+			if (xmove < aboutWidthPx * 1.1) {
 				xmove += velocity;
 			} else {
 				direction = -1;
 			}
 		} else {
-			if (xmove > -aboutWidthPx * 1.3) {
+			if (xmove > -aboutWidthPx * 1.1) {
 				xmove -= velocity;
 			} else {
 				direction = 1;
@@ -94,20 +97,31 @@ function animationBorderAbout(xmove, direction, velocity) {
 	}
 }
 
-/*function handleScroll() {
-	const rectContact = contact.getBoundingClientRect();
-	const rectProyect = proyect.getBoundingClientRect();
+//function parrafoMultiple close
 
-	if (rectContact.top <= window.innerHeight && rectContact.bottom >= 0) {
-		animationBorderSection(aboutWidthPx, 1, 10, "contact");
-	} else if (rectProyect.top <= window.innerHeight && rectProyect.bottom >= 0) {
-		animationBorderSection(aboutWidthPx, 1, 10, "proyect");
-	}
-}*/
+function parrafoMultipleClose(isClosed) {
+	elements.forEach((element) => {
+		if (isClosed) {
+			element.checked = false;
+			lastClickedInput = null;
+			parrafoContainer.style.height = "0";
+			parrafoContainer.style.boxShadow = "none";
+			parrafoContainer.style.border = "none";
+			setTimeout(() => {
+				parrafo.remove();
+			}, 400);
+		}
+	});
+}
 
 // Switch Theme //
 themeSwitch.addEventListener("change", () => {
 	if (themeSwitch.checked) {
+		navSettingsMobile.style.backgroundColor =
+			"var(--main-secondBackgroundNight-color";
+		parrafoMultipleClose(true);
+		parrafoContainerBoxShadowAnimation =
+			"boxShadowAnimation 4s  infinite alternate";
 		animationBorderFlag = true;
 		animationBorderAbout(aboutWidthPx, 1, 10);
 		/*header.style.boxShadow = "0 0 .5rem #dbe6f4";*/
@@ -119,7 +133,6 @@ themeSwitch.addEventListener("change", () => {
 		aboutMeTittle.style.animation =
 			"neon-animation 4s cubic-bezier(0.165, 0.84, 0.44, 1) infinite alternate";
 		parrafoContainerBorder = "1px solid var(--main-backgroundNight-color";
-		parrafoContainerBoxShadow = "0 0 5px #dbe6f4";
 		parrafo.style.color = "var(--main-test-color)";
 		parrafoContainer.style.border = "none";
 		parrafoContainer.style.boxShadow = "none";
@@ -143,7 +156,10 @@ themeSwitch.addEventListener("change", () => {
 		inicioTittle.style.color = "var(--main-secondBackground-color)";
 		staticParrafo.style.color = "var(--main-secondBackground-color)";
 	} else {
+		navSettingsMobile.style.backgroundColor = "var(--main-black-color)";
+		parrafoMultipleClose(true);
 		animationBorderFlag = false;
+		parrafoContainerBoxShadowAnimation = "";
 		aboutMe.style.boxShadow = "0 0 .5rem rgba(0,0,0,.09)";
 		contact.style.boxShadow = "0 0 .5rem rgba(0,0,0,.09)";
 		proyect.style.boxShadow = "0 5px .5rem rgba(0,0,0,.09)";
@@ -201,22 +217,46 @@ function animateTextParrafo(text) {
 	}
 }
 animateTextParrafo(textParrafoToAnimate);
+
 function animateText() {
-	if (currentIndexTextAnimated < textToAnimate.length) {
-		textContactElement.textContent += textToAnimate.charAt(
+	if (currentIndexTextAnimated <= textToAnimate.length) {
+		// Agrega el indicador de escritura y las letras una por una
+		textContactElement.textContent = textToAnimate.substring(
+			0,
 			currentIndexTextAnimated,
 		);
+		if (isBlinking) {
+			textContactElement.textContent += "|";
+		}
 		currentIndexTextAnimated++;
 		setTimeout(animateText, 100);
 	} else {
-		setTimeout(() => {
-			textContactElement.textContent = "";
-			currentIndexTextAnimated = 0;
-			requestAnimationFrame(animateText);
-		}, 4000);
+		currentIndexTextAnimated = 0;
+		isBlinking = true;
+		blinkCursor();
 	}
 }
-animateText();
+
+function blinkCursor() {
+	if (isBlinking) {
+		const currentText = textContactElement.textContent;
+		if (currentText.endsWith("|")) {
+			textContactElement.textContent = currentText.slice(0, -1);
+		} else {
+			textContactElement.textContent += "|";
+		}
+		setTimeout(blinkCursor, 500);
+	}
+}
+window.addEventListener("scroll", handleScroll);
+function handleScroll() {
+	const rectContact = contact.getBoundingClientRect();
+
+	if (rectContact.top <= window.innerHeight && rectContact.bottom >= 0) {
+		animateText();
+		window.removeEventListener("scroll", handleScroll);
+	}
+}
 // Switch lenguage navbar
 
 //Switch Lenguage //
@@ -300,6 +340,7 @@ enlacesNav.forEach((enlace) => {
 			sectionToGo.scrollIntoView({
 				behavior: "smooth",
 			});
+			buttonNavSettings.name = "menu-outline";
 		}
 	});
 });
@@ -359,12 +400,15 @@ function navAllSettings() {
 					case 0:
 						lastClickedInput = element;
 						parrafoContainer.appendChild(parrafo);
-						parrafoContainer.style.boxShadow = parrafoContainerBoxShadow;
+						/*parrafoContainer.style.boxShadow = parrafoContainerBoxShadow;*/
 						parrafo.textContent = parrafo1;
 						parrafoContainer.style.border = parrafoContainerBorder;
 						parrafoContainer.style.height = "5rem";
 						getComputedStyle(parrafoContainer).getPropertyValue("height");
-						parrafoContainer.style.transition = "height 0.5s ease-in-out";
+						parrafoContainer.style.transition =
+							"height 0.5s ease-in-out, box-shadow 0.5s ease-in-out";
+						parrafoContainer.style.animation =
+							parrafoContainerBoxShadowAnimation;
 						break;
 
 					case 1:
@@ -377,7 +421,10 @@ function navAllSettings() {
 							parrafo.innerHTML = parrafo2;
 						}, 200);
 						getComputedStyle(parrafoContainer).getPropertyValue("height");
-						parrafoContainer.style.transition = "height 0.5s ease-in-out";
+						parrafoContainer.style.transition =
+							"height 0.5s ease-in-out, box-shadow 0.5s ease-in-out";
+						parrafoContainer.style.animation =
+							parrafoContainerBoxShadowAnimation;
 						break;
 
 					case 2:
@@ -390,7 +437,10 @@ function navAllSettings() {
 							parrafo.innerHTML = parrafo3;
 						}, 200);
 						getComputedStyle(parrafoContainer).getPropertyValue("height");
-						parrafoContainer.style.transition = "height 0.5s ease-in-out";
+						parrafoContainer.style.transition =
+							"height 0.5s ease-in-out, box-shadow 0.5s ease-in-out";
+						parrafoContainer.style.animation =
+							parrafoContainerBoxShadowAnimation;
 						break;
 
 					case 3:
@@ -402,7 +452,10 @@ function navAllSettings() {
 						setTimeout(() => {
 							parrafo.innerHTML = parrafo4;
 						}, 200);
-						parrafoContainer.style.transition = "height .5s ease-in-out";
+						parrafoContainer.style.transition =
+							"height 0.5s ease-in-out, box-shadow 0.5s ease-in-out";
+						parrafoContainer.style.animation =
+							parrafoContainerBoxShadowAnimation;
 						getComputedStyle(parrafoContainer).getPropertyValue("height");
 						break;
 
@@ -416,7 +469,10 @@ function navAllSettings() {
 							parrafo.innerHTML = parrafo5;
 						}, 200);
 						getComputedStyle(parrafoContainer).getPropertyValue("height");
-						parrafoContainer.style.transition = "height 0.5s ease-in-out";
+						parrafoContainer.style.transition =
+							"height 0.5s ease-in-out, box-shadow 0.5s ease-in-out";
+						parrafoContainer.style.animation =
+							parrafoContainerBoxShadowAnimation;
 						break;
 				}
 			}
