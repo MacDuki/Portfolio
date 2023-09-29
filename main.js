@@ -19,6 +19,7 @@ let parrafo5 =
 const lenguageLabel = document.querySelector(".lenguage-label");
 const animateParrafo = document.querySelector(".animate-parrafo");
 const textContactElement = document.querySelector(".animated-text");
+const blinkCursorElement = document.querySelector(".blink-cursor");
 const textToAnimate = "Todo feedback es bienvenido, contactame... ";
 const shortest = document.querySelector(".shortest");
 const shorter = document.querySelector(".shorter");
@@ -59,6 +60,7 @@ const aboutWidthPx = (aboutWidthAviable * 100) / 100;
 const personalizedTextsSp = ["Inicio", "Sobre mi", "Proyectos", "Contacto"];
 const personalizedTextsEng = ["Home", "About Me", "Projects", "Contact"];
 const liElements = navbar.getElementsByTagName("li");
+const ionIconsContact = document.querySelectorAll(".logo-contact");
 let activeButton = false;
 let textParrafoToAnimate = "paginas web.";
 let currentIndexParrafoAnimated = 0;
@@ -70,12 +72,13 @@ let currentIndex = 0;
 let parrafoContainerBoxShadow = "0 0 10px rgba(0,0,0,.1)";
 let parrafoContainerBoxShadowAnimation = "";
 let parrafoContainerBorder = "1px solid var(--main-secondBackground-color";
-let animationBorderFlag = false;
+const animationBorderFlag = false;
 let isBlinking = false;
 
 parrafoCounter.textContent = `${proyectCounter}/3`;
 
 //animationBorder
+/*
 function animationBorderAbout(xmove, direction, velocity) {
 	const blurValue = "1rem";
 	if (animationBorderFlag) {
@@ -96,7 +99,7 @@ function animationBorderAbout(xmove, direction, velocity) {
 		setTimeout(() => animationBorderAbout(xmove, direction, velocity), 100); // Intervalo de 100ms entre cada cambio
 	}
 }
-
+*/
 //function parrafoMultiple close
 
 function parrafoMultipleClose(isClosed) {
@@ -117,16 +120,19 @@ function parrafoMultipleClose(isClosed) {
 // Switch Theme //
 themeSwitch.addEventListener("change", () => {
 	if (themeSwitch.checked) {
+		ionIconsContact[2].style.color = "var(--main-secondBackground-color)";
+		ionIconsContact[0].style.color = "var(--main-secondBackground-color)";
+		ionIconsContact[1].style.color = "var(--main-secondBackground-color)";
+		blinkCursorElement.style.color = "var(--main-secondBackground-color)";
+		textContactElement.style.color = "var(--main-secondBackground-color)";
 		navSettingsMobile.style.backgroundColor =
 			"var(--main-secondBackgroundNight-color";
 		parrafoMultipleClose(true);
 		parrafoContainerBoxShadowAnimation =
 			"boxShadowAnimation 4s  infinite alternate";
-		animationBorderFlag = true;
-		animationBorderAbout(aboutWidthPx, 1, 10);
-		aboutMe.style.boxShadow = "";
-		contact.style.boxShadow = "";
-		proyect.style.boxShadow = "";
+		aboutMe.style.animation = "shadowNeon 8s linear infinite alternate";
+		contact.style.animation = "shadowNeon 8s linear infinite alternate";
+		proyect.style.animation = "shadowNeon 8s linear infinite alternate";
 		/*header.style.boxShadow = "0 0 .5rem #dbe6f4";*/
 		buttonNavSettings.style.color = "var(--main-secondBackground-color)";
 		contactTittle.style.animation =
@@ -159,14 +165,18 @@ themeSwitch.addEventListener("change", () => {
 		inicioTittle.style.color = "var(--main-secondBackground-color)";
 		staticParrafo.style.color = "var(--main-secondBackground-color)";
 	} else {
+		ionIconsContact[2].style.color = "var(--main-black-color)";
+		ionIconsContact[0].style.color = "var(--main-black-color)";
+		ionIconsContact[1].style.color = "var(--main-black-color)";
+		blinkCursorElement.style.color = "var(--main-black-color)";
+		textContactElement.style.color = "var(--main-black-color)";
 		navSettingsMobile.style.backgroundColor = "var(--main-black-color)";
 		parrafoMultipleClose(true);
-		animationBorderFlag = false;
 		parrafoContainerBoxShadowAnimation = "";
-		aboutMe.style.boxShadow = "0 0 .8rem .1px var(--main-black-color)";
-		contact.style.boxShadow = "0 0 .8rem .1px var(--main-black-color)";
+		aboutMe.style.boxShadow = "0 0 0 .1px var(--main-black-color)";
+		contact.style.boxShadow = "0 0 0 .1px var(--main-black-color)";
 		proyect.style.boxShadow = "0 5px .2rem var(--main-black-color)";
-		header.style.boxShadow = "0 0 1rem .1rem rgba(0,0,0,.09)";
+		header.style.boxShadow = "0 0 0 .1rem rgba(0,0,0,.09)";
 		buttonNavSettings.style.color = "var(--main-black-color)";
 		contactTittle.style.animation = "";
 		proyectsTittle.style.animation = "";
@@ -184,7 +194,9 @@ themeSwitch.addEventListener("change", () => {
 		proyect.style.background = "";
 		contact.style.background = "";
 		header.style.background = "";
-
+		aboutMe.style.animation = "";
+		contact.style.animation = "";
+		proyect.style.animation = "";
 		body.style.backgroundColor = "var(--main-background-color)";
 		inicioTittle.style.color = "var(--main-black-color)";
 		staticParrafo.style.color = "var(--main-black-color)";
@@ -242,15 +254,15 @@ function animateText() {
 
 function blinkCursor() {
 	if (isBlinking) {
-		const currentText = textContactElement.textContent;
-		if (currentText.endsWith("|")) {
-			textContactElement.textContent = currentText.slice(0, -1);
-		} else {
-			textContactElement.textContent += "|";
-		}
-		setTimeout(blinkCursor, 500);
+		blinkCursorElement.textContent = "";
+		isBlinking = false;
+	} else if (!isBlinking) {
+		blinkCursorElement.textContent = "|";
+		isBlinking = true;
 	}
+	setTimeout(blinkCursor, 500);
 }
+
 window.addEventListener("scroll", handleScroll);
 function handleScroll() {
 	const rectContact = contact.getBoundingClientRect();
