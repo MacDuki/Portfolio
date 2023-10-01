@@ -265,9 +265,9 @@ ion-icon {
   
   @keyframes shadowNeon {
     0%{
-     box-shadow: -150rem 0 0rem 0px #23a6d5; 
+      box-shadow: -150rem 0rem 0rem 0px var(--main-secondBackground-color); 
     } 100% {
-      box-shadow: 150rem 0 1.5rem 0px #23a6d5;
+      box-shadow: 150rem .2rem 1rem 0px #23a6d5 ;
     }
   }
 
@@ -357,7 +357,6 @@ ion-icon {
   }
 
   .parrafoMultiple-container {
-    background-color: var(--main-background-color);
     display: flex;
     align-items: center;
     margin-top: 2rem;
@@ -367,12 +366,12 @@ ion-icon {
     height: 0;
     overflow: hidden;
     transition: height 0.5s ease-in-out;
+    padding: 0 1rem;
   }
   
   .parrafo-multiple {
+    margin: 0;
     color: var(--main-black-color);
-    padding-left: 2rem;
-    padding-right: 2rem;
     text-align: left;
     font-family: 'Rubik', sans-serif;
     font-weight: 500;
@@ -380,9 +379,33 @@ ion-icon {
   }
 
   .tech-skills {
-    padding-top: 5rem;
+    margin-top: 4rem;
+    padding: 2rem 0;
     display: flex;
+    border: 1.5px solid var(--main-background-color) ;
+    border-radius: 1.5rem;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    transition: max-width 0.9s ease-in-out;
+
   }
+
+  .skill-icon {   
+    margin: 0 1rem;
+    color: var(--main-black-color);
+    transition: scale .7s;
+  }
+
+
+  .skill-icon:hover {
+    scale: 1.5;
+  }
+
+  .expand-container {
+    max-width: auto;
+    
+  }
+
+
 
                                                         /* Proyects */
  #proyectos{

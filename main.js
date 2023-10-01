@@ -61,6 +61,9 @@ const personalizedTextsSp = ["Inicio", "Sobre mi", "Proyectos", "Contacto"];
 const personalizedTextsEng = ["Home", "About Me", "Projects", "Contact"];
 const liElements = navbar.getElementsByTagName("li");
 const ionIconsContact = document.querySelectorAll(".logo-contact");
+const skillIcons = document.querySelectorAll(".skill-icon");
+const techSkilsContainer = document.querySelector(".tech-skills");
+
 let activeButton = false;
 let textParrafoToAnimate = "paginas web.";
 let currentIndexParrafoAnimated = 0;
@@ -119,9 +122,12 @@ function parrafoMultipleClose(isClosed) {
 // Switch Theme //
 themeSwitch.addEventListener("change", () => {
 	if (themeSwitch.checked) {
-		ionIconsContact[2].style.color = "var(--main-secondBackground-color)";
-		ionIconsContact[0].style.color = "var(--main-secondBackground-color)";
-		ionIconsContact[1].style.color = "var(--main-secondBackground-color)";
+		skillIcons.forEach((icon) => {
+			icon.style.color = "var(--main-secondBackground-color)";
+		});
+		ionIconsContact.forEach((icon) => {
+			icon.style.color = "var(--main-secondBackground-color)";
+		});
 		blinkCursorElement.style.color = "var(--main-secondBackground-color)";
 		textContactElement.style.color = "var(--main-secondBackground-color)";
 		navSettingsMobile.style.backgroundColor =
@@ -164,9 +170,12 @@ themeSwitch.addEventListener("change", () => {
 		inicioTittle.style.color = "var(--main-secondBackground-color)";
 		staticParrafo.style.color = "var(--main-secondBackground-color)";
 	} else {
-		ionIconsContact[2].style.color = "var(--main-black-color)";
-		ionIconsContact[0].style.color = "var(--main-black-color)";
-		ionIconsContact[1].style.color = "var(--main-black-color)";
+		skillIcons.forEach((icon) => {
+			icon.style.color = "var(--main-black-color)";
+		});
+		ionIconsContact.forEach((icon) => {
+			icon.style.color = "var(--main-black-color)";
+		});
 		blinkCursorElement.style.color = "var(--main-black-color)";
 		textContactElement.style.color = "var(--main-black-color)";
 		navSettingsMobile.style.backgroundColor = "var(--main-black-color)";
@@ -262,15 +271,17 @@ function blinkCursor() {
 	setTimeout(blinkCursor, 500);
 }
 
-window.addEventListener("scroll", handleScroll);
 function handleScroll() {
 	const rectContact = contact.getBoundingClientRect();
+	const rectAbout = aboutMe.getBoundingClientRect();
 
 	if (rectContact.top <= window.innerHeight && rectContact.bottom >= 0) {
 		animateText();
 		window.removeEventListener("scroll", handleScroll);
 	}
 }
+
+window.addEventListener("scroll", handleScroll);
 // Switch lenguage navbar
 
 //Switch Lenguage //
@@ -414,7 +425,7 @@ function navAllSettings() {
 					case 0:
 						lastClickedInput = element;
 						parrafoContainer.appendChild(parrafo);
-						/*parrafoContainer.style.boxShadow = parrafoContainerBoxShadow;*/
+						parrafoContainer.style.boxShadow = parrafoContainerBoxShadow;
 						parrafo.textContent = parrafo1;
 						parrafoContainer.style.border = parrafoContainerBorder;
 						parrafoContainer.style.height = "5rem";
@@ -462,7 +473,7 @@ function navAllSettings() {
 						parrafoContainer.appendChild(parrafo);
 						parrafoContainer.style.boxShadow = parrafoContainerBoxShadow;
 						parrafoContainer.style.border = parrafoContainerBorder;
-						parrafoContainer.style.height = "25rem";
+						parrafoContainer.style.height = "22rem";
 						setTimeout(() => {
 							parrafo.innerHTML = parrafo4;
 						}, 200);
@@ -479,12 +490,13 @@ function navAllSettings() {
 						parrafoContainer.style.boxShadow = parrafoContainerBoxShadow;
 						parrafoContainer.style.border = parrafoContainerBorder;
 						parrafoContainer.style.height = "35rem";
+						parrafoContainer.style.transition =
+							"height 0.5s ease-in-out, box-shadow 0.5s ease-in-out";
 						setTimeout(() => {
 							parrafo.innerHTML = parrafo5;
 						}, 200);
 						getComputedStyle(parrafoContainer).getPropertyValue("height");
-						parrafoContainer.style.transition =
-							"height 0.5s ease-in-out, box-shadow 0.5s ease-in-out";
+
 						parrafoContainer.style.animation =
 							parrafoContainerBoxShadowAnimation;
 						break;
