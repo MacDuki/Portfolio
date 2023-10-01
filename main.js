@@ -74,7 +74,6 @@ let parrafoContainerBoxShadowAnimation = "";
 let parrafoContainerBorder = "1px solid var(--main-secondBackground-color";
 const animationBorderFlag = false;
 let isBlinking = false;
-
 parrafoCounter.textContent = `${proyectCounter}/3`;
 
 //animationBorder

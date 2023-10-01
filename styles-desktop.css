@@ -379,6 +379,11 @@ ion-icon {
     font-size: 1.5rem;
   }
 
+  .tech-skills {
+    padding-top: 5rem;
+    display: flex;
+  }
+
                                                         /* Proyects */
  #proyectos{
     box-shadow: 0 5px .2rem var(--main-black-color);
