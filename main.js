@@ -63,6 +63,10 @@ const liElements = navbar.getElementsByTagName("li");
 const ionIconsContact = document.querySelectorAll(".logo-contact");
 const skillIcons = document.querySelectorAll(".skill-icon");
 const techSkilsContainer = document.querySelector(".tech-skills");
+const contactContainer = document.querySelector(".principal-contact-container");
+const animatedTextContainer = document.querySelector(
+	".animated-text-container",
+);
 
 let activeButton = false;
 let textParrafoToAnimate = "paginas web.";
@@ -122,6 +126,14 @@ function parrafoMultipleClose(isClosed) {
 // Switch Theme //
 themeSwitch.addEventListener("change", () => {
 	if (themeSwitch.checked) {
+		contactContainer.style.border =
+			" .1rem solid var(--main-secondBackground-color) ";
+		animatedTextContainer.style.border =
+			" .1rem solid var(--main-secondBackground-color) ";
+		contactContainer.style.boxShadow = "";
+		animatedTextContainer.style.boxShadow = "";
+		proyectContainer.style.border = " 1.5px solid var(--main-background-color)";
+		proyectContainer.style.boxShadow = "";
 		skillIcons.forEach((icon) => {
 			icon.style.color = "var(--main-secondBackground-color)";
 		});
@@ -170,6 +182,14 @@ themeSwitch.addEventListener("change", () => {
 		inicioTittle.style.color = "var(--main-secondBackground-color)";
 		staticParrafo.style.color = "var(--main-secondBackground-color)";
 	} else {
+		contactContainer.style.border =
+			" 1rem solid var(--main-secondBackground-color) ";
+		animatedTextContainer.style.border =
+			" 1rem solid var(--main-secondBackground-color) ";
+		contactContainer.style.boxShadow = "1rem  1rem .5rem rgba(0,0,0,.1)";
+		animatedTextContainer.style.boxShadow = "1rem  1rem .5rem rgba(0,0,0,.1)";
+		proyectContainer.style.border = "";
+		proyectContainer.style.boxShadow = "0 .5rem  .5rem .5rem rgba(0,0,0,.1)";
 		skillIcons.forEach((icon) => {
 			icon.style.color = "var(--main-black-color)";
 		});
@@ -184,7 +204,7 @@ themeSwitch.addEventListener("change", () => {
 		aboutMe.style.boxShadow = "0 0 0 .1px var(--main-black-color)";
 		contact.style.boxShadow = "0 0 0 .1px var(--main-black-color)";
 		proyect.style.boxShadow = "0 5px .2rem var(--main-black-color)";
-		header.style.boxShadow = "0 0 0 .1rem rgba(0,0,0,.09)";
+		header.style.boxShadow = "0 0 10px rgba(0,0,0,.09)";
 		buttonNavSettings.style.color = "var(--main-black-color)";
 		contactTittle.style.animation = "";
 		proyectsTittle.style.animation = "";

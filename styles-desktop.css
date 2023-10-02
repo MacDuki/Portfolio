@@ -132,6 +132,18 @@ ion-icon {
   font-size: 4rem;
   color: var(--main-black-color);
 }
+
+                                                  /* Footer*/
+footer {
+  height: 5rem;
+  background-color: var(--main-background-color);
+  font-size: 2rem;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  display: flex;
+  align-items: center;
+}
+
+
                                                 /* Inicio */
         
   #inicio {
@@ -384,8 +396,7 @@ ion-icon {
     display: flex;
     border: 1.5px solid var(--main-background-color) ;
     border-radius: 1.5rem;
-    box-shadow: 0 0 10px rgba(0,0,0,.1);
-    transition: max-width 0.9s ease-in-out;
+    box-shadow:  1rem  1rem .5rem rgba(0,0,0,.1);
 
   }
 
@@ -433,7 +444,7 @@ ion-icon {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  margin: 3rem 0;
+  margin: 1.5rem 0;
   align-items: center;
  }
 
@@ -441,7 +452,6 @@ ion-icon {
   font-size: 5rem; 
   border: 1px solid black;
   border-radius: 50%;
-  animation: transitionArrowLeft 2s alternate infinite;
   cursor: pointer;
  }
 
@@ -451,48 +461,26 @@ ion-icon {
   font-size: 5rem; 
   border: 1px solid black;
   border-radius: 50%;
-  animation: transitionArrowRight 2s alternate infinite;
   cursor: pointer;
  }
  
-
-@keyframes transitionArrowRight {
-  0% {
-    transform: scale(1);
-    box-shadow: 0 .5rem 1rem  rgba(0, 0, 0, 0.2);
-    
-  }
-  100% {
-    transform: scale(1.1);
-    box-shadow: .2rem .3rem .4rem .2rem rgba(38, 36, 36, 0.4);
-  }
-}
-
-
-@keyframes transitionArrowLeft {
-  0% {
-    transform: scale(1);
-    box-shadow: 0 .5rem 1rem  rgba(0, 0, 0, 0.2);
-    
-  }
-  100% {
-    transform: scale(1.1);
-    box-shadow: -.2rem .4rem .4rem .2rem rgba(38, 36, 36, 0.4);
-  }
-}
  
  .proyect-container {
   display: flex;
   flex-direction:row;
   justify-content: center;
   overflow-x: hidden;
+  border: 1.5px solid var(--main-background-color) ;
+  border-radius: 1.5rem;
+  box-shadow:  0 .5rem  .5rem .5rem rgba(0,0,0,.1);
+  padding: 1.5rem 1.5rem;
  }
 
 .proyect-counter {
   font-size: 5rem;
   font-family: 'Rubik', sans-serif;
   font-weight:900;
-  margin-top: 0;
+  margin: 0 4rem;
   background: linear-gradient(-45deg, #bc321a, #e3640e, #a7401e, #000000);
   background-size: 300%;
   -webkit-background-clip: text;
@@ -500,7 +488,6 @@ ion-icon {
   -webkit-text-fill-color: transparent;
   text-align: center;
   animation: fluido 5s ease-in-out alternate infinite;
-  margin-bottom: 0;
 }
 
  .card-container {
@@ -582,56 +569,70 @@ ion-icon {
   justify-content: center;
   align-items: center;
   width: 40rem;
+  border: 1rem solid var(--main-secondBackground-color) ;
+  border-radius: 1.5rem;
+  box-shadow:  1rem  1rem .5rem rgba(0,0,0,.1);
+  padding: 1.5rem 1.5rem;
+  position: relative;
  }
  
  .container-platforms{
   font-size: 2.5rem;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   margin-top: 2rem;
   padding-left: 0;
 }
 .container-platforms li {
-  width: 3rem;
-  height: 3rem;
+  display: flex;
   list-style-type: none;
-  padding:0 2rem;
+  padding: 2rem 2rem;
+  align-items: center;
 }
 
 .logo-contact {
-  animation: levitate 2s infinite alternate ease-in-out;
+  transition: scale .7s;
+}
+.logo-contact:hover {
+ scale: 1.2;
 }
 
+
 .anchor-contact {
+  margin-right: 10rem;
   position: relative;
-  border-radius: 50%;
-  width: 3rem;
-  height: 1rem;
   text-decoration: none;
   color: inherit;
 }
 
 .animated-text-container {
-  height: 14rem;
+  height: 7rem;
   width: 100%;
   font-family: 'Raleway', Arial;
   display: flex;
   flex-direction: row;
   position: relative;
+  border: 1rem solid var(--main-secondBackground-color) ;
+  border-radius: 1.5rem;
+  box-shadow:  1rem  1rem .5rem rgba(0,0,0,.1);
+  align-items: center;
+  justify-content: center;
   
 }
 .animated-text {
   font-weight: 700;
   font-size: 2.5rem;
-}
+  margin: 0;
+  }
 
 .blink-cursor {
   font-weight: 700;
   font-size: 2.5rem;
   position: absolute;
   right: 12rem;
-  top: 2.8rem;
+  top: 1rem;
 }
 
                     /* theme-label */
