@@ -67,6 +67,7 @@ const contactContainer = document.querySelector(".principal-contact-container");
 const animatedTextContainer = document.querySelector(
 	".animated-text-container",
 );
+const footer = document.querySelector(".footer");
 
 let activeButton = false;
 let textParrafoToAnimate = "paginas web.";
@@ -126,6 +127,8 @@ function parrafoMultipleClose(isClosed) {
 // Switch Theme //
 themeSwitch.addEventListener("change", () => {
 	if (themeSwitch.checked) {
+		footer.style.color = "var(--main-secondBackground-color";
+		footer.style.backgroundColor = "var(--main-backgroundNight-color";
 		contactContainer.style.border =
 			" .1rem solid var(--main-secondBackground-color) ";
 		animatedTextContainer.style.border =
@@ -182,6 +185,8 @@ themeSwitch.addEventListener("change", () => {
 		inicioTittle.style.color = "var(--main-secondBackground-color)";
 		staticParrafo.style.color = "var(--main-secondBackground-color)";
 	} else {
+		footer.style.color = "var(--main-black-color";
+		footer.style.backgroundColor = "var(--main-background-color)";
 		contactContainer.style.border =
 			" 1rem solid var(--main-secondBackground-color) ";
 		animatedTextContainer.style.border =

@@ -16,7 +16,9 @@ body {
     box-sizing:border-box;
     background-color: var(--main-background-color);
     overflow-x: hidden;
+
   }
+
 
   
   /* .inactive {
@@ -84,26 +86,13 @@ header {
     height: 6rem;
 }
 
-@keyframes fadeIn {
-  from {
-    top: 0;
-  } to {
-    top: 5rem;
-  }
-}
+
 
 .settings-mobile.inactive {
   animation: fadeOut 150ms linear forwards;
 }
 
-@keyframes fadeOut {
-  0% {
-    transform: translateY(0);
-  } 100% {
-    opacity: 0;
-    transform: translateY(-6rem);
-  }
-}
+
 
 .toggle-options {
   /* position: absolute; */
@@ -180,48 +169,21 @@ footer {
     margin-bottom: 3rem;
   }
 
-  @keyframes levitate {
-    0% {
-      transform: translateY(0);
-    }
-    100% {
-      transform: translateY(-1rem);
-    }
-  }
+
 
 
   .inicio-tittle-container.up{
     animation: tittleMoveUp 200ms linear forwards;
   }
 
-  @keyframes tittleMoveUp {
-    0% {
-      transform: translateY(6rem);
-    }
-    30% {
-      transform: translateY(4rem);
-    }
-    100% {
-      transform: translateY(0);
-    }
-  }
+ 
 
   .inicio-tittle-container.inactive {
     animation: tittleMoveDown 400ms linear forwards;
   }
   
 
-  @keyframes tittleMoveDown {
-    0% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(4rem);
-    }
-    100% {
-      transform: translateY(6rem);
-    }
-  }
+
   .parrafo-inicio-container {
     display: flex;
     flex-direction:row;
@@ -275,13 +237,6 @@ footer {
     height: 70rem;
   }
   
-  @keyframes shadowNeon {
-    0%{
-      box-shadow: -150rem 0rem 0rem 0px var(--main-secondBackground-color); 
-    } 100% {
-      box-shadow: 150rem .2rem 1rem 0px #23a6d5 ;
-    }
-  }
 
   .about-me-tittle{
     font-size: 5rem;
@@ -297,26 +252,9 @@ footer {
   
   }
 
-  @keyframes neon-animation {
-    0% {
-      text-shadow: 0 0 .4rem  #23d5ab;
-    }
-    50% {
-      text-shadow: 0 0 5rem #23a6d5;
-    }
-    100%{
-      text-shadow: 0 0 7rem #23a6d5;
-    }
-  }
 
-  @keyframes boxShadowAnimation {
-    0% {
-      box-shadow: 0 0 8px #dbe6f4;
-    }
-    100% {
-      box-shadow: 0 0 8px #23a6d5;
-    }
-  }
+
+  
 
 
 
@@ -506,14 +444,6 @@ footer {
   animation: slideIn .5s ease-in-out;
 }
 
-@keyframes slideIn {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
 
  .proyectInfo-container {
     font-size: 3rem;
@@ -590,6 +520,9 @@ footer {
   list-style-type: none;
   padding: 2rem 2rem;
   align-items: center;
+}
+.container-platforms li p{
+  width: 10rem;
 }
 
 .logo-contact {
@@ -807,3 +740,90 @@ footer {
   width: 0;
   height: 0;
 }
+
+                      /*Media Queries*/
+                      @keyframes fadeIn {
+                        from {
+                          top: 0;
+                        } to {
+                          top: 5rem;
+                        }
+                      }
+                      
+                      @keyframes fadeOut {
+                        0% {
+                          transform: translateY(0);
+                        } 100% {
+                          opacity: 0;
+                          transform: translateY(-6rem);
+                        }
+                      }
+                      
+                        @keyframes levitate {
+                          0% {
+                            transform: translateY(0);
+                          }
+                          100% {
+                            transform: translateY(-1rem);
+                          }
+                        }
+                      
+                       @keyframes tittleMoveUp {
+                          0% {
+                            transform: translateY(6rem);
+                          }
+                          30% {
+                            transform: translateY(4rem);
+                          }
+                          100% {
+                            transform: translateY(0);
+                          }
+                        }
+                      
+                        @keyframes tittleMoveDown {
+                          0% {
+                            transform: translateY(0);
+                          }
+                          50% {
+                            transform: translateY(4rem);
+                          }
+                          100% {
+                            transform: translateY(6rem);
+                          }
+                        }
+                      
+                        @keyframes shadowNeon {
+                          0%{
+                            box-shadow: -150rem 0rem 0rem 0px var(--main-secondBackground-color); 
+                          } 100% {
+                            box-shadow: 150rem .2rem 1rem 0px #23a6d5 ;
+                          }
+                        }
+                        @keyframes neon-animation {
+                          0% {
+                            text-shadow: 0 0 .4rem  #23d5ab;
+                          }
+                          50% {
+                            text-shadow: 0 0 5rem #23a6d5;
+                          }
+                          100%{
+                            text-shadow: 0 0 7rem #23a6d5;
+                          }
+                        }
+                      @keyframes boxShadowAnimation {
+                          0% {
+                            box-shadow: 0 0 8px #dbe6f4;
+                          }
+                          100% {
+                            box-shadow: 0 0 8px #23a6d5;
+                          }
+                        }
+                      
+                      @keyframes slideIn {
+                        0% {
+                          transform: translateX(100%);
+                        }
+                        100% {
+                          transform: translateX(0);
+                        }
+                      }    
