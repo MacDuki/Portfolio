@@ -1,195 +1,304 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pedro Wattimo</title>
-    <link rel="stylesheet" href="./styles-mobile.css" media="(max-width: 525px)"/>
-    <link rel="stylesheet" href="./styles-desktop.css" media="(min-width: 1024px)"/>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="./styles-mobile.css"
+      media="(max-width: 525px)"
+    />
+    <link
+      rel="stylesheet"
+      href="./styles-desktop.css"
+      media="(min-width: 1024px)"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap"
+      rel="stylesheet"
+    />
     <!-- <link rel="stylesheet" href="/newNewPortfolio/styles-tablet.css" media="(min-width: 855px) and (max-width: 1023px)"/> -->
-</head>
-<body>
-  <header class="header"> 
-    <div class="button-settings-container">
-      <div class="toggle-options">
-        <label class="theme-label">
-          <input class="theme-switch" type="checkbox">
-          <div class="slider">
-            <div class="circle"></div>
-          </div>
-        </label>
-        <label class="lenguage-label">
-          <input class="lenguage-switch" type="checkbox">
-          <div class="slider-lenguage">
-            <div class="circle-lenguage"><span class="lenguage-span">Esp</span></div>
-          </div>
-        </label>
+  </head>
+  <body>
+    <header class="header">
+      <div class="button-settings-container">
+        <div class="toggle-options">
+          <label class="theme-label">
+            <input class="theme-switch" type="checkbox" />
+            <div class="slider">
+              <div class="circle"></div>
+            </div>
+          </label>
+          <label class="lenguage-label">
+            <input class="lenguage-switch" type="checkbox" />
+            <div class="slider-lenguage">
+              <div class="circle-lenguage">
+                <span class="lenguage-span">Esp</span>
+              </div>
+            </div>
+          </label>
+        </div>
+        <ion-icon name="menu-outline" class="button-settings"></ion-icon>
       </div>
-      <ion-icon name="menu-outline" class="button-settings"></ion-icon>
-    </div>
-    <div class="inactive settings-mobile" >
-      <nav class="navbar">
-        <ul>
-          <li class="button-section"><a class="anchor-section" href="#inicio">Inicio</a></li>
-          <li class="button-section"><a class="anchor-section" href="#sobre-mi">Sobre mí</a></li>
-          <li class="button-section"><a class="anchor-section" href="#proyectos">Proyectos</a></li>
-          <li class="button-section"><a class="anchor-section" href="#contacto">Contacto</a></li> 
-        </ul> 
-      </nav>
-    </div>
-  </header>
-  <main class="main">
-    <section id="inicio">
-      <div class="inicio-tittle-container">
-        <h1 class="inicio-tittle" >Hola, mi nombre es</h1>
-        <h2 class="inicio-tittle-name">Pedro</h2>  
-      </div>  
-      <aside>
-          <img class="profile-picture" src="./asets/profilePicture.jpg" alt="Foto del susodicho"/>
-        <div class="parrafo-inicio-container">
-          <p class="static-parrafo">Desarrollo</p> 
-          <p class="animate-parrafo"></p>
-        </div>
-      </aside>
-    </section>
-
-    <section id="sobre-mi">
-      <h2 class="about-me-tittle neon-text">Sobre mí</h2>
-      <h3 class="legend-tittle">¿Qué tanto quieres saber de mi?</h3>
-      <div class="formContainer">
-        <div class="bio-options-form" id="">
-          <div class="bio-options-container">
-            <div class="bio-input-action">
-              <input class="shortest"    type="radio" id="radio-button" name="biolength" value="shortest">
-              <label for="length-shortest" class="">
-                <span>Less</span>
-              </label>
-            </div>
-            <div class="bio-input-action">
-              <input class="shorter" type="radio" id="radio-button" name="biolength" value="shorter">
-
-            </div>
-            <div class="bio-input-action">
-              <input class="short" type="radio" id="radio-button" name="biolength" value="short">
-              
-            </div>
-            <div class="bio-input-action">
-              <input class="longer" type="radio" id="radio-button" name="biolength" value="longer" >
-    
-            </div>
-            <div class="bio-input-action">
-              <input class="longest" type="radio" id="radio-button" name="biolength" value="longest" >
-              <label >
-                <span class="">More</span>
-              </label>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="parrafoMultiple-container">
-        <p class="parrafo-multiple"></p>
-      </div>     
-      <div class="tech-skills">
-          <span><ion-icon class="skill-icon" title="logo-html5" name="logo-html5"></ion-icon></span>
-          <span><ion-icon class="skill-icon" title="logo-css3" name="logo-css3"></ion-icon></span>
-          <span><ion-icon class="skill-icon" title="logo-javascript" name="logo-javascript"></ion-icon></span>
-          <span><ion-icon class="skill-icon" title="logo-react" name="logo-react"></ion-icon></span>
-          <span><ion-icon class="skill-icon" title="logo-nodejs" name="logo-nodejs"></ion-icon></span>
-          <span ><ion-icon class="skill-icon" title="logo-github" name="logo-github"></ion-icon></span>
-        </div>
-      
-    </section>
-    
-    <section id="proyectos">
-      <h2 class="tittle-proyects">Proyectos</h2>
-      <div class="proyect-buttons-container">
-        <ion-icon name="chevron-back-outline" class="proyect-left-arrow"></ion-icon>
-        <p class="proyect-counter"></p>
-        <ion-icon name="chevron-forward-outline" class="proyect-right-arrow"></ion-icon>
-      </div>
-      <div class="proyect-container">
-        <div class="card-container">
-          <figure><img class="proyec" src="./asets/projects/project 2.jpg"/></figure>
-          <div class="proyectInfo-container">
-            <h3 class="tittle-proyect">Proyecto 1</h3>
-            <p>Descripción breve del proyecto 1.</p>
-            <a href="#">Ver proyecto</a>
-          </div>
-        </div>
-        <div class="card-container hidden">
-          <figure><img src="./asets/projects/Project 1.jpg"/></figure>
-          <div class="proyectInfo-container">
-            <h3 class="tittle-proyect">Proyecto 2</h3>
-            <p>Descripción breve del proyecto 2.</p>
-            <a href="#">Ver proyecto</a>
-          </div>
-        </div>
-        <div class="card-container hidden">
-          <figure><img src="./asets/projects/project 2.jpg"/></figure>
-          <div class="proyectInfo-container">
-            <h3 class="tittle-proyect">Proyecto 3</h3>
-            <p>Descripción breve del proyecto 3.</p>
-            <a href="#">Ver proyecto</a>
-          </div>
-        </div>
-    </div>
-    </section>
-    
-    <section id="contacto">
-      <h2 class="contact-tittle">Contacto</h2>
-      <div class="principal-contact-container">
-        <div class="animated-text-container">
-          <p class="animated-text"></p>
-          <p class="blink-cursor"></p>
-        </div>
-        <div>
-        <ul class="container-platforms">
-          <li>
-              <a class="anchor-contact" tittle="Whatsapp" href="https://wa.me/+598098018171?text=Escribeme tu mensaje" target="_blank">  
-                <ion-icon class="logo-contact" name="logo-whatsapp"></ion-icon>
-              </a>
-              <p>Escribime Wpp</p>
+      <div class="inactive settings-mobile">
+        <nav class="navbar">
+          <ul>
+            <li class="button-section">
+              <a class="anchor-section" href="#inicio">Inicio</a>
             </li>
-          <li>
-            <a class="anchor-contact" tittle="Github" href="https://github.com/MacDuki" target="_blank">  
-              <ion-icon class="logo-contact" name="logo-github"></ion-icon>
-            </a>
-            <p>Escribime Github</p>
-          </li>
-          <li>
-            <a class="anchor-contact" tittle="Gmail" href="https://wa.me/+598098018171?text=Escribeme tu mensaje" target="_blank">  
-              <ion-icon class="logo-contact" name="mail-outline"></ion-icon>
-            </a>
-            <p>Escribime Github</p>
-          </li>
-        </ul>
-        </div>
+            <li class="button-section">
+              <a class="anchor-section" href="#sobre-mi">Sobre mí</a>
+            </li>
+            <li class="button-section">
+              <a class="anchor-section" href="#proyectos">Proyectos</a>
+            </li>
+            <li class="button-section">
+              <a class="anchor-section" href="#contacto">Contacto</a>
+            </li>
+          </ul>
+        </nav>
       </div>
-    </section>
-  </main>
-  <footer class="footer">
-    <p>© 2023 - Mi Portafolio - Frontend Developer</p>
-  </footer>
-  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-  <script src="./main.js"></script>
-</body>
+    </header>
+    <main class="main">
+      <section id="inicio">
+        <div class="inicio-tittle-container">
+          <h1 class="inicio-tittle">Hola, mi nombre es</h1>
+          <h2 class="inicio-tittle-name">Pedro</h2>
+        </div>
+        <aside>
+          <img
+            class="profile-picture"
+            src="./asets/profilePicture.jpg"
+            alt="Foto del susodicho"
+          />
+          <div class="parrafo-inicio-container">
+            <p class="static-parrafo">Desarrollo</p>
+            <p class="animate-parrafo"></p>
+          </div>
+        </aside>
+      </section>
+
+      <section id="sobre-mi">
+        <h2 class="about-me-tittle neon-text">Sobre mí</h2>
+        <h3 class="legend-tittle">¿Qué tanto quieres saber de mi?</h3>
+        <div class="formContainer">
+          <div class="bio-options-form" id="">
+            <div class="bio-options-container">
+              <div class="bio-input-action">
+                <input
+                  class="shortest"
+                  type="radio"
+                  id="radio-button"
+                  name="biolength"
+                  value="shortest"
+                />
+                <label for="length-shortest" class="">
+                  <span>Less</span>
+                </label>
+              </div>
+              <div class="bio-input-action">
+                <input
+                  class="shorter"
+                  type="radio"
+                  id="radio-button"
+                  name="biolength"
+                  value="shorter"
+                />
+              </div>
+              <div class="bio-input-action">
+                <input
+                  class="short"
+                  type="radio"
+                  id="radio-button"
+                  name="biolength"
+                  value="short"
+                />
+              </div>
+              <div class="bio-input-action">
+                <input
+                  class="longer"
+                  type="radio"
+                  id="radio-button"
+                  name="biolength"
+                  value="longer"
+                />
+              </div>
+              <div class="bio-input-action">
+                <input
+                  class="longest"
+                  type="radio"
+                  id="radio-button"
+                  name="biolength"
+                  value="longest"
+                />
+                <label>
+                  <span class="">More</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="parrafoMultiple-container">
+          <p class="parrafo-multiple"></p>
+        </div>
+        <div class="tech-skills">
+          <span
+            ><ion-icon
+              class="skill-icon"
+              title="logo-html5"
+              name="logo-html5"
+            ></ion-icon
+          ></span>
+          <span
+            ><ion-icon
+              class="skill-icon"
+              title="logo-css3"
+              name="logo-css3"
+            ></ion-icon
+          ></span>
+          <span
+            ><ion-icon
+              class="skill-icon"
+              title="logo-javascript"
+              name="logo-javascript"
+            ></ion-icon
+          ></span>
+          <span
+            ><ion-icon
+              class="skill-icon"
+              title="logo-react"
+              name="logo-react"
+            ></ion-icon
+          ></span>
+          <span
+            ><ion-icon
+              class="skill-icon"
+              title="logo-nodejs"
+              name="logo-nodejs"
+            ></ion-icon
+          ></span>
+          <span
+            ><ion-icon
+              class="skill-icon"
+              title="logo-github"
+              name="logo-github"
+            ></ion-icon
+          ></span>
+        </div>
+      </section>
+
+      <section id="proyectos">
+        <h2 class="tittle-proyects">Proyectos</h2>
+        <div class="proyect-buttons-container">
+          <ion-icon
+            name="chevron-back-outline"
+            class="proyect-left-arrow"
+          ></ion-icon>
+          <p class="proyect-counter"></p>
+          <ion-icon
+            name="chevron-forward-outline"
+            class="proyect-right-arrow"
+          ></ion-icon>
+        </div>
+        <div class="proyect-container">
+          <div class="card-container">
+            <figure>
+              <img class="proyec" src="./asets/cooming.jpg" />
+            </figure>
+            <div class="proyectInfo-container">
+              <h3 class="tittle-proyect">Proyecto 1</h3>
+              <p class="description-project">Proximamente :(</p>
+              <a href="#">Ver proyecto</a>
+            </div>
+          </div>
+          <div class="card-container hidden">
+            <figure><img src="./asets/cooming.jpg" /></figure>
+            <div class="proyectInfo-container">
+              <h3 class="tittle-proyect">Proyecto 2</h3>
+              <p class="description-project">Proximamente :(</p>
+              <a href="#">Ver proyecto</a>
+            </div>
+          </div>
+          <div class="card-container hidden">
+            <figure><img src="./asets/cooming.jpg" /></figure>
+            <div class="proyectInfo-container">
+              <h3 class="tittle-proyect">Proyecto 3</h3>
+              <p class="description-project">Proximamente :(</p>
+              <a href="#">Ver proyecto</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contacto">
+        <h2 class="contact-tittle">Contacto</h2>
+        <div class="principal-contact-container">
+          <div class="animated-text-container">
+            <p class="animated-text"></p>
+            <p class="blink-cursor"></p>
+          </div>
+          <div>
+            <ul class="container-platforms">
+              <li>
+                <a
+                  class="anchor-contact"
+                  tittle="Whatsapp"
+                  href="https://wa.me/+598098018171?text=Escribeme tu mensaje"
+                  target="_blank"
+                >
+                  <ion-icon
+                    class="logo-contact"
+                    name="logo-whatsapp"
+                  ></ion-icon>
+                </a>
+                <p class="action-phrase">Escribime a Wpp</p>
+              </li>
+              <li>
+                <a
+                  class="anchor-contact"
+                  tittle="Github"
+                  href="https://github.com/MacDuki"
+                  target="_blank"
+                >
+                  <ion-icon class="logo-contact" name="logo-github"></ion-icon>
+                </a>
+                <p class="action-phrase">Mira mi Github</p>
+              </li>
+              <li>
+                <a
+                  class="anchor-contact"
+                  tittle="Gmail"
+                  href="https://wa.me/+598098018171?text=Escribeme tu mensaje"
+                  target="_blank"
+                >
+                  <ion-icon class="logo-contact" name="mail-outline"></ion-icon>
+                </a>
+                <p class="action-phrase">Envíame un correo</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <p>© 2023 - Mi Portafolio - Frontend Developer</p>
+    </footer>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="./main.js"></script>
+  </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
