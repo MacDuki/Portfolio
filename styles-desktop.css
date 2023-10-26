@@ -165,13 +165,6 @@ footer {
   animation: tittleMoveDown 400ms linear forwards;
 }
 
-.parrafo-inicio-container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  padding-right: 4rem;
-}
 #inicio p {
   color: var(--main-black-color);
   margin-top: 1.5rem;
@@ -203,6 +196,13 @@ footer {
   flex-direction: row-reverse;
   margin-bottom: 2rem;
   align-items: baseline;
+}
+.parrafo-inicio-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding-right: 4rem;
 }
 
 /*Sobre mi*/

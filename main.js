@@ -1,21 +1,22 @@
 //Animated text variables//
 let parrafo1 = "Lo intenta...";
 let parrafo2 =
-  "Soy estudiante de programación web tanto del back-end como del front-end aunque personalmente prefiero el front.";
+  "Me ha interesado el mundo de la tecnología desde pequeño, pero fue en este año que decidí meterme de lleno en el mundo de la programación";
 let parrafo3 =
-  "Soy estudiante de programación web tanto del back-end como del front-end aunque personalmente prefiero el front. <br>" +
-  "A lo largo de este año he trabajado para aprender las bases de la programación de manera solida y en simultaneo aplicar lo aprendido en tecnologías como Html, Css y Javascript.";
+  "Actualmente me encuentro estudiando por mi cuenta y construyendo side projects para practicar lo aprendido sin embargo estoy decidido a estudiar ing. en sistemas para profesionalizar mi conocimiento. <br><br>" +
+  "Utilizo plataformas como Platzi, Udemy y Openbootcamp entre otras para aprender la teoría";
 let parrafo4 =
-  "Soy estudiante de programación web tanto del back-end como del front-end aunque personalmente prefiero el front. <br/>" +
-  "A lo largo de este año he trabajado para aprender las bases de la programación de manera solida y en simultaneo aplicar lo aprendido en tecnologías como Html, Css y Javascript.<br/><br/>" +
-  "Actualmente estoy  profundizado mis conocimientos en React como librería principal de Js, frameworks como Frame-motion, Rome, e.t.c. <br/>" +
-  "Además de continuar aprendiendo sobre desarrollo web estoy cursando clases de inglés ( B1) para mejorar mi capacidad de comunicarme en un entorno global.";
+  "Actualmente me encuentro estudiando por mi cuenta y construyendo side projects para practicar lo aprendido sin embargo estoy decidido a estudiar ing. en sistemas para profesionalizar mi conocimiento. <br>" +
+  "Utilizo plataformas como Platzi, Udemy, Openbootcamp entre otras para aprender la teoría. <br/><br/>" +
+  "Me encuentro profundizado mis conocimientos en React como librería principal pero también trabajo con Next, Redux y tailwind. <br/>" +
+  "Además de continuar aprendiendo sobre desarrollo web estoy cursando clases de inglés (B1) para mejorar mi capacidad de comunicarme en un entorno global.";
 let parrafo5 =
-  "Soy estudiante de programación web tanto del back-end como del front-end aunque personalmente prefiero el front. <br/>" +
-  "A lo largo de este año he trabajado para aprender las bases de la programación de manera solida y en simultaneo aplicar lo aprendido en tecnologías como Html, Css y Javascript.<br/><br/>" +
-  "Actualmente estoy  profundizado mis conocimientos en React como librería principal de Js, frameworks como Frame-motion, Rome, e.t.c. <br/>" +
-  "Además de continuar aprendiendo sobre desarrollo web estoy cursando clases de inglés ( B1) para mejorar mi capacidad de comunicarme en un entorno global.<br/><br/>" +
-  "Mi viaje en la industria tech recién comienza pero ha sido una montaña rusa de aprendizaje y crecimiento. Más allá de las habilidades técnicas, he aprendido a resolver problemas de manera creativa y comprometerme con el aprendizaje continuo como filosofía personal.";
+  "Actualmente me encuentro estudiando por mi cuenta y construyendo side projects para practicar lo aprendido sin embargo estoy decidido a estudiar ing. en sistemas para profesionalizar mi conocimiento. <br>" +
+  "Utilizo plataformas como Platzi, Udemy, Openbootcamp entre otras para aprender la teoría. <br/><br/>" +
+  "Me encuentro profundizado mis conocimientos en React como librería principal de Js, next, redux y tailwind. <br/>" +
+  "Además de continuar aprendiendo sobre desarrollo web estoy cursando clases de inglés (B1) para mejorar mi capacidad de comunicarme en un entorno global. <br/><br/>" +
+  "Mi viaje en la industria tech recién comienza, pero ha sido una montaña rusa de aprendizaje y crecimiento. Más allá de las habilidades técnicas, he aprendido a resolver problemas de manera creativa y comprometerme con el aprendizaje continuo como filosofía personal.";
+
 const lenguageLabel = document.querySelector(".lenguage-label");
 const animateParrafo = document.querySelector(".animate-parrafo");
 const textContactElement = document.querySelector(".animated-text");
@@ -77,7 +78,7 @@ const mailText = document.querySelector(".mail-text");
 
 let textToAnimate = "Todo feedback es bienvenido, contactame... ";
 let activeButton = false;
-let textParrafoToAnimate = "paginas web.";
+let textParrafoToAnimate = "webs.";
 let currentIndexParrafoAnimated = 0;
 let codeFinished = false;
 let currentIndexTextAnimated = 0;
@@ -89,6 +90,11 @@ let parrafoContainerBoxShadowAnimation = "";
 let parrafoContainerBorder = "1px solid var(--main-secondBackground-color";
 const animationBorderFlag = false;
 let isBlinking = false;
+let height0 = "5rem";
+let height1 = "8rem";
+let height2 = "13rem";
+let height3 = "22rem";
+let height4 = "35rem";
 parrafoCounter.textContent = `${proyectCounter}/3`;
 
 //animationBorder
@@ -278,7 +284,7 @@ function variableTextLenguage(idioma) {
   } else if (idioma === "esp") {
     animateParrafo.textContent = "";
     currentIndexParrafoAnimated = 0;
-    textParrafoToAnimate = "paginas web.";
+    textParrafoToAnimate = "webs.";
     animateTextParrafo(textParrafoToAnimate);
   }
 }
@@ -312,14 +318,11 @@ function animateText() {
   } else {
     currentIndexTextAnimated = 0;
     isBlinking = true;
-    blinkCursor();
   }
 }
 
 function handleScroll() {
   const rectContact = contact.getBoundingClientRect();
-  const rectAbout = aboutMe.getBoundingClientRect();
-
   if (rectContact.top <= window.innerHeight && rectContact.bottom >= 0) {
     animateText();
     window.removeEventListener("scroll", handleScroll);
@@ -341,6 +344,8 @@ lenguageSwitch.addEventListener("change", function () {
   }
   parrafoContainer.style.height = "0";
   if (lenguageSwitch.checked) {
+    spanForm[0].textContent = "less";
+    spanForm[1].textContent = "More";
     textToAnimate = "All feedback is welcome, contact me... ";
     wppText.textContent = "Send me a wpp";
     githubText.textContent = "Check out my Github ";
@@ -355,24 +360,26 @@ lenguageSwitch.addEventListener("change", function () {
     lenguageSwitchSpan.textContent = "Ing";
     parrafo1 = "He tries...";
     parrafo2 =
-      "I am a student of web programming, both back-end and front-end, although I personally prefer front-end.";
+      "I have been interested in the world of technology since I was little, but it was this year that I decided to immerse myself fully in the world of programming";
     parrafo3 =
-      "I am a web programming student of both back-end and front-end although I personally prefer front-end. <br>" +
-      "Throughout this year I have worked to learn the basics of programming in a solid way and simultaneously apply what I have learned in technologies such as Html, CSS and Javascript.";
+      "Currently I am studying on my own and building side projects to practice what I have learned, however I am determined to study systems engineering to professionalize my knowledge. <br><br>" +
+      "I use platforms like Platzi, Udemy and Openbootcamp among others to learn theory";
     parrafo4 =
-      "I am a web programming student of both the back-end and the front-end although I personally prefer the front-end. <br/>" +
-      "Throughout this year I have worked to learn the basics of programming in a solid way and simultaneously apply what I have learned in technologies such as Html, CSS and Javascript.<br/><br/>" +
-      "I am currently deepening my knowledge in React as the main Js library, frameworks such as Frame-motion, Rome, etc. <br/>" +
+      "Currently I am studying on my own and building side projects to practice what I have learned, however I am determined to study systems engineering to professionalize my knowledge. <br>" +
+      "I use platforms like Platzi, Udemy, Openbootcamp among others to learn the theory. <br/><br/>" +
+      "I find myself deepening my knowledge in React as the main library but I also work with Next, Redux and tailwind. <br/>" +
       "In addition to continuing to learn about web development, I am taking English classes (B1) to improve my ability to communicate in a global environment.";
     parrafo5 =
-      "I am a web programming student of both the back-end and the front-end although I personally prefer the front-end. <br/>" +
-      "Throughout this year I have worked to learn the basics of programming in a solid way and simultaneously apply what I have learned in technologies such as Html, CSS and Javascript.<br/><br/>" +
-      "I am currently deepening my knowledge in React as the main Js library, frameworks such as Frame-motion, Rome, etc. <br/>" +
-      "In addition to continuing to learn about web development, I am taking English classes (B1) to improve my ability to communicate in a global environment.<br/><br/>" +
-      "My journey in the tech industry is just beginning but it has been a roller coaster of learning and growth. Beyond technical skills, I have learned to solve problems creatively and commit to continuous learning as a personal philosophy.";
+      "Currently I am studying on my own and building side projects to practice what I have learned, however I am determined to study systems engineering to professionalize my knowledge. <br>" +
+      "I use platforms like Platzi, Udemy, Openbootcamp among others to learn the theory. <br/><br/>" +
+      "I find myself deepening my knowledge in React as the main library of Js, next, redux and tailwind. <br/>" +
+      "In addition to continuing to learn about web development, I am taking English classes (B1) to improve my ability to communicate in a global environment. <br/><br/>" +
+      "My journey in the tech industry is just beginning, but it has been a roller coaster of learning and growth. Beyond technical skills, I have learned to solve problems creatively and commit to continuous learning as a personal philosophy.";
     const idioma = "ing";
     variableTextLenguage(idioma);
   } else {
+    spanForm[1].textContent = "Más";
+    spanForm[0].textContent = "Menos";
     textToAnimate = "Todo feedback es bienvenido, contactame... ";
     wppText.textContent = "Escribime a Wpp";
     githubText.textContent = "Mira mi Github";
@@ -391,21 +398,21 @@ lenguageSwitch.addEventListener("change", function () {
     lenguageSwitchSpan.textContent = "Esp";
     parrafo1 = "Lo intenta...";
     parrafo2 =
-      "Soy estudiante de programación web tanto del back-end como del front-end aunque personalmente prefiero el front.";
+      "Me ha interesado el mundo de la tecnología desde pequeño, pero fue en este año que decidí meterme de lleno en el mundo de la programación";
     parrafo3 =
-      "Soy estudiante de programación web tanto del back-end como del front-end aunque personalmente prefiero el front. <br>" +
-      "A lo largo de este año he trabajado para aprender las bases de la programación de manera solida y en simultaneo aplicar lo aprendido en tecnologías como Html, Css y Javascript.";
+      "Actualmente me encuentro estudiando por mi cuenta y construyendo side projects para practicar lo aprendido sin embargo estoy decidido a estudiar ing. en sistemas para profesionalizar mi conocimiento. <br><br>" +
+      "Utilizo plataformas como Platzi, Udemy y Openbootcamp entre otras para aprender la teoría";
     parrafo4 =
-      "Soy estudiante de programación web tanto del back-end como del front-end aunque personalmente prefiero el front. <br/>" +
-      "A lo largo de este año he trabajado para aprender las bases de la programación de manera solida y en simultaneo aplicar lo aprendido en tecnologías como Html, Css y Javascript.<br/><br/>" +
-      "Actualmente estoy  profundizado mis conocimientos en React como librería principal de Js, frameworks como Frame-motion, Rome, e.t.c. <br/>" +
-      "Además de continuar aprendiendo sobre desarrollo web estoy cursando clases de inglés ( B1) para mejorar mi capacidad de comunicarme en un entorno global.";
+      "Actualmente me encuentro estudiando por mi cuenta y construyendo side projects para practicar lo aprendido sin embargo estoy decidido a estudiar ing. en sistemas para profesionalizar mi conocimiento. <br>" +
+      "Utilizo plataformas como Platzi, Udemy, Openbootcamp entre otras para aprender la teoría. <br/><br/>" +
+      "Me encuentro profundizado mis conocimientos en React como librería principal pero también trabajo con Next, Redux y tailwind. <br/>" +
+      "Además de continuar aprendiendo sobre desarrollo web estoy cursando clases de inglés (B1) para mejorar mi capacidad de comunicarme en un entorno global.";
     parrafo5 =
-      "Soy estudiante de programación web tanto del back-end como del front-end aunque personalmente prefiero el front. <br/>" +
-      "A lo largo de este año he trabajado para aprender las bases de la programación de manera solida y en simultaneo aplicar lo aprendido en tecnologías como Html, Css y Javascript.<br/><br/>" +
-      "Actualmente estoy  profundizado mis conocimientos en React como librería principal de Js, frameworks como Frame-motion, Rome, e.t.c. <br/>" +
-      "Además de continuar aprendiendo sobre desarrollo web estoy cursando clases de inglés ( B1) para mejorar mi capacidad de comunicarme en un entorno global.<br/><br/>" +
-      "Mi viaje en la industria tech recién comienza pero ha sido una montaña rusa de aprendizaje y crecimiento. Más allá de las habilidades técnicas, he aprendido a resolver problemas de manera creativa y comprometerme con el aprendizaje continuo como filosofía personal.";
+      "Actualmente me encuentro estudiando por mi cuenta y construyendo side projects para practicar lo aprendido sin embargo estoy decidido a estudiar ing. en sistemas para profesionalizar mi conocimiento. <br>" +
+      "Utilizo plataformas como Platzi, Udemy, Openbootcamp entre otras para aprender la teoría. <br/><br/>" +
+      "Me encuentro profundizado mis conocimientos en React como librería principal de Js, next, redux y tailwind. <br/>" +
+      "Además de continuar aprendiendo sobre desarrollo web estoy cursando clases de inglés (B1) para mejorar mi capacidad de comunicarme en un entorno global. <br/><br/>" +
+      "Mi viaje en la industria tech recién comienza, pero ha sido una montaña rusa de aprendizaje y crecimiento. Más allá de las habilidades técnicas, he aprendido a resolver problemas de manera creativa y comprometerme con el aprendizaje continuo como filosofía personal.";
     const idioma = "esp";
     variableTextLenguage(idioma);
   }
@@ -463,12 +470,6 @@ function navAllSettings() {
     inicioH1.classList.add("up");
   }
 }
-
-let height0 = "5rem";
-let height1 = "8rem";
-let height2 = "13rem";
-let height3 = "22rem";
-let height4 = "35rem";
 
 (function () {
   if (window.innerWidth < 556) {
