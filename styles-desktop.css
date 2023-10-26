@@ -518,11 +518,9 @@ ion-icon.proyect-left-arrow {
 }
 
 .blink-cursor {
+  border: 1rem;
   font-weight: 700;
   font-size: 2.5rem;
-  position: absolute;
-  right: 12rem;
-  top: 1rem;
 }
 
 .action-phrase {

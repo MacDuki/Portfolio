@@ -19,8 +19,6 @@ let parrafo5 =
 const lenguageLabel = document.querySelector(".lenguage-label");
 const animateParrafo = document.querySelector(".animate-parrafo");
 const textContactElement = document.querySelector(".animated-text");
-const blinkCursorElement = document.querySelector(".blink-cursor");
-const textToAnimate = "Todo feedback es bienvenido, contactame... ";
 const shortest = document.querySelector(".shortest");
 const shorter = document.querySelector(".shorter");
 const short = document.querySelector(".short");
@@ -77,6 +75,7 @@ const wppText = document.querySelector(".wpp-text");
 const githubText = document.querySelector(".github-text");
 const mailText = document.querySelector(".mail-text");
 
+let textToAnimate = "Todo feedback es bienvenido, contactame... ";
 let activeButton = false;
 let textParrafoToAnimate = "paginas web.";
 let currentIndexParrafoAnimated = 0;
@@ -165,7 +164,6 @@ themeSwitch.addEventListener("change", () => {
     ionIconsContact.forEach((icon) => {
       icon.style.color = "var(--main-secondBackground-color)";
     });
-    blinkCursorElement.style.color = "var(--main-secondBackground-color)";
     textContactElement.style.color = "var(--main-secondBackground-color)";
     navSettingsMobile.style.backgroundColor =
       "var(--main-secondBackgroundNight-color";
@@ -236,7 +234,6 @@ themeSwitch.addEventListener("change", () => {
     ionIconsContact.forEach((icon) => {
       icon.style.color = "var(--main-black-color)";
     });
-    blinkCursorElement.style.color = "var(--main-black-color)";
     textContactElement.style.color = "var(--main-black-color)";
     navSettingsMobile.style.backgroundColor = "var(--main-black-color)";
     parrafoMultipleClose(true);
@@ -303,7 +300,6 @@ animateTextParrafo(textParrafoToAnimate);
 
 function animateText() {
   if (currentIndexTextAnimated <= textToAnimate.length) {
-    // Agrega el indicador de escritura y las letras una por una
     textContactElement.textContent = textToAnimate.substring(
       0,
       currentIndexTextAnimated
@@ -318,17 +314,6 @@ function animateText() {
     isBlinking = true;
     blinkCursor();
   }
-}
-
-function blinkCursor() {
-  if (isBlinking) {
-    blinkCursorElement.textContent = "";
-    isBlinking = false;
-  } else if (!isBlinking) {
-    blinkCursorElement.textContent = "|";
-    isBlinking = true;
-  }
-  setTimeout(blinkCursor, 500);
 }
 
 function handleScroll() {
@@ -356,6 +341,7 @@ lenguageSwitch.addEventListener("change", function () {
   }
   parrafoContainer.style.height = "0";
   if (lenguageSwitch.checked) {
+    textToAnimate = "All feedback is welcome, contact me... ";
     wppText.textContent = "Send me a wpp";
     githubText.textContent = "Check out my Github ";
     mailText.textContent = "Send me an email";
@@ -387,6 +373,7 @@ lenguageSwitch.addEventListener("change", function () {
     const idioma = "ing";
     variableTextLenguage(idioma);
   } else {
+    textToAnimate = "Todo feedback es bienvenido, contactame... ";
     wppText.textContent = "Escribime a Wpp";
     githubText.textContent = "Mira mi Github";
     mailText.textContent = "Envíame un correo";
