@@ -525,6 +525,10 @@ ion-icon.proyect-left-arrow {
   top: 1rem;
 }
 
+.action-phrase {
+  font-family: "Rubik", sans-serif;
+}
+
 /* theme-label */
 
 .theme-label {

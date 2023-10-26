@@ -71,6 +71,8 @@ const footer = document.querySelector(".footer");
 const tittleProjects = document.querySelectorAll(".tittle-proyect");
 const descriptionProjects = document.querySelectorAll(".description-project");
 const actionPhrases = document.querySelectorAll(".action-phrase");
+const spanForm = document.querySelectorAll(".span-form");
+const legendTittle = document.querySelector(".legend-tittle");
 
 let activeButton = false;
 let textParrafoToAnimate = "paginas web.";
@@ -130,6 +132,11 @@ function parrafoMultipleClose(isClosed) {
 // Switch Theme //
 themeSwitch.addEventListener("change", () => {
   if (themeSwitch.checked) {
+    legendTittle.style.color = "var(--main-secondBackground-color)";
+    spanForm.forEach((span) => {
+      span.style.color = "var(--main-secondBackground-color)";
+    });
+
     descriptionProjects.forEach((description) => {
       description.style.color = "var(--main-secondBackground-color)";
     });
@@ -197,6 +204,10 @@ themeSwitch.addEventListener("change", () => {
     inicioTittle.style.color = "var(--main-secondBackground-color)";
     staticParrafo.style.color = "var(--main-secondBackground-color)";
   } else {
+    legendTittle.style.color = "var(--main-black-color)";
+    spanForm.forEach((span) => {
+      span.style.color = "var(--main-black-color)";
+    });
     descriptionProjects.forEach((description) => {
       description.style.color = "var(--main-black-color)";
     });
