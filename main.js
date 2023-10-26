@@ -464,6 +464,27 @@ function navAllSettings() {
   }
 }
 
+let height0 = "5rem";
+let height1 = "8rem";
+let height2 = "13rem";
+let height3 = "22rem";
+let height4 = "35rem";
+
+(function () {
+  if (window.innerWidth < 556) {
+    height1 = "9rem";
+    height2 = "18rem";
+    height3 = "36rem";
+    height4 = "48rem";
+  } else {
+    height0 = "5rem";
+    height1 = "8rem";
+    height2 = "13rem";
+    height3 = "22rem";
+    height4 = "35rem";
+  }
+})();
+
 //bio options  //
 (function parrafoMultiple() {
   elements.forEach((element, index) => {
@@ -498,7 +519,7 @@ function navAllSettings() {
             parrafoContainer.appendChild(parrafo);
             parrafoContainer.style.boxShadow = parrafoContainerBoxShadow;
             parrafoContainer.style.border = parrafoContainerBorder;
-            parrafoContainer.style.height = "8rem";
+            parrafoContainer.style.height = `${height1}`;
             setTimeout(() => {
               parrafo.innerHTML = parrafo2;
             }, 200);
@@ -514,7 +535,7 @@ function navAllSettings() {
             parrafoContainer.appendChild(parrafo);
             parrafoContainer.style.boxShadow = parrafoContainerBoxShadow;
             parrafoContainer.style.border = parrafoContainerBorder;
-            parrafoContainer.style.height = "13rem";
+            parrafoContainer.style.height = `${height2}`;
             setTimeout(() => {
               parrafo.innerHTML = parrafo3;
             }, 200);
@@ -530,7 +551,7 @@ function navAllSettings() {
             parrafoContainer.appendChild(parrafo);
             parrafoContainer.style.boxShadow = parrafoContainerBoxShadow;
             parrafoContainer.style.border = parrafoContainerBorder;
-            parrafoContainer.style.height = "22rem";
+            parrafoContainer.style.height = `${height3}`;
             setTimeout(() => {
               parrafo.innerHTML = parrafo4;
             }, 200);
@@ -546,7 +567,7 @@ function navAllSettings() {
             parrafoContainer.appendChild(parrafo);
             parrafoContainer.style.boxShadow = parrafoContainerBoxShadow;
             parrafoContainer.style.border = parrafoContainerBorder;
-            parrafoContainer.style.height = "35rem";
+            parrafoContainer.style.height = `${height4}`;
             parrafoContainer.style.transition =
               "height 0.5s ease-in-out, box-shadow 0.5s ease-in-out";
             setTimeout(() => {

@@ -289,7 +289,7 @@ header {
   flex-direction: column;
   align-items: center;
   padding-top: 10rem;
-  height: 70rem;
+  max-height: 120rem;
   transition: box-shadow 4s cubic-bezier(0.165, 0.84, 0.44, 1) infinite
     alternate;
   width: all;
