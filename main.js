@@ -73,6 +73,9 @@ const descriptionProjects = document.querySelectorAll(".description-project");
 const actionPhrases = document.querySelectorAll(".action-phrase");
 const spanForm = document.querySelectorAll(".span-form");
 const legendTittle = document.querySelector(".legend-tittle");
+const wppText = document.querySelector(".wpp-text");
+const githubText = document.querySelector(".github-text");
+const mailText = document.querySelector(".mail-text");
 
 let activeButton = false;
 let textParrafoToAnimate = "paginas web.";
@@ -353,6 +356,11 @@ lenguageSwitch.addEventListener("change", function () {
   }
   parrafoContainer.style.height = "0";
   if (lenguageSwitch.checked) {
+    wppText.textContent = "Send me a wpp";
+    githubText.textContent = "Check out my Github ";
+    mailText.textContent = "Send me an email";
+    contactTittle.textContent = "Contact";
+    legendTittle.textContent = "How much do you want to know about me?";
     proyectsTittle.textContent = "Projects";
     aboutMeTittle.textContent = "About me";
     inicioTittle.textContent = "Hello, my name is";
@@ -379,6 +387,11 @@ lenguageSwitch.addEventListener("change", function () {
     const idioma = "ing";
     variableTextLenguage(idioma);
   } else {
+    wppText.textContent = "Escribime a Wpp";
+    githubText.textContent = "Mira mi Github";
+    mailText.textContent = "Envíame un correo";
+    contactTittle.textContent = "Contacto";
+    legendTittle.textContent = "¿Qué tanto quieres saber de mi?";
     for (let i = 0; i < liElements.length; i++) {
       const anchorElement = liElements[i].getElementsByTagName("a")[0];
       anchorElement.textContent = personalizedTextsSp[i];
